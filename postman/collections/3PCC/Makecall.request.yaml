@@ -1,0 +1,18 @@
+$kind: http-request
+name: Makecall
+url: localhost:5000/makecall
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: caller
+      value: "{{caller}}"
+      description: ""
+      disabled: false
+    - type: text
+      key: callee
+      value: "{{callee}}"
+      description: ""
+      disabled: false
+order: 1775057358380

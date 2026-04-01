@@ -1,0 +1,7 @@
+$kind: http-request
+name: DTMF
+url: "{{baseURLBaresip}}/?{{digit}}{{digit}}"
+method: GET
+queryParams:
+  "{{digit}}{{digit}}": ""
+order: 2282486446691456

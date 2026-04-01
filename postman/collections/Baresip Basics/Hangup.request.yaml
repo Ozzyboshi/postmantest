@@ -1,0 +1,7 @@
+$kind: http-request
+name: Hangup
+url: "{{baseURLBaresip}}/?b"
+method: GET
+queryParams:
+  b: ""
+order: 4033837297482065

@@ -1,0 +1,7 @@
+$kind: http-request
+name: TakeCall
+url: "{{baseURLBaresip}}/?a"
+method: GET
+queryParams:
+  a: ""
+order: 3648205266000550
