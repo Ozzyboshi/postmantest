@@ -1,0 +1,27 @@
+$kind: http-request
+url: "{{NGCP_SOCKET}}/api/cfdestinationsets/"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: text/plain
+  Prefer: return=representation
+body:
+  type: json
+  content: '{"name":"test","destinations":[{"destination":"{{destination}}","timeout":"300","priority":"1","simple_destination":"{{destination}}","announcement_id":null}],"subscriber_id":8}'
+auth:
+  type: basic
+  credentials:
+    password: administrator
+    username: administrator
+scripts:
+  - type: afterResponse
+    code: |
+      let response = pm.response.json(),
+      dsetId = JSON.stringify(response.id);
+
+      pm.globals.set("dsetId", dsetId);
+      pm.globals.set("variable_key", "variable_value");
+      pm.environment.set("localVariable", "yes");
+    language: text/javascript
+examples: ./.resources/Create destination set.resources/examples
+order: 1000

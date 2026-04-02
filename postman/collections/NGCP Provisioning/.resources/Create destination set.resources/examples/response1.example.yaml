@@ -1,0 +1,71 @@
+$kind: http-example
+request:
+  url: "{{NGCP_SOCKET}}/api/cfdestinationsets/"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json, text/plain, */*
+    Prefer: return=representation
+  body:
+    type: json
+    content: '{"name":"test","destinations":[{"destination":"{{destination}}","timeout":"300","priority":"1","simple_destination":"{{destination}}","announcement_id":null}],"subscriber_id":8}'
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Server: nginx
+    Date: Fri, 13 Feb 2026 13:49:20 GMT
+    Content-Length: "1031"
+    Connection: keep-alive
+    Location: /api/cfdestinationsets/135
+    X-Catalyst: "5.90132"
+    X-Frame-Options: SAMEORIGIN
+  body:
+    type: text
+    content: |
+      {
+         "_links" : {
+            "collection" : {
+               "href" : "/api/cfdestinationsets/"
+            },
+            "curies" : {
+               "href" : "http://purl.org/sipwise/ngcp-api/#rel-{rel}",
+               "name" : "ngcp",
+               "templated" : true
+            },
+            "ngcp:cfdestinationsets" : [
+               {
+                  "href" : "/api/cfdestinationsets/135"
+               }
+            ],
+            "ngcp:journal" : [
+               {
+                  "href" : "/api/cfdestinationsets/135/journal/"
+               }
+            ],
+            "ngcp:subscribers" : [
+               {
+                  "href" : "/api/subscribers/8"
+               }
+            ],
+            "profile" : {
+               "href" : "http://purl.org/sipwise/ngcp-api/"
+            },
+            "self" : {
+               "href" : "/api/cfdestinationsets/135"
+            }
+         },
+         "destinations" : [
+            {
+               "announcement_id" : null,
+               "destination" : "sip:{{destination}}@voiplol",
+               "priority" : 1,
+               "simple_destination" : "{{destination}}",
+               "timeout" : 300
+            }
+         ],
+         "id" : 135,
+         "name" : "test",
+         "subscriber_id" : 8
+      }
+order: 1000

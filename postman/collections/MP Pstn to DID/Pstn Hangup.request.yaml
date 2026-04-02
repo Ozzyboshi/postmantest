@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseURLPSTN}}/?b"
+method: GET
+queryParams:
+  b: null
+order: 5000

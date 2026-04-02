@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:7379/25/HGETALL/56e7708a-8d68-4ad8-8b3f-678f66dcbdce:mpx:lookup
+method: GET
+order: 5000

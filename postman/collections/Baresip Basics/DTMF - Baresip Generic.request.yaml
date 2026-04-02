@@ -1,7 +1,7 @@
 $kind: http-request
-name: DTMF
+name: DTMF -> Baresip Generic
 url: "{{baseURLBaresip}}/?{{digit}}{{digit}}"
 method: GET
 queryParams:
-  "{{digit}}{{digit}}": ""
-order: 2282486446691456
+  "{{digit}}{{digit}}": null
+order: 3000

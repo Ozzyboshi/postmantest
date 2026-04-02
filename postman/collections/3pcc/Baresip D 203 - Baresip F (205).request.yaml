@@ -1,0 +1,5 @@
+$kind: http-request
+name: Baresip D 203 -> Baresip F (205)
+url: localhost:5000/makecall203-205
+method: GET
+order: 1000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:7379/25/HGETALL/39057512345301:mpx:master
+method: GET
+order: 17000

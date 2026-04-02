@@ -1,0 +1,22 @@
+$kind: http-request
+name: Makecall -> Baresip Generic
+url: "{{baseURLBaresip}}/?d{{callee}}"
+method: GET
+queryParams:
+  d{{callee}}: null
+scripts:
+  - type: afterResponse
+    code: |-
+      let text = pm.response.text();
+
+      let match = text.match(/call id:([^\r\n]+)/);
+
+      if (match) {
+          let callId = match[1].trim();
+          console.log("###" + callId + "###");
+
+          pm.environment.set("callId", callId);
+          return callId;
+      }
+    language: text/javascript
+order: 2000

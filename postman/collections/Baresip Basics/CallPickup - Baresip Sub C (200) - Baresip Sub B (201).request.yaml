@@ -1,0 +1,7 @@
+$kind: http-request
+name: CallPickup -> Baresip Sub C (200) > Baresip Sub B (201)
+url: "{{baseURLBaresip202}}/?d*99*201"
+method: GET
+queryParams:
+  d*99*201: null
+order: 40000

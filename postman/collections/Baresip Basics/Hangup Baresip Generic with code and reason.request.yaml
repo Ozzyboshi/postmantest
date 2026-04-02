@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseURLBaresip201}}/?/hangup%20scode%3D{{code}}%20reason%3D{{reason}}"
+method: GET
+queryParams:
+  /hangup%20scode%3D{{code}}%20reason%3D{{reason}}: null
+body:
+  type: json
+  content: ""
+order: 30000

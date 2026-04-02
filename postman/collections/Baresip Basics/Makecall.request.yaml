@@ -1,8 +1,0 @@
-$kind: http-request
-name: Makecall
-url: "{{baseURLBaresip}}/?d{{callee}}"
-method: GET
-queryParams:
-  - key: d{{callee}}
-    value: ""
-order: 1775057023408

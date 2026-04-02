@@ -1,0 +1,7 @@
+$kind: http-request
+name: Makecall -> PSTN2 -> +39 DID (ale phones)
+url: "{{baseURLPSTN2}}/?d%2b39057512345101%40voiplol"
+method: GET
+queryParams:
+  d%2b39057512345101%40voiplol: null
+order: 2000

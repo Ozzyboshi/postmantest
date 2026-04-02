@@ -1,0 +1,13 @@
+$kind: http-request
+url: localhost:5000/attendanttransfer
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: callid
+      value: "{{callid}}"
+    - type: text
+      key: ref_callid
+      value: "{{ref_callid}}"
+order: 6000

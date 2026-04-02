@@ -1,0 +1,10 @@
+$kind: http-request
+name: AttendantXFer (execution) -> Baresip Sub B (201) att xfer to Baresip C (202)
+url: "{{baseURLBaresip201}}/?%2Fatransferexec"
+method: GET
+queryParams:
+  "%2Fatransferexec": null
+body:
+  type: json
+  content: ""
+order: 38000

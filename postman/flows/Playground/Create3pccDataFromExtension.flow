@@ -1,0 +1,570 @@
+{
+  "version": 1,
+  "name": "Create3pccDataFromExtension",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "yu_QG--t": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": -56,
+          "y": -104
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "ng6Z7sCg",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller_extension",
+              "__noIn": true
+            },
+            {
+              "id": "VQ-2mREu",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "base",
+              "__noIn": true
+            },
+            {
+              "id": "YFGqtmzz",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "domain",
+              "__noIn": true
+            },
+            {
+              "id": "DoHvsC80",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee_extension",
+              "__noIn": true
+            },
+            {
+              "id": "p71mZuKd",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresip_ip",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "EAwxNE60": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 384,
+          "y": -320
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "\"sip:\" + base + caller_extension + \"@\" + domain\n",
+          "variables": [
+            {
+              "id": "-yncV6Qh",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller_extension",
+              "__noIn": true
+            },
+            {
+              "id": "dKtvWYZm",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "base",
+              "__noIn": true
+            },
+            {
+              "id": "RaFq_nEp",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "domain",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Build caller uri"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "Ritxluig": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 992,
+          "y": -40
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "_78mq-XD",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller_uri",
+              "__noIn": true
+            },
+            {
+              "id": "u3Zfq3FN",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee_uri",
+              "__noIn": true
+            },
+            {
+              "id": "sTNVLn55",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresip_caller_http_socket",
+              "__noIn": true
+            },
+            {
+              "id": "D7lIQqHF",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresip_callee_http_socket",
+              "__noIn": true
+            }
+          ],
+          "outputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "qclOg3sa": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 384,
+          "y": 88
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "\"sip:\" + base + callee_extension + \"@\" + domain",
+          "variables": [
+            {
+              "id": "KCzeNC1x",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee_extension",
+              "__noIn": true
+            },
+            {
+              "id": "p26TB0zD",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "base",
+              "__noIn": true
+            },
+            {
+              "id": "gl_e0-Q8",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "domain",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Build callee uri"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "XeQOUyUy": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 376,
+          "y": 504
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "\"http://\" + ip + \":9\" + caller_extension",
+          "variables": [
+            {
+              "id": "9V5nNRoH",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            },
+            {
+              "id": "S5eGpyf7",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller_extension",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Build Baresip caller http socket"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "xPuoMTOG": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 384,
+          "y": 880
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "\"http://\" + ip + \":9\" + callee_extension",
+          "variables": [
+            {
+              "id": "9V5nNRoH",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            },
+            {
+              "id": "S5eGpyf7",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee_extension",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Build Baresip callee http socket 1"
+          },
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "Nq7FHapD": {
+        "source": "dh0CIWMb",
+        "sourcePort": "@",
+        "target": "yu_QG--t",
+        "targetPort": "inputs|ng6Z7sCg"
+      },
+      "X7V-VJwQ": {
+        "source": "R9jItwtz",
+        "sourcePort": "@",
+        "target": "yu_QG--t",
+        "targetPort": "inputs|VQ-2mREu"
+      },
+      "YPtbHBdd": {
+        "source": "d8y__mxw",
+        "sourcePort": "@",
+        "target": "yu_QG--t",
+        "targetPort": "inputs|YFGqtmzz"
+      },
+      "zTgd8y1v": {
+        "source": "LWn6hVei",
+        "sourcePort": "@",
+        "target": "yu_QG--t",
+        "targetPort": "inputs|DoHvsC80"
+      },
+      "gJSofvu2": {
+        "source": "qp9FrwBa",
+        "sourcePort": "@",
+        "target": "yu_QG--t",
+        "targetPort": "inputs|p71mZuKd"
+      },
+      "VsJuCLDo": {
+        "source": "yu_QG--t",
+        "target": "EAwxNE60",
+        "sourcePort": "output|ng6Z7sCg",
+        "targetPort": "variables|-yncV6Qh"
+      },
+      "A6oVYEJH": {
+        "source": "yu_QG--t",
+        "target": "EAwxNE60",
+        "sourcePort": "output|VQ-2mREu",
+        "targetPort": "variables|dKtvWYZm"
+      },
+      "_5rPRibI": {
+        "source": "yu_QG--t",
+        "target": "EAwxNE60",
+        "sourcePort": "output|YFGqtmzz",
+        "targetPort": "variables|RaFq_nEp"
+      },
+      "9GWOSkYb": {
+        "source": "EAwxNE60",
+        "target": "Ritxluig",
+        "sourcePort": "out",
+        "targetPort": "outputs|_78mq-XD"
+      },
+      "LtsA5QFC": {
+        "source": "Ritxluig",
+        "sourcePort": "out|_78mq-XD",
+        "target": "-ehVFFbr",
+        "targetPort": "@"
+      },
+      "kIXMMqYf": {
+        "source": "yu_QG--t",
+        "target": "qclOg3sa",
+        "sourcePort": "output|DoHvsC80",
+        "targetPort": "variables|KCzeNC1x"
+      },
+      "mVjukRc3": {
+        "source": "yu_QG--t",
+        "target": "qclOg3sa",
+        "sourcePort": "output|VQ-2mREu",
+        "targetPort": "variables|p26TB0zD"
+      },
+      "bdiH7lv4": {
+        "source": "yu_QG--t",
+        "target": "qclOg3sa",
+        "sourcePort": "output|YFGqtmzz",
+        "targetPort": "variables|gl_e0-Q8"
+      },
+      "zaJRRaUv": {
+        "source": "qclOg3sa",
+        "target": "Ritxluig",
+        "sourcePort": "out",
+        "targetPort": "outputs|u3Zfq3FN"
+      },
+      "rcbjsUej": {
+        "source": "Ritxluig",
+        "sourcePort": "out|u3Zfq3FN",
+        "target": "Vy7Wap7b",
+        "targetPort": "@"
+      },
+      "TFzI83rQ": {
+        "source": "yu_QG--t",
+        "target": "XeQOUyUy",
+        "sourcePort": "output|ng6Z7sCg",
+        "targetPort": "variables|S5eGpyf7"
+      },
+      "z6xemu9J": {
+        "source": "XeQOUyUy",
+        "target": "Ritxluig",
+        "sourcePort": "out",
+        "targetPort": "outputs|sTNVLn55"
+      },
+      "MkGIlLpp": {
+        "source": "Ritxluig",
+        "sourcePort": "out|sTNVLn55",
+        "target": "wq8SXlqJ",
+        "targetPort": "@"
+      },
+      "KKgUd0S6": {
+        "source": "yu_QG--t",
+        "target": "xPuoMTOG",
+        "sourcePort": "output|p71mZuKd",
+        "targetPort": "variables|9V5nNRoH"
+      },
+      "43xVJ3ES": {
+        "source": "yu_QG--t",
+        "target": "xPuoMTOG",
+        "sourcePort": "output|DoHvsC80",
+        "targetPort": "variables|S5eGpyf7"
+      },
+      "HK5l-JfY": {
+        "source": "xPuoMTOG",
+        "target": "Ritxluig",
+        "sourcePort": "out",
+        "targetPort": "outputs|D7lIQqHF"
+      },
+      "Mz5IFtn8": {
+        "source": "Ritxluig",
+        "sourcePort": "out|D7lIQqHF",
+        "target": "lZMd5y0U",
+        "targetPort": "@"
+      },
+      "cmqdp22u": {
+        "source": "yu_QG--t",
+        "target": "XeQOUyUy",
+        "sourcePort": "output|p71mZuKd",
+        "targetPort": "variables|9V5nNRoH"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "dh0CIWMb": {
+        "type": "input",
+        "name": "caller_extension",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "R9jItwtz": {
+        "type": "input",
+        "name": "base",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "d8y__mxw": {
+        "type": "input",
+        "name": "domain",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "LWn6hVei": {
+        "type": "input",
+        "name": "callee_extension",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "qp9FrwBa": {
+        "type": "input",
+        "name": "baresip_ip",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "-ehVFFbr": {
+        "type": "output",
+        "name": "caller_uri",
+        "typeDef": {}
+      },
+      "Vy7Wap7b": {
+        "type": "output",
+        "name": "callee_uri",
+        "typeDef": {}
+      },
+      "wq8SXlqJ": {
+        "type": "output",
+        "name": "baresip_caller_http_socket",
+        "typeDef": {}
+      },
+      "lZMd5y0U": {
+        "type": "output",
+        "name": "baresip_callee_http_socket",
+        "typeDef": {}
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "Lcz8kR7R": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1775058526861,
+        "updatedOn": 1775058526861,
+        "data": {
+          "dh0CIWMb": {
+            "id": "dh0CIWMb",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "qdopGB-C": {
+        "name": "Scenario 1",
+        "type": "scenario@2",
+        "data": {
+          "dh0CIWMb": {
+            "id": "dh0CIWMb",
+            "key": "caller_extension",
+            "value": "901"
+          },
+          "R9jItwtz": {
+            "id": "R9jItwtz",
+            "key": "base",
+            "value": "3905756789010"
+          },
+          "d8y__mxw": {
+            "id": "d8y__mxw",
+            "key": "domain",
+            "value": "voiplol"
+          },
+          "LWn6hVei": {
+            "id": "LWn6hVei",
+            "key": "callee_extension",
+            "value": "902"
+          },
+          "qp9FrwBa": {
+            "id": "qp9FrwBa",
+            "key": "baresip_ip",
+            "value": "localhost"
+          }
+        },
+        "createdOn": 1775058844660,
+        "updatedOn": 1775113632634
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "7ecea1d5-5f72-40ba-a4f7-823b533b81e2"
+  },
+  "_postman_exported_at": "2026-04-02T07:08:08.130Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

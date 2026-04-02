@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseURLBaresip201}}/?b"
+method: GET
+queryParams:
+  b: null
+order: 31000

@@ -1,0 +1,16 @@
+$kind: http-request
+name: Makecall -> Baresip Sub F (205) > Baresip Sub B (201)
+url: "{{baseURLBaresip205}}/?d201"
+method: GET
+queryParams:
+  d201: null
+scripts:
+  - type: afterResponse
+    code: |+
+      var body = pm.response.text();
+      console.log("alessio");
+      console.log(body);
+      pm.variables.set("ciao","ciao");
+
+    language: text/javascript
+order: 13000

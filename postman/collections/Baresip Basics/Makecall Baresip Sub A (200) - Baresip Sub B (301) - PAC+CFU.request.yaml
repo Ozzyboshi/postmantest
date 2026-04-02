@@ -1,0 +1,7 @@
+$kind: http-request
+name: Makecall Baresip Sub A (200) -> Baresip Sub B (301) -> PAC+CFU
+url: "{{baseURLBaresip200}}/?d301%40voiplol"
+method: GET
+queryParams:
+  d301%40voiplol: null
+order: 14000

@@ -1,0 +1,7 @@
+$kind: http-request
+name: Makecall -> Baresip PSTN A (200) > Baresip Sub B (499) redir 201
+url: "{{baseURLPSTN}}/?d%2b39057512345499%40voiplol"
+method: GET
+queryParams:
+  d%2b39057512345499%40voiplol: null
+order: 5000

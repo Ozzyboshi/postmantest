@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:7379/25/HGETALL/{{BSubUUID}}:mpx:lookup
+method: GET
+order: 8000

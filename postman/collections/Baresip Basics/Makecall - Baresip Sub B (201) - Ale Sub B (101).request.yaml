@@ -1,0 +1,7 @@
+$kind: http-request
+name: Makecall -> Baresip Sub B (201) > Ale Sub B (101)
+url: "{{baseURLBaresip201}}/?d101"
+method: GET
+queryParams:
+  d101: null
+order: 8000

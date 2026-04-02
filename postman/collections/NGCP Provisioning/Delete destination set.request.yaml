@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{NGCP_SOCKET}}/api/cfdestinationsets/{{ciao}}?ciao="
+method: DELETE
+headers:
+  Content-Type: application/json
+  Accept: application/json, text/plain, */*
+  Prefer: return=representation
+queryParams:
+  ciao: ""
+body:
+  type: json
+  content: ""
+auth:
+  type: basic
+  credentials:
+    password: administrator
+    username: administrator
+order: 2000

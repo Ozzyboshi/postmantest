@@ -1,0 +1,10 @@
+$kind: http-request
+name: AttendantXFer (consultation) -> Baresip Sub B (201) att xfer to Baresip C (202)
+url: "{{baseURLBaresip201}}/?Tsip:202%40voiplol"
+method: GET
+queryParams:
+  Tsip:202%40voiplol: null
+body:
+  type: json
+  content: ""
+order: 36000

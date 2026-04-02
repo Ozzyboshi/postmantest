@@ -1,0 +1,7 @@
+$kind: http-request
+name: Makecall -> PStn -> +39 DID (baresip on host)
+url: "{{baseURLPSTN}}/?d%2b39057512345202%40voiplol"
+method: GET
+queryParams:
+  d%2b39057512345202%40voiplol: null
+order: 1000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:7379/25/DBSIZE
+method: GET
+order: 19000

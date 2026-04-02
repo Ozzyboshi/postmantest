@@ -1,0 +1,13 @@
+$kind: http-request
+url: localhost:5000/holdcall
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: callid
+      value: "{{callid}}"
+    - type: text
+      key: deviceid
+      value: "{{deviceid}}"
+order: 4000

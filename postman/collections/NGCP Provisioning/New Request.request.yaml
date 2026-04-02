@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:7380/
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{{ciao}}"
+order: 3000

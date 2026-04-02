@@ -1,18 +1,13 @@
 $kind: http-request
-name: Holdcall
-url: localhost:5000/holdcall
-method: GET
+url: localhost:5000/clearcall
+method: POST
 body:
   type: formdata
   content:
     - type: text
       key: callid
       value: "{{callid}}"
-      description: ""
-      disabled: false
     - type: text
       key: deviceid
       value: "{{deviceid}}"
-      description: ""
-      disabled: false
-order: 3813231757755923
+order: 3000
