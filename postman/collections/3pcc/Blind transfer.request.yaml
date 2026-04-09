@@ -1,0 +1,27 @@
+$kind: http-request
+name: Blind transfer
+url: localhost:5000/blindtransfer?callid={{callid}}&callee={{callee}}&deviceid={{deviceid}}
+method: POST
+queryParams:
+  callid: "{{callid}}"
+  callee: "{{callee}}"
+  deviceid: "{{deviceid}}"
+body:
+  type: formdata
+  content:
+    - type: text
+      key: callid
+      value: "{{callid}}"
+      description: ""
+      disabled: false
+    - type: text
+      key: callee
+      value: "{{callee}}"
+      description: ""
+      disabled: false
+    - type: text
+      key: deviceid
+      value: "{{deviceid}}"
+      description: ""
+      disabled: false
+order: 410746586404172

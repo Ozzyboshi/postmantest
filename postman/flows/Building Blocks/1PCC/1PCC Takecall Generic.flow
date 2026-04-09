@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "name": "1PCC Takecall Generic",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "Vzafi-WH": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "Z0V2Be1q",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "takecaller",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "TxqZyHrP": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 504,
+          "y": -176
+        },
+        "config": {
+          "flowId": "/home/ozzy/postmancodebase/postman/flows/Playground/Create3pccDataFromExtension.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "dh0CIWMb",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller_extension",
+              "__noIn": true
+            },
+            {
+              "id": "R9jItwtz",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "3905756789010",
+              "key": "base"
+            },
+            {
+              "id": "d8y__mxw",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "voiplol",
+              "key": "domain"
+            },
+            {
+              "id": "LWn6hVei",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee_extension",
+              "__noIn": true
+            },
+            {
+              "id": "qp9FrwBa",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "192.168.8.195",
+              "key": "baresip_ip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "dh0CIWMb",
+                "name": "caller_extension",
+                "type": null
+              },
+              {
+                "id": "R9jItwtz",
+                "name": "base",
+                "type": null
+              },
+              {
+                "id": "d8y__mxw",
+                "name": "domain",
+                "type": null
+              },
+              {
+                "id": "LWn6hVei",
+                "name": "callee_extension",
+                "type": null
+              },
+              {
+                "id": "qp9FrwBa",
+                "name": "baresip_ip",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "-ehVFFbr",
+                "name": "caller_uri",
+                "type": null
+              },
+              {
+                "id": "Vy7Wap7b",
+                "name": "callee_uri",
+                "type": null
+              },
+              {
+                "id": "wq8SXlqJ",
+                "name": "baresip_caller_http_socket",
+                "type": null
+              },
+              {
+                "id": "lZMd5y0U",
+                "name": "baresip_callee_http_socket",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Create3pccDataFromExtension"
+          }
+        }
+      },
+      "w_w2_-9z": {
+        "type": "task/http-request@1",
+        "pos": {
+          "x": 976,
+          "y": -264
+        },
+        "config": {
+          "element": {
+            "id": "BDbe108d706340Afa7ca77cB",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "TakeCall Generic",
+            "method": "GET"
+          },
+          "environment": null,
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "E9FAb-ek",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "WfQ8-mx9",
+              "key": "baseURLBaresip",
+              "latch": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "WfQ8-mx9": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 920,
+          "y": 128
+        },
+        "config": {
+          "value": "callerBareSipUrl"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        }
+      }
+    },
+    "connections": {
+      "H95gdRc_": {
+        "source": "UaQt1d7x",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|Z0V2Be1q"
+      },
+      "vzFqHiiF": {
+        "source": "Vzafi-WH",
+        "target": "TxqZyHrP",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "AI"
+      },
+      "G3MTb-B5": {
+        "source": "Vzafi-WH",
+        "target": "TxqZyHrP",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "variables|dh0CIWMb"
+      },
+      "30EYcsIE": {
+        "source": "Vzafi-WH",
+        "target": "TxqZyHrP",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "variables|LWn6hVei"
+      },
+      "7kK1MoF1": {
+        "source": "TxqZyHrP",
+        "target": "w_w2_-9z",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "1H2RfhKi": {
+        "source": "TxqZyHrP",
+        "target": "WfQ8-mx9",
+        "sourcePort": "output|wq8SXlqJ",
+        "targetPort": "data"
+      },
+      "DWxAL3mr": {
+        "source": "WfQ8-mx9",
+        "sourcePort": "data",
+        "target": "w_w2_-9z",
+        "targetPort": "requestVariables|E9FAb-ek"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "UaQt1d7x": {
+        "type": "input",
+        "name": "takecaller",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "xKlEj1ui": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1775747390884,
+        "updatedOn": 1775747390884,
+        "data": {
+          "UaQt1d7x": {
+            "id": "UaQt1d7x",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "9cf2b6a3-36d9-4267-8782-319029d1f9c2"
+  },
+  "_postman_exported_at": "2026-04-09T15:15:26.606Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}
