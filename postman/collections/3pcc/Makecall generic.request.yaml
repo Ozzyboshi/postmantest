@@ -1,10 +1,11 @@
 $kind: http-request
 name: Makecall generic
-url: localhost:5000/makecall?caller={{caller}}&callee={{callee}}
+url: http://{{ws-webserver-socket}}/makecall?caller={{caller}}&callee={{callee}}&sshdest={{3pccsshdest}}
 method: POST
 queryParams:
   caller: "{{caller}}"
   callee: "{{callee}}"
+  sshdest: "{{3pccsshdest}}"
 body:
   type: formdata
   content:

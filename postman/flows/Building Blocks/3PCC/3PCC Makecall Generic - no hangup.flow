@@ -61,16 +61,16 @@
             },
             {
               "id": "R9jItwtz",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "3905756789010",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/6hTc1qXEi44jfmz1-cMOp",
               "key": "base"
             },
             {
               "id": "d8y__mxw",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "voiplol",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/I-roIOzBmCVNPhy_MWEu2",
               "key": "domain"
             },
             {
@@ -82,9 +82,9 @@
             },
             {
               "id": "qp9FrwBa",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "192.168.8.195",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/edPvBQeoeQfKiHl5gVc-s",
               "key": "baresip_ip"
             }
           ],
@@ -218,7 +218,7 @@
             "name": "Makecall generic",
             "method": "POST"
           },
-          "environment": null,
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -238,6 +238,20 @@
               "key": "callee",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "S3PxZhV3",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/vhaRU1zr3H8EZvyl7hqbm",
+              "key": "3pccsshdest"
+            },
+            {
+              "id": "8zKdr6ME",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "ws-webserver-socket"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -302,7 +316,7 @@
             "name": "TakeCall Generic",
             "method": "GET"
           },
-          "environment": null,
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -351,7 +365,7 @@
             "name": "TakeCall Generic",
             "method": "GET"
           },
-          "environment": null,
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -556,17 +570,173 @@
         },
         "createdOn": 1775738617280,
         "updatedOn": 1775738640752
+      },
+      "dACRfBLb": {
+        "name": "81470 calls 81471",
+        "type": "scenario@2",
+        "data": {
+          "QYRaZnps": {
+            "id": "QYRaZnps",
+            "key": "caller",
+            "value": "470"
+          },
+          "edw4c8Hn": {
+            "id": "edw4c8Hn",
+            "key": "callee",
+            "value": "471"
+          }
+        },
+        "createdOn": 1775812936919,
+        "updatedOn": 1775831589494
       }
     },
     "config": {
-      "definitions": {},
+      "definitions": {
+        "I-roIOzBmCVNPhy_MWEu2": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "domain"
+          }
+        },
+        "6hTc1qXEi44jfmz1-cMOp": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "base"
+          }
+        },
+        "edPvBQeoeQfKiHl5gVc-s": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "baresip_ip"
+          }
+        },
+        "vhaRU1zr3H8EZvyl7hqbm": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "3pccsshdest"
+          }
+        }
+      },
       "constants": {}
     }
   },
-  "lockbox": {},
+  "lockbox": {
+    "xMDn1CLjUQc08NwOTvha7": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "I-roIOzBmCVNPhy_MWEu2": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "Pj_9BGc_YFJ_nJ5rtU-rN": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "6hTc1qXEi44jfmz1-cMOp": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "F1qRctAfyjhTjDpv_mN0Y": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "edPvBQeoeQfKiHl5gVc-s": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "WGFPVYamiCGhurzT7Rwp6": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    },
+    "vhaRU1zr3H8EZvyl7hqbm": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{3pccsshdest}}"
+    }
+  },
   "info": {
     "_postman_id": "185a434c-39b0-4d86-89ff-924e6fcc5a90"
   },
-  "_postman_exported_at": "2026-04-09T14:56:00.285Z",
+  "_postman_exported_at": "2026-04-10T14:33:10.763Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -1,0 +1,18 @@
+name: ALE
+values:
+  - key: domain
+    value: ''
+    enabled: true
+  - key: base
+    value: ''
+    enabled: true
+  - key: baresip_ip
+    value: ''
+    enabled: true
+  - key: 3pccsshdest
+    value: ''
+    enabled: true
+  - key: ws-webserver-socket
+    value: ''
+    enabled: true
+color: 120

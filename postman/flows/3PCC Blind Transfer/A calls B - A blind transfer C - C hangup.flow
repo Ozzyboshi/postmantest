@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A calls B - > A blind transfer C -> B hangup",
+  "name": "A calls B - > A blind transfer C -> C hangup",
   "description": "",
   "flow": {
     "description": "",
@@ -130,15 +130,7 @@
               "key": "callee"
             }
           ],
-          "globals": [
-            {
-              "id": "I-roIOzBmCVNPhy_MWEu2",
-              "type": null,
-              "kind": null,
-              "value": null,
-              "key": "domain"
-            }
-          ],
+          "globals": [],
           "ports": {
             "input": [
               {
@@ -159,13 +151,7 @@
                 "type": null
               }
             ],
-            "global": [
-              {
-                "id": "I-roIOzBmCVNPhy_MWEu2",
-                "name": "domain",
-                "typeDef": {}
-              }
-            ]
+            "global": []
           }
         },
         "ui": {
@@ -295,8 +281,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "dKgqYC38",
-              "key": "takecaller",
-              "latch": true
+              "key": "takecaller"
             }
           ],
           "globals": [],
@@ -305,9 +290,7 @@
               {
                 "id": "UaQt1d7x",
                 "name": "takecaller",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -334,7 +317,7 @@
               "id": "UaQt1d7x",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "w4UcL1Zi",
+              "value": "dKgqYC38",
               "key": "hangupper"
             }
           ],
@@ -455,8 +438,8 @@
         "target": "TyvZT9QQ",
         "targetPort": "variables|9Rz2lFME"
       },
-      "mvT-RqKK": {
-        "source": "w4UcL1Zi",
+      "vP7xEc0Q": {
+        "source": "dKgqYC38",
         "sourcePort": "data",
         "target": "mtaeVnGz",
         "targetPort": "variables|UaQt1d7x"
@@ -490,8 +473,8 @@
   },
   "lockbox": {},
   "info": {
-    "_postman_id": "7b6dc173-9434-4913-9e79-6722c3d4c3bb"
+    "_postman_id": "dd140b6f-96dd-47ca-ab7e-f2630add963c"
   },
-  "_postman_exported_at": "2026-04-10T08:04:09.831Z",
+  "_postman_exported_at": "2026-04-10T07:54:05.073Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
