@@ -1,7 +1,0 @@
-$kind: http-request
-name: Makecall -> Baresip Sub A (200) > Baresip Sub B (201)
-url: "{{baseURLBaresip200}}/?d201"
-method: GET
-queryParams:
-  d201: null
-order: 1000

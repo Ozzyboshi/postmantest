@@ -53,16 +53,17 @@
             },
             {
               "id": "R9jItwtz",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "3905756789010",
-              "key": "base"
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/RcH4B6ThdNT-HzASM1w-4",
+              "key": "base",
+              "latch": true
             },
             {
               "id": "d8y__mxw",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "voiplol",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/WYC4JTy-s8NgoAEzptmu7",
               "key": "domain"
             },
             {
@@ -74,10 +75,11 @@
             },
             {
               "id": "qp9FrwBa",
-              "type": "TYPE_STRING",
-              "kind": "string",
-              "value": "192.168.8.195",
-              "key": "baresip_ip"
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/cs7cygkbAc9HQOIQv7N4g",
+              "key": "baresip_ip",
+              "latch": true
             }
           ],
           "globals": [],
@@ -274,14 +276,118 @@
       }
     },
     "config": {
-      "definitions": {},
+      "definitions": {
+        "RcH4B6ThdNT-HzASM1w-4": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "base"
+          }
+        },
+        "WYC4JTy-s8NgoAEzptmu7": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "domain"
+          }
+        },
+        "cs7cygkbAc9HQOIQv7N4g": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "baresip_ip"
+          }
+        }
+      },
       "constants": {}
     }
   },
-  "lockbox": {},
+  "lockbox": {
+    "gTXtcNAAfcVB8Vk3u7gju": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "RcH4B6ThdNT-HzASM1w-4": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "n3TFqQqqRazlpUWTVEhok": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "1"
+    },
+    "WYC4JTy-s8NgoAEzptmu7": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "x21iSbRxxV8bx6wMYe3zO": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    },
+    "cs7cygkbAc9HQOIQv7N4g": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    }
+  },
   "info": {
     "_postman_id": "0a75cdfb-f7a0-46c9-b922-ecf0370156a1"
   },
-  "_postman_exported_at": "2026-04-10T08:03:15.733Z",
+  "_postman_exported_at": "2026-04-14T07:59:02.463Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
