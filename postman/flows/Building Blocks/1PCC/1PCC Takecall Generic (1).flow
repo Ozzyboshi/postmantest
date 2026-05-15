@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1PCC Makecall Generic",
+  "name": "1PCC Takecall Generic",
   "description": "",
   "flow": {
     "description": "",
@@ -13,14 +13,6 @@
         },
         "config": {
           "inputs": [
-            {
-              "id": "Z0V2Be1q",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
-              "key": "caller",
-              "__noIn": true
-            },
             {
               "id": "RTTEUe6y",
               "type": "value/reference@2",
@@ -148,52 +140,6 @@
           }
         }
       },
-      "w_w2_-9z": {
-        "type": "task/http-request@2",
-        "pos": {
-          "x": 976,
-          "y": -264
-        },
-        "config": {
-          "element": {
-            "id": "E2efbb3a346A7Ff4a966df0b",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
-            "name": "Makecall -> Baresip Generic",
-            "method": "GET"
-          },
-          "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
-          "parseBody": "auto",
-          "requestVariables": [
-            {
-              "id": "E9FAb-ek",
-              "type": "portal/out@2",
-              "kind": "portal/out",
-              "value": "WfQ8-mx9",
-              "key": "baseURLBaresip",
-              "latch": true,
-              "isExtraneous": false
-            },
-            {
-              "id": "NqY9HktS",
-              "type": "portal/out@2",
-              "kind": "portal/out",
-              "value": "-sgGxUi3",
-              "key": "callee",
-              "latch": true,
-              "isExtraneous": false
-            }
-          ],
-          "scriptsModifyEnvVars": true,
-          "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true,
-          "ignoreTestResults": true
-        },
-        "ui": {
-          "data": {},
-          "namedInputsExpanded": true
-        }
-      },
       "WfQ8-mx9": {
         "type": "portal/in@1",
         "pos": {
@@ -201,7 +147,7 @@
           "y": 128
         },
         "config": {
-          "value": "callerBareSipUrl"
+          "value": "calleeBareSipUrl"
         },
         "ui": {
           "color": "pink",
@@ -221,56 +167,52 @@
           "color": "blue",
           "data": {}
         }
+      },
+      "oUDoIq6q": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1000,
+          "y": -248
+        },
+        "config": {
+          "element": {
+            "id": "BDbe108d706340Afa7ca77cB",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "TakeCall Generic",
+            "method": "GET"
+          },
+          "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "5FUlhtxV",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "WfQ8-mx9",
+              "key": "baseURLBaresip",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true,
+          "requestVariablesExpanded": true
+        }
       }
     },
     "connections": {
-      "H95gdRc_": {
-        "source": "UaQt1d7x",
-        "sourcePort": "@",
-        "target": "Vzafi-WH",
-        "targetPort": "inputs|Z0V2Be1q"
-      },
-      "vzFqHiiF": {
-        "source": "Vzafi-WH",
-        "target": "TxqZyHrP",
-        "sourcePort": "output|Z0V2Be1q",
-        "targetPort": "AI"
-      },
-      "G3MTb-B5": {
-        "source": "Vzafi-WH",
-        "target": "TxqZyHrP",
-        "sourcePort": "output|Z0V2Be1q",
-        "targetPort": "variables|dh0CIWMb"
-      },
-      "7kK1MoF1": {
-        "source": "TxqZyHrP",
-        "target": "w_w2_-9z",
-        "sourcePort": "AO",
-        "targetPort": "AI"
-      },
-      "1H2RfhKi": {
-        "source": "TxqZyHrP",
-        "target": "WfQ8-mx9",
-        "sourcePort": "output|wq8SXlqJ",
-        "targetPort": "data"
-      },
-      "DWxAL3mr": {
-        "source": "WfQ8-mx9",
-        "sourcePort": "data",
-        "target": "w_w2_-9z",
-        "targetPort": "requestVariables|E9FAb-ek"
-      },
       "5jD8pK_p": {
         "source": "ROIG37iE",
         "sourcePort": "@",
         "target": "Vzafi-WH",
         "targetPort": "inputs|RTTEUe6y"
-      },
-      "8MsPXB01": {
-        "source": "-sgGxUi3",
-        "sourcePort": "data",
-        "target": "w_w2_-9z",
-        "targetPort": "requestVariables|NqY9HktS"
       },
       "liVhUxTg": {
         "source": "Vzafi-WH",
@@ -283,6 +225,48 @@
         "target": "TxqZyHrP",
         "sourcePort": "output|RTTEUe6y",
         "targetPort": "variables|LWn6hVei"
+      },
+      "brvEhAFG": {
+        "source": "TxqZyHrP",
+        "target": "oUDoIq6q",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "rT0ezqRC": {
+        "source": "TxqZyHrP",
+        "target": "WfQ8-mx9",
+        "sourcePort": "output|lZMd5y0U",
+        "targetPort": "data"
+      },
+      "p5Z00Trr": {
+        "source": "WfQ8-mx9",
+        "sourcePort": "data",
+        "target": "oUDoIq6q",
+        "targetPort": "requestVariables|5FUlhtxV"
+      },
+      "IlXTGcSA": {
+        "source": "Vzafi-WH",
+        "target": "TxqZyHrP",
+        "sourcePort": "output|RTTEUe6y",
+        "targetPort": "AI"
+      },
+      "Y-qy-Xux": {
+        "source": "TxqZyHrP",
+        "target": "oUDoIq6q",
+        "sourcePort": "output|lZMd5y0U",
+        "targetPort": "AI"
+      },
+      "0WYTW8H3": {
+        "source": "TxqZyHrP",
+        "target": "oUDoIq6q",
+        "sourcePort": "output|Vy7Wap7b",
+        "targetPort": "AI"
+      },
+      "AAMkZFzg": {
+        "source": "Vzafi-WH",
+        "target": "TxqZyHrP",
+        "sourcePort": "output|RTTEUe6y",
+        "targetPort": "variables|dh0CIWMb"
       }
     },
     "annotations": {},
@@ -294,13 +278,6 @@
     "forms": {},
     "modules": {},
     "io": {
-      "UaQt1d7x": {
-        "type": "input",
-        "name": "caller",
-        "typeDef": {
-          "type": "string"
-        }
-      },
       "ROIG37iE": {
         "type": "input",
         "name": "callee",
@@ -402,6 +379,19 @@
         },
         "createdOn": 1778062577193,
         "updatedOn": 1778071465965
+      },
+      "ztueakt9": {
+        "name": "callee",
+        "type": "scenario@2",
+        "data": {
+          "ROIG37iE": {
+            "id": "ROIG37iE",
+            "key": "callee",
+            "value": "202"
+          }
+        },
+        "createdOn": 1778084456236,
+        "updatedOn": 1778084465885
       }
     },
     "config": {
@@ -515,8 +505,8 @@
     }
   },
   "info": {
-    "_postman_id": "cecf226f-dd76-477e-9c8a-ea1006887934"
+    "_postman_id": "5ad285b6-996e-477f-9e08-5cd3079d4c7a"
   },
-  "_postman_exported_at": "2026-05-06T16:02:37.862Z",
+  "_postman_exported_at": "2026-05-10T06:02:24.590Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

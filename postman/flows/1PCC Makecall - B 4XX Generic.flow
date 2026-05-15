@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1PCC Makecall Generic",
+  "name": "1PCC Makecall - B 4XX Generic",
   "description": "",
   "flow": {
     "description": "",
@@ -149,7 +149,7 @@
         }
       },
       "w_w2_-9z": {
-        "type": "task/http-request@2",
+        "type": "task/http-request@1",
         "pos": {
           "x": 976,
           "y": -264
@@ -162,7 +162,7 @@
             "name": "Makecall -> Baresip Generic",
             "method": "GET"
           },
-          "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -186,12 +186,12 @@
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true,
-          "ignoreTestResults": true
+          "requestVariables__expanded": true
         },
         "ui": {
           "data": {},
-          "namedInputsExpanded": true
+          "namedInputsExpanded": true,
+          "requestVariablesExpanded": true
         }
       },
       "WfQ8-mx9": {
@@ -220,6 +220,212 @@
         "ui": {
           "color": "blue",
           "data": {}
+        }
+      },
+      "oCO8rlVF": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1400,
+          "y": -272
+        },
+        "config": {
+          "delay": "3000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "enFmyWug": {
+        "type": "task/http-request@1",
+        "pos": {
+          "x": 1384,
+          "y": -168
+        },
+        "config": {
+          "element": {
+            "id": "7f54ecb93bb8589Cd71a7e2e",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "Hangup Baresip Generic with code and reason",
+            "method": "GET"
+          },
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "M0zuvKMb",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "480",
+              "key": "code"
+            },
+            {
+              "id": "ymPh7noS",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "Unavailable",
+              "key": "reason"
+            },
+            {
+              "id": "dKMIA79Q",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "T-RkEq4X",
+              "key": "baseURLBaresip",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "T-RkEq4X": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 920,
+          "y": 192
+        },
+        "config": {
+          "value": "calleeBareSipUrl"
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {}
+        }
+      },
+      "iIy-74Mb": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1464,
+          "y": 192
+        },
+        "config": {
+          "delay": "2000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "o4ozzQ3z": {
+        "type": "task/http-request@1",
+        "pos": {
+          "x": 1400,
+          "y": 264
+        },
+        "config": {
+          "element": {
+            "id": "3D3d9Dd99b203Ed0825fC5ea",
+            "collection": "d80DED47F12ff582aA8A3F2D",
+            "inExtensibleCollection": true,
+            "name": "Clearcall generic",
+            "method": "POST"
+          },
+          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "MGTju_D3",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/X5DM7xC8QOTRuipcJsrni",
+              "key": "ws-webserver-socket"
+            },
+            {
+              "id": "8pC2Sv2b",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "N8XcsBLX",
+              "key": "callid",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "Wj4nN6BU",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "sip:999013000001811011@5.demo-rainbow-voice.eu1.sip.openrainbow.com",
+              "key": "deviceid",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "CY6k4FQS",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/Nsyh8ZC2v3pxlonhNKuB4",
+              "key": "sshdest"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "N8XcsBLX": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1768,
+          "y": -464
+        },
+        "config": {
+          "value": "callid"
+        },
+        "ui": {
+          "color": "purple",
+          "data": {}
+        }
+      },
+      "EPFvxml0": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1384,
+          "y": -504
+        },
+        "config": {
+          "flowId": "/home/ozzy/postmancodebase/postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "s5Srs2y9",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresiptext"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "s5Srs2y9",
+                "name": "baresiptext",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "ZBap0MCT",
+                "name": "callid",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetCallidFrom1PCCMakeCall"
+          }
         }
       }
     },
@@ -283,6 +489,66 @@
         "target": "TxqZyHrP",
         "sourcePort": "output|RTTEUe6y",
         "targetPort": "variables|LWn6hVei"
+      },
+      "dyZhgIH9": {
+        "source": "oCO8rlVF",
+        "target": "enFmyWug",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "g2CyxKdl": {
+        "source": "TxqZyHrP",
+        "target": "T-RkEq4X",
+        "sourcePort": "output|lZMd5y0U",
+        "targetPort": "data"
+      },
+      "97o9BynP": {
+        "source": "T-RkEq4X",
+        "sourcePort": "data",
+        "target": "enFmyWug",
+        "targetPort": "requestVariables|dKMIA79Q"
+      },
+      "VJBi8uaX": {
+        "source": "enFmyWug",
+        "target": "iIy-74Mb",
+        "sourcePort": "success",
+        "targetPort": "data"
+      },
+      "53ZrUx-7": {
+        "source": "iIy-74Mb",
+        "target": "o4ozzQ3z",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "LH6_cTsy": {
+        "source": "N8XcsBLX",
+        "sourcePort": "data",
+        "target": "o4ozzQ3z",
+        "targetPort": "requestVariables|8pC2Sv2b"
+      },
+      "H851zsFI": {
+        "source": "w_w2_-9z",
+        "target": "EPFvxml0",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "sK6Tcf39": {
+        "source": "w_w2_-9z",
+        "target": "EPFvxml0",
+        "sourcePort": "success",
+        "targetPort": "variables|s5Srs2y9"
+      },
+      "FnME3daP": {
+        "source": "EPFvxml0",
+        "target": "oCO8rlVF",
+        "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "41DmjVlJ": {
+        "source": "EPFvxml0",
+        "target": "N8XcsBLX",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "data"
       }
     },
     "annotations": {},
@@ -384,24 +650,6 @@
         },
         "createdOn": 1776846492880,
         "updatedOn": 1776846519780
-      },
-      "4hBK7FJF": {
-        "name": "200 calls 301 (cfu + earlyann)",
-        "type": "scenario@2",
-        "data": {
-          "UaQt1d7x": {
-            "id": "UaQt1d7x",
-            "key": "caller",
-            "value": "200"
-          },
-          "ROIG37iE": {
-            "id": "ROIG37iE",
-            "key": "callee",
-            "value": "301"
-          }
-        },
-        "createdOn": 1778062577193,
-        "updatedOn": 1778071465965
       }
     },
     "config": {
@@ -446,6 +694,34 @@
             "color": "green",
             "description": "",
             "name": "base"
+          }
+        },
+        "X5DM7xC8QOTRuipcJsrni": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "ws-webserver-socket"
+          }
+        },
+        "Nsyh8ZC2v3pxlonhNKuB4": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "ccd",
+            "name": "3pccsshdest"
           }
         }
       },
@@ -512,11 +788,41 @@
         "secret": false
       },
       "value": "{{base}}"
+    },
+    "y371_N43JnFvegs83hlsM": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "2"
+    },
+    "X5DM7xC8QOTRuipcJsrni": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{ws-webserver-socket}}"
+    },
+    "Nsyh8ZC2v3pxlonhNKuB4": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{3pccsshdest}}"
     }
   },
   "info": {
-    "_postman_id": "cecf226f-dd76-477e-9c8a-ea1006887934"
+    "_postman_id": "0f1a6bf4-a2c4-46ef-bff5-ac4b0858b7d7"
   },
-  "_postman_exported_at": "2026-05-06T16:02:37.862Z",
+  "_postman_exported_at": "2026-05-15T11:23:29.346Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

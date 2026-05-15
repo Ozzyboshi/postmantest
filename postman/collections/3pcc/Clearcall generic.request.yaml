@@ -1,6 +1,11 @@
 $kind: http-request
-url: localhost:5000/clearcall
+name: Clearcall generic
+url: "{{ws-webserver-socket}}/clearcall?callid={{callid}}&deviceid={{deviceid}}&sshdest={{sshdest}}"
 method: POST
+queryParams:
+  callid: "{{callid}}"
+  deviceid: "{{deviceid}}"
+  sshdest: "{{sshdest}}"
 body:
   type: formdata
   content:
