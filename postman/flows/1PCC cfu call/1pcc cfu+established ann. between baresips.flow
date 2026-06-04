@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "name": "1pcc cfu between baresips",
+  "name": "1pcc cfu+established ann. between baresips",
   "description": "",
   "flow": {
-    "description": "",
+    "description": "All 1pcc operations:\n\n- A calls B which has early announcement + cfu to C\n- C takes the call\n- A hangsup\n",
     "nodes": {
       "3pLPvq8L": {
         "type": "ev/endpoint@3",
@@ -276,7 +276,7 @@
           "y": -120
         },
         "config": {
-          "delay": "120000"
+          "delay": "10000"
         },
         "ui": {
           "data": {}
@@ -486,148 +486,53 @@
     "meta": {},
     "scenes": {},
     "scenarios": {
-      "zhQhrSrq": {
-        "name": "999013000001811001 calls 81101",
-        "type": "scenario@2",
-        "createdOn": 1776153573212,
-        "updatedOn": 1776780400792,
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "999013000001811001"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "81101"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "81101"
-          }
-        }
-      },
-      "M6H2fqTq": {
-        "name": "81470 calls 81476",
-        "type": "scenario@2",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "470"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "81476"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "476"
-          },
-          "NArmN9zr": {
-            "id": "NArmN9zr",
-            "key": "parkslot",
-            "value": "1"
-          }
-        },
-        "createdOn": 1776153627188,
-        "updatedOn": 1776258228952
-      },
-      "b0hFn-gj": {
-        "name": "81474 calls 81475",
-        "type": "scenario@2",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "474"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "81475"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "475"
-          },
-          "NArmN9zr": {
-            "id": "NArmN9zr",
-            "key": "parkslot",
-            "value": "3"
-          }
-        },
-        "createdOn": 1776158553466,
-        "updatedOn": 1776158584595
-      },
-      "N7h1m39B": {
-        "name": "200 calls 301 -> cf to 202",
-        "type": "scenario@2",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "200"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "301"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_final",
-            "value": "202"
-          }
-        },
-        "createdOn": 1778084118716,
-        "updatedOn": 1778084207325
-      },
-      "TfnJujNg": {
-        "name": "Start Trigger",
+      "CAM3nP9r": {
+        "name": "81470->81477->PAC/Cf->81472",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
-        "createdOn": 1778086545306,
-        "updatedOn": 1778086545306,
         "data": {
           "Mn_11k27": {
             "id": "Mn_11k27",
             "key": "caller",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
+            "value": "81470"
           },
           "C6Y71Xpr": {
             "id": "C6Y71Xpr",
             "key": "callee_ext",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
+            "value": "81477"
           },
           "twy-tdza": {
             "id": "twy-tdza",
             "key": "callee_final",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
-          },
-          "5ahMHwN-": {
-            "id": "5ahMHwN-",
-            "key": "Input 4",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
+            "value": "81472"
           }
-        }
+        },
+        "createdOn": 1779713057257,
+        "updatedOn": 1779713138586
+      },
+      "1k1c6q1N": {
+        "name": "CRRAINB-49659",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "caller",
+            "value": "81470"
+          },
+          "C6Y71Xpr": {
+            "id": "C6Y71Xpr",
+            "key": "callee_ext",
+            "value": "IVR000001"
+          },
+          "twy-tdza": {
+            "id": "twy-tdza",
+            "key": "callee_final",
+            "value": "814722"
+          }
+        },
+        "createdOn": 1779715564157,
+        "updatedOn": 1779715624641
       }
     },
     "config": {
@@ -741,8 +646,8 @@
     }
   },
   "info": {
-    "_postman_id": "587aa103-cc81-4fa8-8111-c4d951960201"
+    "_postman_id": "c5fdce09-83f4-434b-a4f1-a42bd2c5ff3f"
   },
-  "_postman_exported_at": "2026-05-15T11:23:27.952Z",
+  "_postman_exported_at": "2026-05-26T21:34:33.639Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

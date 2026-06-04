@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A calls B -> A 3pcc holds/unholds -> A hangs up",
+  "name": "A calls B -> B takes -> A hangs up",
   "description": "",
   "flow": {
     "description": "",
@@ -205,7 +205,7 @@
         }
       },
       "Y2UeDYu8": {
-        "type": "task/http-request@1",
+        "type": "task/http-request@2",
         "pos": {
           "x": 432,
           "y": -56
@@ -218,7 +218,7 @@
             "name": "Makecall generic",
             "method": "POST"
           },
-          "environment": null,
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -238,11 +238,26 @@
               "key": "callee",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "LKm1KPGY",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/Mm60a5xvK2SmXl4lUDujB",
+              "key": "ws-webserver-socket"
+            },
+            {
+              "id": "VOscGtcB",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/rhET_ymDfNlW9q67D8dGH",
+              "key": "3pccsshdest"
             }
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
         },
         "ui": {
           "data": {},
@@ -291,7 +306,7 @@
         }
       },
       "ybiJa-Nd": {
-        "type": "task/http-request@1",
+        "type": "task/http-request@2",
         "pos": {
           "x": 824,
           "y": -64
@@ -304,7 +319,7 @@
             "name": "TakeCall Generic",
             "method": "GET"
           },
-          "environment": null,
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -319,7 +334,8 @@
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
         },
         "ui": {
           "data": {},
@@ -329,8 +345,8 @@
       "y5mZ-ttt": {
         "type": "DELAY",
         "pos": {
-          "x": 856,
-          "y": 224
+          "x": 848,
+          "y": 248
         },
         "config": {
           "delay": "1000"
@@ -340,7 +356,7 @@
         }
       },
       "GqWglVEB": {
-        "type": "task/http-request@1",
+        "type": "task/http-request@2",
         "pos": {
           "x": 824,
           "y": 296
@@ -353,7 +369,7 @@
             "name": "TakeCall Generic",
             "method": "GET"
           },
-          "environment": null,
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -368,7 +384,8 @@
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
         },
         "ui": {
           "data": {},
@@ -376,7 +393,7 @@
         }
       },
       "iRiWVFe6": {
-        "type": "task/http-request@1",
+        "type": "task/http-request@2",
         "pos": {
           "x": 824,
           "y": 672
@@ -389,7 +406,7 @@
             "name": "Hangup Baresip Generic",
             "method": "GET"
           },
-          "environment": null,
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -404,7 +421,8 @@
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
         },
         "ui": {
           "data": {},
@@ -594,10 +612,10 @@
     "scenes": {},
     "scenarios": {
       "5IOYyO7Q": {
-        "name": "Start Trigger",
+        "name": "901 calls 902",
         "type": "scenario@2",
         "createdOn": 1775058401740,
-        "updatedOn": 1775060298487,
+        "updatedOn": 1780561964503,
         "data": {
           "3XyQxMeL": {
             "id": "3XyQxMeL",
@@ -610,6 +628,44 @@
             "value": "902"
           }
         }
+      },
+      "Ks_PrRl7": {
+        "name": "Alice capetta calls Bob capett",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "3XyQxMeL": {
+            "id": "3XyQxMeL",
+            "key": "caller_extension",
+            "value": "420"
+          },
+          "gaT4v8o4": {
+            "id": "gaT4v8o4",
+            "key": "callee_extension",
+            "value": "421"
+          }
+        },
+        "createdOn": 1780563622981,
+        "updatedOn": 1780563694443
+      },
+      "NYcv7WW3": {
+        "name": "Bob Garzi calls Carol Garzi",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "3XyQxMeL": {
+            "id": "3XyQxMeL",
+            "key": "caller_extension",
+            "value": "471"
+          },
+          "gaT4v8o4": {
+            "id": "gaT4v8o4",
+            "key": "callee_extension",
+            "value": "472"
+          }
+        },
+        "createdOn": 1780565767162,
+        "updatedOn": 1780565947507
       }
     },
     "config": {
@@ -655,6 +711,34 @@
             "description": "",
             "name": "baresip_ip"
           }
+        },
+        "rhET_ymDfNlW9q67D8dGH": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "3pccsshdest"
+          }
+        },
+        "Mm60a5xvK2SmXl4lUDujB": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "ws-webserver-socket"
+          }
         }
       },
       "constants": {}
@@ -669,7 +753,7 @@
         "required": true,
         "secret": false
       },
-      "value": "3905756789010"
+      "value": "{{base}}"
     },
     "umC_ILJ_YMgK9t_WFqMR2": {
       "def": {
@@ -679,7 +763,7 @@
         "required": true,
         "secret": false
       },
-      "value": "voiplol"
+      "value": "{{domain}}"
     },
     "kWWXO2wLXwhmiy4ooaKAX": {
       "def": {
@@ -689,12 +773,42 @@
         "required": true,
         "secret": false
       },
-      "value": "localhost"
+      "value": "{{baresip_ip}}"
+    },
+    "rhET_ymDfNlW9q67D8dGH": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{3pccsshdest}}"
+    },
+    "u4IrFcgUcXWhudVKwquzm": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{ws-webserver-socket}}"
+    },
+    "Mm60a5xvK2SmXl4lUDujB": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{ws-webserver-socket}}"
     }
   },
   "info": {
     "_postman_id": "e3782d1a-9e99-4091-b454-156a9291e3fb"
   },
-  "_postman_exported_at": "2026-04-09T12:30:01.976Z",
+  "_postman_exported_at": "2026-06-04T13:54:31.632Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
