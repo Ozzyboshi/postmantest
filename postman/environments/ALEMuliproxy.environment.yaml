@@ -1,0 +1,13 @@
+name: ALEMuliproxy
+values:
+  - key: domain
+    value: ''
+  - key: base
+    value: ''
+  - key: baresip_ip
+    value: ''
+  - key: 3pccsshdest
+    value: ''
+  - key: ws-webserver-socket
+    value: ''
+color: 180

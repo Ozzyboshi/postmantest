@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1pcc make call to real phones",
+  "name": "make call to real phones + parkslot(WIP)",
   "description": "",
   "flow": {
     "description": "",
@@ -35,6 +35,14 @@
               "kind": "reference",
               "value": "",
               "key": "callee_short",
+              "__noIn": true
+            },
+            {
+              "id": "_k4_p3hm",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "parkslot",
               "__noIn": true
             }
           ],
@@ -192,6 +200,20 @@
           "color": "grey",
           "data": {}
         }
+      },
+      "XGWN2JTZ": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 248,
+          "y": -80
+        },
+        "config": {
+          "value": "park_slot"
+        },
+        "ui": {
+          "color": "teal",
+          "data": {}
+        }
       }
     },
     "connections": {
@@ -254,6 +276,12 @@
         "target": "LCkRrP8q",
         "sourcePort": "output|oYInF_e_",
         "targetPort": "data"
+      },
+      "Dq2MCy-5": {
+        "source": "NArmN9zr",
+        "sourcePort": "@",
+        "target": "3pLPvq8L",
+        "targetPort": "inputs|_k4_p3hm"
       }
     },
     "annotations": {},
@@ -285,6 +313,13 @@
         "typeDef": {
           "type": "string"
         }
+      },
+      "NArmN9zr": {
+        "type": "input",
+        "name": "parkslot",
+        "typeDef": {
+          "type": "string"
+        }
       }
     },
     "ports": {},
@@ -292,25 +327,18 @@
     "scenes": {},
     "scenarios": {
       "zhQhrSrq": {
-        "name": "999013000001811001 calls 81101",
+        "name": "Start Trigger",
         "type": "scenario@2",
         "createdOn": 1776153573212,
-        "updatedOn": 1776780400792,
+        "updatedOn": 1776780221584,
         "data": {
           "Mn_11k27": {
             "id": "Mn_11k27",
-            "key": "caller",
-            "value": "999013000001811001"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "81101"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "81101"
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
           }
         }
       },
@@ -482,8 +510,8 @@
     }
   },
   "info": {
-    "_postman_id": "d9ea26a2-f5d6-4478-8edf-ab42e5f3f2c1"
+    "_postman_id": "e2b4a0a6-cf70-46a6-a5af-fb46eef91102"
   },
-  "_postman_exported_at": "2026-05-26T21:34:30.123Z",
+  "_postman_exported_at": "2026-06-10T14:21:48.762Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

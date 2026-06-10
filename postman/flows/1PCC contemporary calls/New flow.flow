@@ -1,0 +1,604 @@
+{
+  "version": 1,
+  "name": "New flow",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "-DV0atu8": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "dKpe4eOS",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller1",
+              "__noIn": true
+            },
+            {
+              "id": "9lVCoDbe",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee2",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "lzzzGZIg": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 304,
+          "y": -152
+        },
+        "config": {
+          "value": "caller1"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        }
+      },
+      "B-dOQ53M": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 328,
+          "y": 176
+        },
+        "config": {
+          "value": "callee2"
+        },
+        "ui": {
+          "color": "grey",
+          "data": {}
+        }
+      },
+      "TuSX5hej": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 696,
+          "y": -176
+        },
+        "config": {
+          "flowId": "/home/ozzy/postmancodebase/postman/flows/1PCC simple call/A - B B takes - A hangs up.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "Mn_11k27",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "lzzzGZIg",
+              "key": "caller",
+              "latch": false
+            },
+            {
+              "id": "C6Y71Xpr",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "B-dOQ53M",
+              "key": "callee",
+              "latch": true
+            }
+          ],
+          "globals": [
+            {
+              "id": "gQ3K5fXwvDM4qRtaqD-Ox",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/my5_kkZitSyVjHZzyLT0P",
+              "key": " baresip_ip"
+            },
+            {
+              "id": "HmzrDtR1XEef8Cl1ogj4Y",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/oYS96ob8Z2svN5XVjxqpW",
+              "key": "domain"
+            },
+            {
+              "id": "cH2_biAhIGKawpWswhppn",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/GGauzvoRPOa6spckSRl7x",
+              "key": "base"
+            }
+          ],
+          "ports": {
+            "input": [
+              {
+                "id": "Mn_11k27",
+                "name": "caller",
+                "typeDef": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "C6Y71Xpr",
+                "name": "callee",
+                "typeDef": {
+                  "type": "string"
+                }
+              }
+            ],
+            "output": [],
+            "global": [
+              {
+                "id": "gQ3K5fXwvDM4qRtaqD-Ox",
+                "name": " baresip_ip",
+                "typeDef": {}
+              },
+              {
+                "id": "HmzrDtR1XEef8Cl1ogj4Y",
+                "name": "domain",
+                "typeDef": {}
+              },
+              {
+                "id": "cH2_biAhIGKawpWswhppn",
+                "name": "base",
+                "typeDef": {}
+              }
+            ]
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "A -> B , B takes -> A hangs up"
+          },
+          "globalsExpanded": false
+        }
+      },
+      "4CO-nhoA": {
+        "type": "DELAY",
+        "pos": {
+          "x": 608,
+          "y": 96
+        },
+        "config": {
+          "delay": "200"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "Xk2DXBCt": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1120,
+          "y": 32
+        },
+        "config": {
+          "flowId": "/home/ozzy/postmancodebase/postman/flows/1PCC simple call/A - B B takes - A hangs up.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "Mn_11k27",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "lzzzGZIg",
+              "key": "caller",
+              "latch": false
+            },
+            {
+              "id": "C6Y71Xpr",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "B-dOQ53M",
+              "key": "callee",
+              "latch": true
+            }
+          ],
+          "globals": [
+            {
+              "id": "gQ3K5fXwvDM4qRtaqD-Ox",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/my5_kkZitSyVjHZzyLT0P",
+              "key": " baresip_ip"
+            },
+            {
+              "id": "HmzrDtR1XEef8Cl1ogj4Y",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/oYS96ob8Z2svN5XVjxqpW",
+              "key": "domain"
+            },
+            {
+              "id": "cH2_biAhIGKawpWswhppn",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/GGauzvoRPOa6spckSRl7x",
+              "key": "base"
+            }
+          ],
+          "ports": {
+            "input": [
+              {
+                "id": "Mn_11k27",
+                "name": "caller",
+                "typeDef": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "C6Y71Xpr",
+                "name": "callee",
+                "typeDef": {
+                  "type": "string"
+                }
+              }
+            ],
+            "output": [],
+            "global": [
+              {
+                "id": "gQ3K5fXwvDM4qRtaqD-Ox",
+                "name": " baresip_ip",
+                "typeDef": {}
+              },
+              {
+                "id": "HmzrDtR1XEef8Cl1ogj4Y",
+                "name": "domain",
+                "typeDef": {}
+              },
+              {
+                "id": "cH2_biAhIGKawpWswhppn",
+                "name": "base",
+                "typeDef": {}
+              }
+            ]
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "A -> B , B takes -> A hangs up"
+          },
+          "globalsExpanded": false
+        }
+      }
+    },
+    "connections": {
+      "EXQ80nTm": {
+        "source": "-DV0atu8",
+        "target": "lzzzGZIg",
+        "sourcePort": "output|dKpe4eOS",
+        "targetPort": "data"
+      },
+      "j9dSXlz_": {
+        "source": "-DV0atu8",
+        "target": "TuSX5hej",
+        "sourcePort": "output|dKpe4eOS",
+        "targetPort": "AI"
+      },
+      "Acgf61hx": {
+        "source": "lzzzGZIg",
+        "sourcePort": "data",
+        "target": "TuSX5hej",
+        "targetPort": "variables|Mn_11k27"
+      },
+      "ztvevbhU": {
+        "source": "B-dOQ53M",
+        "sourcePort": "data",
+        "target": "TuSX5hej",
+        "targetPort": "variables|C6Y71Xpr"
+      },
+      "Hp59oTnY": {
+        "source": "L2Ynvcs7",
+        "sourcePort": "@",
+        "target": "-DV0atu8",
+        "targetPort": "inputs|dKpe4eOS"
+      },
+      "Gr7ajdNr": {
+        "source": "-yivbreu",
+        "sourcePort": "@",
+        "target": "-DV0atu8",
+        "targetPort": "inputs|9lVCoDbe"
+      },
+      "3kW_A_rd": {
+        "source": "-DV0atu8",
+        "target": "B-dOQ53M",
+        "sourcePort": "output|9lVCoDbe",
+        "targetPort": "data"
+      },
+      "NyOFsco4": {
+        "source": "-DV0atu8",
+        "target": "4CO-nhoA",
+        "sourcePort": "output|dKpe4eOS",
+        "targetPort": "data"
+      },
+      "KS_AjPBP": {
+        "source": "lzzzGZIg",
+        "sourcePort": "data",
+        "target": "Xk2DXBCt",
+        "targetPort": "variables|Mn_11k27"
+      },
+      "ZByCHpqs": {
+        "source": "B-dOQ53M",
+        "sourcePort": "data",
+        "target": "Xk2DXBCt",
+        "targetPort": "variables|C6Y71Xpr"
+      },
+      "8cbN0rhe": {
+        "source": "4CO-nhoA",
+        "target": "Xk2DXBCt",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "L2Ynvcs7": {
+        "type": "input",
+        "name": "caller1",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "-yivbreu": {
+        "type": "input",
+        "name": "callee2",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "1lh-Ln6G": {
+        "name": "81470 calls 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1781103726916,
+        "updatedOn": 1781103992946,
+        "data": {
+          "9i_xBLQ_": {
+            "id": "9i_xBLQ_",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          },
+          "cdg8Tekr": {
+            "id": "cdg8Tekr",
+            "key": "callee1",
+            "value": "81471"
+          },
+          "L2Ynvcs7": {
+            "id": "L2Ynvcs7",
+            "key": "caller1",
+            "value": "81470"
+          },
+          "-yivbreu": {
+            "id": "-yivbreu",
+            "key": "Input 2",
+            "value": "81471"
+          }
+        }
+      },
+      "c7-AmMff": {
+        "name": "Start Trigger",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1781103960449,
+        "updatedOn": 1781103960449,
+        "data": {
+          "L2Ynvcs7": {
+            "id": "L2Ynvcs7",
+            "key": "caller1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {
+        "GGauzvoRPOa6spckSRl7x": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "base"
+          }
+        },
+        "oYS96ob8Z2svN5XVjxqpW": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "domain"
+          }
+        },
+        "my5_kkZitSyVjHZzyLT0P": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "baresip_ip"
+          }
+        },
+        "css1qvUzf_l7goQFVeiJj": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "3pccsshdest"
+          }
+        },
+        "4jlghWD44NeoUwbYiuB3s": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "ws-webserver-socket"
+          }
+        }
+      },
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "RpHA0DygKz67DfB49wKuF": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "GGauzvoRPOa6spckSRl7x": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "Zy2C4DF881onJRPX1vAlK": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "oYS96ob8Z2svN5XVjxqpW": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "D6TIlqaCe85fyin2_ukhB": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "my5_kkZitSyVjHZzyLT0P": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "OgL66cC2jwMi_NQZ2PR1-": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    },
+    "css1qvUzf_l7goQFVeiJj": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{3pccsshdest}}"
+    },
+    "D83-7e1R02SNEEUkxO1Zd": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    },
+    "4jlghWD44NeoUwbYiuB3s": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{ws-webserver-socket}}"
+    }
+  },
+  "info": {
+    "_postman_id": "97de0bab-bf72-4673-b875-05fce59ed423"
+  },
+  "_postman_exported_at": "2026-06-10T15:07:58.602Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}
