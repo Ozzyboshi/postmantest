@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A calls B -> B takes -> A hangs up",
+  "name": "A calls B - B takes - A hangs up",
   "description": "",
   "flow": {
     "description": "",
@@ -809,6 +809,6 @@
   "info": {
     "_postman_id": "e3782d1a-9e99-4091-b454-156a9291e3fb"
   },
-  "_postman_exported_at": "2026-06-05T09:35:48.258Z",
+  "_postman_exported_at": "2026-06-16T07:36:25.350Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

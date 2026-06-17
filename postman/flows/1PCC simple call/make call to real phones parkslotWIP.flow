@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "make call to real phones + parkslot(WIP)",
+  "name": "make call to real phones parkslotWIP",
   "description": "",
   "flow": {
     "description": "",
@@ -512,6 +512,6 @@
   "info": {
     "_postman_id": "e2b4a0a6-cf70-46a6-a5af-fb46eef91102"
   },
-  "_postman_exported_at": "2026-06-10T14:21:48.762Z",
+  "_postman_exported_at": "2026-06-16T07:36:28.668Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
