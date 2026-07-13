@@ -62,7 +62,7 @@
               "id": "d8y__mxw",
               "type": "portal/config@1",
               "kind": "global-reference",
-              "value": "@global/U3eoJp6TixNA3k7HiuhwE",
+              "value": "@global/o45-mZgNVHc9urIiGTcom",
               "key": "domain"
             },
             {
@@ -76,7 +76,7 @@
               "id": "qp9FrwBa",
               "type": "portal/config@1",
               "kind": "global-reference",
-              "value": "@global/r1MBluPzTuk0ejxFhZoIG",
+              "value": "@global/5xrNXXjj4THWveWMv_WvJ",
               "key": "baresip_ip"
             }
           ],
@@ -141,10 +141,10 @@
         }
       },
       "w_w2_-9z": {
-        "type": "task/http-request@1",
+        "type": "task/http-request@2",
         "pos": {
-          "x": 976,
-          "y": -264
+          "x": 1160,
+          "y": -328
         },
         "config": {
           "element": {
@@ -169,7 +169,8 @@
           ],
           "scriptsModifyEnvVars": true,
           "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
         },
         "ui": {
           "data": {},
@@ -195,6 +196,17 @@
         "pos": {
           "x": 896,
           "y": -128
+        },
+        "config": {},
+        "ui": {
+          "data": {}
+        }
+      },
+      "miAFTj9U": {
+        "type": "TERMINAL",
+        "pos": {
+          "x": 992,
+          "y": 24
         },
         "config": {},
         "ui": {
@@ -249,6 +261,12 @@
         "source": "TxqZyHrP",
         "target": "m6fsXMAW",
         "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "MG1He4io": {
+        "source": "TxqZyHrP",
+        "target": "miAFTj9U",
+        "sourcePort": "output|lZMd5y0U",
         "targetPort": "data"
       }
     },
@@ -305,7 +323,21 @@
     },
     "config": {
       "definitions": {
-        "U3eoJp6TixNA3k7HiuhwE": {
+        "HDOPc323sZUXRSKkReFai": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "base"
+          }
+        },
+        "o45-mZgNVHc9urIiGTcom": {
           "def": {
             "schema": {
               "type": "string"
@@ -319,7 +351,7 @@
             "name": "domain"
           }
         },
-        "r1MBluPzTuk0ejxFhZoIG": {
+        "5xrNXXjj4THWveWMv_WvJ": {
           "def": {
             "schema": {
               "type": "string"
@@ -331,20 +363,6 @@
             "color": "grey",
             "description": "",
             "name": "baresip_ip"
-          }
-        },
-        "HDOPc323sZUXRSKkReFai": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "",
-            "name": "base"
           }
         }
       },
@@ -411,11 +429,31 @@
         "secret": false
       },
       "value": "{{base}}"
+    },
+    "o45-mZgNVHc9urIiGTcom": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "5xrNXXjj4THWveWMv_WvJ": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
     }
   },
   "info": {
     "_postman_id": "9cf2b6a3-36d9-4267-8782-319029d1f9c2"
   },
-  "_postman_exported_at": "2026-05-15T13:22:00.789Z",
+  "_postman_exported_at": "2026-07-01T08:09:24.875Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

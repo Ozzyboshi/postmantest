@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1PCC Hangup Generic",
+  "name": "1PCC Hangup Gen",
   "description": "",
   "flow": {
     "description": "",
@@ -19,6 +19,14 @@
               "kind": "reference",
               "value": "",
               "key": "hangupper",
+              "__noIn": true
+            },
+            {
+              "id": "BWFqkMyO",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
               "__noIn": true
             }
           ],
@@ -85,100 +93,54 @@
           "data": {}
         }
       },
-      "rWw5L2jk": {
+      "U46LlV0d": {
         "type": "system/module@1",
         "pos": {
-          "x": 440,
-          "y": -112
+          "x": 384,
+          "y": 0
         },
         "config": {
-          "flowId": "/home/ozzy/postmancodebase/postman/flows/Playground/Create3pccDataFromExtension.flow",
+          "flowId": "postman/flows/Building Blocks/1PCC/GetBareSIpIP.flow",
           "versionId": "local",
           "variables": [
             {
-              "id": "dh0CIWMb",
+              "id": "asN1fDgh",
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "caller_extension"
+              "key": "number"
             },
             {
-              "id": "R9jItwtz",
-              "type": "portal/config@1",
-              "kind": "global-reference",
-              "value": "@global/RcH4B6ThdNT-HzASM1w-4",
-              "key": "base"
-            },
-            {
-              "id": "d8y__mxw",
-              "type": "portal/config@1",
-              "kind": "global-reference",
-              "value": "@global/WYC4JTy-s8NgoAEzptmu7",
-              "key": "domain"
-            },
-            {
-              "id": "LWn6hVei",
+              "id": "v-IOPq7_",
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "callee_extension"
-            },
-            {
-              "id": "qp9FrwBa",
-              "type": "portal/config@1",
-              "kind": "global-reference",
-              "value": "@global/cs7cygkbAc9HQOIQv7N4g",
-              "key": "baresip_ip"
+              "key": "baseip"
             }
           ],
           "globals": [],
           "ports": {
             "input": [
               {
-                "id": "dh0CIWMb",
-                "name": "caller_extension",
+                "id": "asN1fDgh",
+                "name": "number",
                 "type": null
               },
               {
-                "id": "R9jItwtz",
-                "name": "base",
-                "type": null
-              },
-              {
-                "id": "d8y__mxw",
-                "name": "domain",
-                "type": null
-              },
-              {
-                "id": "LWn6hVei",
-                "name": "callee_extension",
-                "type": null
-              },
-              {
-                "id": "qp9FrwBa",
-                "name": "baresip_ip",
+                "id": "v-IOPq7_",
+                "name": "baseip",
                 "type": null
               }
             ],
             "output": [
               {
-                "id": "-ehVFFbr",
-                "name": "caller_uri",
+                "id": "v2Tf2u9i",
+                "name": "ip",
                 "type": null
               },
               {
-                "id": "Vy7Wap7b",
-                "name": "callee_uri",
-                "type": null
-              },
-              {
-                "id": "wq8SXlqJ",
-                "name": "baresip_caller_http_socket",
-                "type": null
-              },
-              {
-                "id": "lZMd5y0U",
-                "name": "baresip_callee_http_socket",
+                "id": "w3jJVBJr",
+                "name": "Flow tests",
                 "type": null
               }
             ],
@@ -187,30 +149,8 @@
         },
         "ui": {
           "data": {
-            "blockTitle": "Create3pccDataFromExtension"
+            "blockTitle": "GetBareSIpIP"
           }
-        }
-      },
-      "6RLYJY-9": {
-        "type": "TERMINAL",
-        "pos": {
-          "x": 296,
-          "y": 304
-        },
-        "config": {},
-        "ui": {
-          "data": {}
-        }
-      },
-      "tyUPGnJe": {
-        "type": "TERMINAL",
-        "pos": {
-          "x": 912,
-          "y": 0
-        },
-        "config": {},
-        "ui": {
-          "data": {}
         }
       }
     },
@@ -227,47 +167,41 @@
         "target": "w_w2_-9z",
         "targetPort": "requestVariables|E9FAb-ek"
       },
-      "wmHTQzty": {
+      "WxtM-S-Z": {
         "source": "Vzafi-WH",
-        "target": "rWw5L2jk",
+        "target": "U46LlV0d",
         "sourcePort": "output|Z0V2Be1q",
         "targetPort": "AI"
       },
-      "DMjmkeGl": {
+      "PbhEHAXS": {
         "source": "Vzafi-WH",
-        "target": "rWw5L2jk",
+        "target": "U46LlV0d",
         "sourcePort": "output|Z0V2Be1q",
-        "targetPort": "variables|dh0CIWMb"
+        "targetPort": "variables|asN1fDgh"
       },
-      "E_hsu0Y2": {
-        "source": "rWw5L2jk",
-        "target": "WfQ8-mx9",
-        "sourcePort": "output|wq8SXlqJ",
-        "targetPort": "data"
+      "dgoM7sVd": {
+        "source": "4nNfgE3E",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|BWFqkMyO"
       },
-      "Zvp9OZUg": {
-        "source": "rWw5L2jk",
+      "WvxSeDnF": {
+        "source": "Vzafi-WH",
+        "target": "U46LlV0d",
+        "sourcePort": "output|BWFqkMyO",
+        "targetPort": "variables|v-IOPq7_"
+      },
+      "H2th9OlN": {
+        "source": "U46LlV0d",
         "target": "w_w2_-9z",
         "sourcePort": "AO",
         "targetPort": "AI"
       },
-      "66m-y2mo": {
-        "source": "Vzafi-WH",
-        "target": "6RLYJY-9",
-        "sourcePort": "output|Z0V2Be1q",
+      "IodEn1bn": {
+        "source": "U46LlV0d",
+        "target": "WfQ8-mx9",
+        "sourcePort": "output|v2Tf2u9i",
         "targetPort": "data"
-      },
-      "bWWxAKhN": {
-        "source": "rWw5L2jk",
-        "target": "tyUPGnJe",
-        "sourcePort": "output|wq8SXlqJ",
-        "targetPort": "data"
-      },
-      "bEtFB5Hm": {
-        "source": "Vzafi-WH",
-        "target": "rWw5L2jk",
-        "sourcePort": "output|Z0V2Be1q",
-        "targetPort": "variables|LWn6hVei"
       }
     },
     "annotations": {},
@@ -282,6 +216,13 @@
       "UaQt1d7x": {
         "type": "input",
         "name": "hangupper",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "4nNfgE3E": {
+        "type": "input",
+        "name": "ip",
         "typeDef": {
           "type": "string"
         }
@@ -306,65 +247,12 @@
       }
     },
     "config": {
-      "definitions": {
-        "RcH4B6ThdNT-HzASM1w-4": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "",
-            "name": "base"
-          }
-        },
-        "WYC4JTy-s8NgoAEzptmu7": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "",
-            "name": "domain"
-          }
-        },
-        "cs7cygkbAc9HQOIQv7N4g": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "",
-            "name": "baresip_ip"
-          }
-        }
-      },
+      "definitions": {},
       "constants": {}
     }
   },
   "lockbox": {
     "gTXtcNAAfcVB8Vk3u7gju": {
-      "def": {
-        "schema": {
-          "type": "string"
-        },
-        "required": true,
-        "secret": false
-      },
-      "value": "{{base}}"
-    },
-    "RcH4B6ThdNT-HzASM1w-4": {
       "def": {
         "schema": {
           "type": "string"
@@ -384,16 +272,6 @@
       },
       "value": "1"
     },
-    "WYC4JTy-s8NgoAEzptmu7": {
-      "def": {
-        "schema": {
-          "type": "string"
-        },
-        "required": true,
-        "secret": false
-      },
-      "value": "{{domain}}"
-    },
     "x21iSbRxxV8bx6wMYe3zO": {
       "def": {
         "schema": {
@@ -403,21 +281,11 @@
         "secret": false
       },
       "value": ""
-    },
-    "cs7cygkbAc9HQOIQv7N4g": {
-      "def": {
-        "schema": {
-          "type": "string"
-        },
-        "required": true,
-        "secret": false
-      },
-      "value": "{{baresip_ip}}"
     }
   },
   "info": {
-    "_postman_id": "0a75cdfb-f7a0-46c9-b922-ecf0370156a1"
+    "_postman_id": "cbcaf321-ac0e-4aa9-a8d0-38dacb8ef4bc"
   },
-  "_postman_exported_at": "2026-07-01T08:26:51.799Z",
+  "_postman_exported_at": "2026-07-13T13:25:46.758Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

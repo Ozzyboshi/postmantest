@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "name": "1PCC Takecall Gen",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "Vzafi-WH": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "Z0V2Be1q",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "takecaller",
+              "__noIn": true
+            },
+            {
+              "id": "UyprOX8r",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "w_w2_-9z": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 800,
+          "y": -296
+        },
+        "config": {
+          "element": {
+            "id": "BDbe108d706340Afa7ca77cB",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "TakeCall Generic",
+            "method": "GET"
+          },
+          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "E9FAb-ek",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "nqWaN5Ki",
+              "key": "baseURLBaresip",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true,
+          "ignoreTestResults": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true,
+          "requestVariablesExpanded": true
+        }
+      },
+      "vxD5x7ML": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 416,
+          "y": 56
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/1PCC/GetBareSIpIP.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "asN1fDgh",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number"
+            },
+            {
+              "id": "v-IOPq7_",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "2eeBwV8X",
+              "key": "baseip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "asN1fDgh",
+                "name": "number",
+                "type": null
+              },
+              {
+                "id": "v-IOPq7_",
+                "name": "baseip",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "v2Tf2u9i",
+                "name": "ip",
+                "type": null
+              },
+              {
+                "id": "w3jJVBJr",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetBareSIpIP"
+          }
+        }
+      },
+      "nqWaN5Ki": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 776,
+          "y": 120
+        },
+        "config": {
+          "value": "ip"
+        },
+        "ui": {
+          "color": "blue",
+          "data": {}
+        }
+      },
+      "2eeBwV8X": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 288,
+          "y": 208
+        },
+        "config": {
+          "value": "ipbase"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        }
+      }
+    },
+    "connections": {
+      "H95gdRc_": {
+        "source": "UaQt1d7x",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|Z0V2Be1q"
+      },
+      "1uku8Iaw": {
+        "source": "Vzafi-WH",
+        "target": "vxD5x7ML",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "variables|asN1fDgh"
+      },
+      "JXxGXLJb": {
+        "source": "vxD5x7ML",
+        "target": "nqWaN5Ki",
+        "sourcePort": "output|v2Tf2u9i",
+        "targetPort": "data"
+      },
+      "HDCbn3_F": {
+        "source": "vxD5x7ML",
+        "target": "w_w2_-9z",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "IX4nZ3Ki": {
+        "source": "nqWaN5Ki",
+        "sourcePort": "data",
+        "target": "w_w2_-9z",
+        "targetPort": "requestVariables|E9FAb-ek"
+      },
+      "7hPlzwem": {
+        "source": "OnQrWbHO",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|UyprOX8r"
+      },
+      "2jr22FlU": {
+        "source": "Vzafi-WH",
+        "target": "2eeBwV8X",
+        "sourcePort": "output|UyprOX8r",
+        "targetPort": "data"
+      },
+      "YS1xUksb": {
+        "source": "2eeBwV8X",
+        "sourcePort": "data",
+        "target": "vxD5x7ML",
+        "targetPort": "variables|v-IOPq7_"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "UaQt1d7x": {
+        "type": "input",
+        "name": "takecaller",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "OnQrWbHO": {
+        "type": "input",
+        "name": "ip",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "xKlEj1ui": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1775747390884,
+        "updatedOn": 1775747390884,
+        "data": {
+          "UaQt1d7x": {
+            "id": "UaQt1d7x",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "U-wMXgr4": {
+        "name": "Scenario 2",
+        "type": "scenario@2",
+        "data": {
+          "UaQt1d7x": {
+            "id": "UaQt1d7x",
+            "key": "takecaller",
+            "value": "471"
+          }
+        },
+        "createdOn": 1776086158885,
+        "updatedOn": 1776086353738
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "HIatP1RcHI1J6Z4Q8OKk0": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "U3eoJp6TixNA3k7HiuhwE": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "UtKJFCs-ZGAB4Ss4ouMYj": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "b"
+    },
+    "r1MBluPzTuk0ejxFhZoIG": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "y_WpuMPlSnTKU1Q8N0-k7": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    }
+  },
+  "info": {
+    "_postman_id": "7a5a766d-a8a6-4303-8b91-e0406eea1d37"
+  },
+  "_postman_exported_at": "2026-07-07T16:30:22.416Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

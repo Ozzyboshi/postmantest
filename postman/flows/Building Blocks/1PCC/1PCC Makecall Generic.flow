@@ -313,32 +313,34 @@
     "meta": {},
     "scenes": {},
     "scenarios": {
-      "xKlEj1ui": {
-        "name": "81470 calls 81101",
-        "type": "scenario@2",
-        "createdOn": 1775747390884,
-        "updatedOn": 1776781449564,
+      "6pn6zqZL": {
+        "name": "81470 -> 81471 (devices)",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782832185481,
+        "updatedOn": 1782832383129,
+        "data": {
+          "UaQt1d7x": {
+            "id": "UaQt1d7x",
+            "key": "caller",
+            "value": "999013000001814701"
+          },
+          "ROIG37iE": {
+            "id": "ROIG37iE",
+            "key": "callee",
+            "value": "999013000001814711"
+          }
+        }
+      },
+      "HuUfqQj0": {
+        "name": "81470 -> 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
         "data": {
           "UaQt1d7x": {
             "id": "UaQt1d7x",
             "key": "caller",
             "value": "81470"
-          },
-          "ROIG37iE": {
-            "id": "ROIG37iE",
-            "key": "callee",
-            "value": "81101"
-          }
-        }
-      },
-      "CUV5dI-i": {
-        "name": "81470 calls 81471",
-        "type": "scenario@2",
-        "data": {
-          "UaQt1d7x": {
-            "id": "UaQt1d7x",
-            "key": "caller",
-            "value": "470"
           },
           "ROIG37iE": {
             "id": "ROIG37iE",
@@ -346,62 +348,8 @@
             "value": "81471"
           }
         },
-        "createdOn": 1776077027069,
-        "updatedOn": 1776077420722
-      },
-      "OLXfOPrm": {
-        "name": "call to 999013000001811011",
-        "type": "scenario@2",
-        "data": {
-          "UaQt1d7x": {
-            "id": "UaQt1d7x",
-            "key": "caller",
-            "value": "81470"
-          },
-          "ROIG37iE": {
-            "id": "ROIG37iE",
-            "key": "callee",
-            "value": "999013000001811011"
-          }
-        },
-        "createdOn": 1776846447851,
-        "updatedOn": 1776846460725
-      },
-      "fDeP6cdW": {
-        "name": "call to 81101",
-        "type": "scenario@2",
-        "data": {
-          "UaQt1d7x": {
-            "id": "UaQt1d7x",
-            "key": "caller",
-            "value": "81470"
-          },
-          "ROIG37iE": {
-            "id": "ROIG37iE",
-            "key": "callee",
-            "value": "81101"
-          }
-        },
-        "createdOn": 1776846492880,
-        "updatedOn": 1776846519780
-      },
-      "4hBK7FJF": {
-        "name": "200 calls 301 (cfu + earlyann)",
-        "type": "scenario@2",
-        "data": {
-          "UaQt1d7x": {
-            "id": "UaQt1d7x",
-            "key": "caller",
-            "value": "200"
-          },
-          "ROIG37iE": {
-            "id": "ROIG37iE",
-            "key": "callee",
-            "value": "301"
-          }
-        },
-        "createdOn": 1778062577193,
-        "updatedOn": 1778071465965
+        "createdOn": 1782832201726,
+        "updatedOn": 1782832219717
       }
     },
     "config": {
@@ -517,6 +465,6 @@
   "info": {
     "_postman_id": "cecf226f-dd76-477e-9c8a-ea1006887934"
   },
-  "_postman_exported_at": "2026-06-17T08:15:22.304Z",
+  "_postman_exported_at": "2026-07-01T09:10:18.314Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

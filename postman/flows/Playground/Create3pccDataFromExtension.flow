@@ -3,7 +3,7 @@
   "name": "Create3pccDataFromExtension",
   "description": "",
   "flow": {
-    "description": "",
+    "description": "Get some data",
     "nodes": {
       "yu_QG--t": {
         "type": "ev/endpoint@3",
@@ -221,13 +221,13 @@
           "y": 504
         },
         "size": {
-          "width": 304,
-          "height": 104
+          "width": 520,
+          "height": 96
         },
         "config": {
           "language": "ts",
           "query": "",
-          "tscript": "const parts = ip.split(\".\");\nconst n = caller_extension % 65536;\nconst a = Math.floor(n / 256);\nconst b = n % 256;\n\"http://\"+parts.slice(0, 2).join(\".\")+\".\"+a+\".\"+b+\":8000\";\n\n",
+          "tscript": "caller_extension = caller_extension.slice(-7);\nconst parts = ip.split(\".\");\nconst n = caller_extension % 65536;\nconst a = Math.floor(n / 256);\nconst b = n % 256;\n\"http://\"+parts.slice(0, 2).join(\".\")+\".\"+a+\".\"+b+\":8000\";",
           "variables": [
             {
               "id": "9V5nNRoH",
@@ -268,7 +268,7 @@
         "config": {
           "language": "ts",
           "query": "",
-          "tscript": "const parts = ip.split(\".\");\nconst n = callee_extension % 65536;\nconst a = Math.floor(n / 256);\nconst b = n % 256;\n\"http://\"+parts.slice(0, 2).join(\".\")+\".\"+a+\".\"+b+\":8000\";",
+          "tscript": "callee_extension = callee_extension.slice(-7);\nconst parts = ip.split(\".\");\nconst n = callee_extension % 65536;\nconst a = Math.floor(n / 256);\nconst b = n % 256;\n\"http://\"+parts.slice(0, 2).join(\".\")+\".\"+a+\".\"+b+\":8000\";",
           "variables": [
             {
               "id": "9V5nNRoH",
@@ -523,54 +523,73 @@
     "meta": {},
     "scenes": {},
     "scenarios": {
-      "Lcz8kR7R": {
-        "name": "Start Trigger",
-        "type": "scenario@2",
-        "createdOn": 1775058526861,
-        "updatedOn": 1775058526861,
-        "data": {
-          "dh0CIWMb": {
-            "id": "dh0CIWMb",
-            "key": "Input 1",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "qdopGB-C": {
-        "name": "Scenario 1",
-        "type": "scenario@2",
+      "BJh6shPA": {
+        "name": "81470 and 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782832613773,
+        "updatedOn": 1782835249576,
         "data": {
           "dh0CIWMb": {
             "id": "dh0CIWMb",
             "key": "caller_extension",
-            "value": "901"
+            "value": "81470"
           },
           "R9jItwtz": {
             "id": "R9jItwtz",
             "key": "base",
-            "value": "3905756789010"
+            "value": "{{base}}"
           },
           "d8y__mxw": {
             "id": "d8y__mxw",
             "key": "domain",
-            "value": "voiplol"
+            "value": "{{domain}}"
           },
           "LWn6hVei": {
             "id": "LWn6hVei",
             "key": "callee_extension",
-            "value": "902"
+            "value": "81471"
           },
           "qp9FrwBa": {
             "id": "qp9FrwBa",
             "key": "baresip_ip",
-            "value": "172.29.0.0"
+            "value": "{{baresip_ip}}"
           }
-        },
-        "createdOn": 1775058844660,
-        "updatedOn": 1776842063772
+        }
+      },
+      "6OWmEBQu": {
+        "name": "81470 and 81471 (devices)",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782832614680,
+        "updatedOn": 1782835328090,
+        "data": {
+          "dh0CIWMb": {
+            "id": "dh0CIWMb",
+            "key": "caller_extension",
+            "value": "999013000001814701"
+          },
+          "R9jItwtz": {
+            "id": "R9jItwtz",
+            "key": "base",
+            "value": "{{base}}"
+          },
+          "d8y__mxw": {
+            "id": "d8y__mxw",
+            "key": "domain",
+            "value": "{{domain}}"
+          },
+          "LWn6hVei": {
+            "id": "LWn6hVei",
+            "key": "callee_extension",
+            "value": "999013000001814711"
+          },
+          "qp9FrwBa": {
+            "id": "qp9FrwBa",
+            "key": "baresip_ip",
+            "value": "{{baresip_ip}}"
+          }
+        }
       }
     },
     "config": {
@@ -582,6 +601,6 @@
   "info": {
     "_postman_id": "7ecea1d5-5f72-40ba-a4f7-823b533b81e2"
   },
-  "_postman_exported_at": "2026-06-05T09:34:59.603Z",
+  "_postman_exported_at": "2026-07-01T07:07:26.462Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

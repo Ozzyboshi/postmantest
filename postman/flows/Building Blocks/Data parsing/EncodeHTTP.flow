@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "name": "EncodeHTTP",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "kxaU0F8K": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "RQe0phVk",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "O29B8zs9": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 352,
+          "y": -8
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "encodeURIComponent(value)",
+          "variables": [
+            {
+              "id": "G9jWF5_j",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "nEQ0K1a1": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 840,
+          "y": 72
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "VBjKiWV2",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "valueencoded",
+              "__noIn": true
+            },
+            {
+              "id": "__flow_tests__",
+              "key": "Flow tests",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "hidden": true
+            }
+          ],
+          "includeTests": true
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "ZnV7L5EY": {
+        "source": "kxaU0F8K",
+        "target": "O29B8zs9",
+        "sourcePort": "output|RQe0phVk",
+        "targetPort": "variables|G9jWF5_j"
+      },
+      "7g1t2u5s": {
+        "source": "hHAW2rrP",
+        "sourcePort": "@",
+        "target": "kxaU0F8K",
+        "targetPort": "inputs|RQe0phVk"
+      },
+      "36OCmAZr": {
+        "source": "O29B8zs9",
+        "target": "nEQ0K1a1",
+        "sourcePort": "out",
+        "targetPort": "outputs|VBjKiWV2"
+      },
+      "WMGRClEq": {
+        "source": "nEQ0K1a1",
+        "sourcePort": "out|VBjKiWV2",
+        "target": "oEPZ4WEw",
+        "targetPort": "@"
+      },
+      "dIy3xCm8": {
+        "source": "nEQ0K1a1",
+        "sourcePort": "out|__flow_tests__",
+        "target": "yN76l8XR",
+        "targetPort": "@"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "hHAW2rrP": {
+        "type": "input",
+        "name": "value",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "oEPZ4WEw": {
+        "type": "output",
+        "name": "valueencoded",
+        "typeDef": {}
+      },
+      "yN76l8XR": {
+        "type": "output",
+        "name": "Flow tests",
+        "typeDef": {}
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "nrvzB8rn": {
+        "name": "81470@voiplol",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1783421507109,
+        "updatedOn": 1783421535264,
+        "data": {
+          "hHAW2rrP": {
+            "id": "hHAW2rrP",
+            "key": "value",
+            "value": "81470@voiplol"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "d873980b-27d2-4c8a-9c06-9cdcad1a819c"
+  },
+  "_postman_exported_at": "2026-07-07T10:53:04.199Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

@@ -1,0 +1,7 @@
+$kind: http-request
+name: Holdcall Generic
+url: "{{baseURLBaresip}}/?x"
+method: GET
+queryParams:
+  x: ""
+order: 22697

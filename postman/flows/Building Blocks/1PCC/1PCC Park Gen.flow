@@ -1,0 +1,343 @@
+{
+  "version": 1,
+  "name": "1PCC Park Gen",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "-3dgRn2a": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "uKdpcP6_",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "parker",
+              "__noIn": true
+            },
+            {
+              "id": "MAtOR7aE",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "slot",
+              "__noIn": true
+            },
+            {
+              "id": "OzdDWVSw",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "HvtMk8Vx": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 368,
+          "y": -264
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/1PCC/GetBareSIpIP.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "asN1fDgh",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number"
+            },
+            {
+              "id": "v-IOPq7_",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "fAlWfzgM",
+              "key": "baseip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "asN1fDgh",
+                "name": "number",
+                "type": null
+              },
+              {
+                "id": "v-IOPq7_",
+                "name": "baseip",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "v2Tf2u9i",
+                "name": "ip",
+                "type": null
+              },
+              {
+                "id": "w3jJVBJr",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetBareSIpIP"
+          }
+        }
+      },
+      "fAlWfzgM": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 288,
+          "y": 376
+        },
+        "config": {
+          "value": "ip"
+        },
+        "ui": {
+          "color": "purple",
+          "data": {}
+        }
+      },
+      "8MlGvbco": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 368,
+          "y": 16
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "\"*97*\"+slot",
+          "variables": [
+            {
+              "id": "VOuUd53M",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "slot",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "ElBK6UHP": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 968,
+          "y": 16
+        },
+        "config": {
+          "element": {
+            "id": "B23Bfa0BAEAAd5B77cF36a9B",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "TransferCall -> Baresip Generic",
+            "method": "GET"
+          },
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "dobzIfiS",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baseURLBaresip",
+              "__noIn": true
+            },
+            {
+              "id": "TLBD0lTs",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee",
+              "__noIn": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": false,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true,
+          "requestVariablesExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "5CdwdSdd": {
+        "source": "7GbzxorF",
+        "sourcePort": "@",
+        "target": "-3dgRn2a",
+        "targetPort": "inputs|uKdpcP6_"
+      },
+      "GwGFV6lA": {
+        "source": "ldPhwM-O",
+        "sourcePort": "@",
+        "target": "-3dgRn2a",
+        "targetPort": "inputs|MAtOR7aE"
+      },
+      "ipWsiA5l": {
+        "source": "-3dgRn2a",
+        "target": "HvtMk8Vx",
+        "sourcePort": "output|uKdpcP6_",
+        "targetPort": "AI"
+      },
+      "el0LE72O": {
+        "source": "-3dgRn2a",
+        "target": "HvtMk8Vx",
+        "sourcePort": "output|uKdpcP6_",
+        "targetPort": "variables|asN1fDgh"
+      },
+      "TQvp-9Fa": {
+        "source": "QToKV3FR",
+        "sourcePort": "@",
+        "target": "-3dgRn2a",
+        "targetPort": "inputs|OzdDWVSw"
+      },
+      "S9rFfn-C": {
+        "source": "-3dgRn2a",
+        "target": "fAlWfzgM",
+        "sourcePort": "output|OzdDWVSw",
+        "targetPort": "data"
+      },
+      "7XgcNVGx": {
+        "source": "fAlWfzgM",
+        "sourcePort": "data",
+        "target": "HvtMk8Vx",
+        "targetPort": "variables|v-IOPq7_"
+      },
+      "injuClxm": {
+        "source": "-3dgRn2a",
+        "target": "8MlGvbco",
+        "sourcePort": "output|MAtOR7aE",
+        "targetPort": "variables|VOuUd53M"
+      },
+      "XH3AU8kr": {
+        "source": "8MlGvbco",
+        "target": "ElBK6UHP",
+        "sourcePort": "out",
+        "targetPort": "requestVariables|TLBD0lTs"
+      },
+      "zDZ62JDg": {
+        "source": "HvtMk8Vx",
+        "target": "ElBK6UHP",
+        "sourcePort": "output|v2Tf2u9i",
+        "targetPort": "requestVariables|dobzIfiS"
+      },
+      "HZ2sz7rb": {
+        "source": "HvtMk8Vx",
+        "target": "ElBK6UHP",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "7GbzxorF": {
+        "type": "input",
+        "name": "parker",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "ldPhwM-O": {
+        "type": "input",
+        "name": "slot",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "QToKV3FR": {
+        "type": "input",
+        "name": "ip",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "d-9dgA9l": {
+        "name": "81470 parks on 1",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782889936428,
+        "updatedOn": 1783341930370,
+        "data": {
+          "7GbzxorF": {
+            "id": "7GbzxorF",
+            "key": "parker",
+            "value": "81470"
+          },
+          "ldPhwM-O": {
+            "id": "ldPhwM-O",
+            "key": "slot",
+            "value": "1"
+          },
+          "QToKV3FR": {
+            "id": "QToKV3FR",
+            "key": "ip",
+            "value": "{{baresip_ip}}"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "f0236b2b-cae7-4c4d-ad4e-359516c8ca8b"
+  },
+  "_postman_exported_at": "2026-07-06T12:48:53.656Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}
