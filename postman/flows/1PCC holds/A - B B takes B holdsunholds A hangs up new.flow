@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A - B B takes B holds A hangs up new",
+  "name": "A - B B takes B holdsunholds A hangs up new",
   "description": "",
   "flow": {
     "description": "",
@@ -197,8 +197,8 @@
       "FFIU233q": {
         "type": "system/module@1",
         "pos": {
-          "x": 296,
-          "y": 504
+          "x": 672,
+          "y": 720
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hangup Gen.flow",
@@ -258,6 +258,68 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "3c8BRfN-",
+              "key": "holder"
+            },
+            {
+              "id": "4nNfgE3E",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/dBxRsatbUgojcim-fTsC4",
+              "key": "ip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "UaQt1d7x",
+                "name": "holder",
+                "type": null
+              },
+              {
+                "id": "4nNfgE3E",
+                "name": "ip",
+                "type": null
+              }
+            ],
+            "output": [],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "1PCC Hold Gen"
+          }
+        }
+      },
+      "fQ18W2DV": {
+        "type": "DELAY",
+        "pos": {
+          "x": 256,
+          "y": 408
+        },
+        "config": {
+          "delay": "1000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "WOdwFIBy": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 240,
+          "y": 480
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Resume Gen.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "UaQt1d7x",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "3c8BRfN-",
               "key": "holder",
               "latch": true
             },
@@ -293,15 +355,15 @@
         },
         "ui": {
           "data": {
-            "blockTitle": "1PCC Hold Gen"
+            "blockTitle": "1PCC Resume Gen"
           }
         }
       },
-      "fQ18W2DV": {
+      "PB_Kst0i": {
         "type": "DELAY",
         "pos": {
-          "x": 256,
-          "y": 408
+          "x": 288,
+          "y": 752
         },
         "config": {
           "delay": "1000"
@@ -396,8 +458,26 @@
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "vo1k9_la": {
+      "wbJ7VhCT": {
         "source": "fQ18W2DV",
+        "target": "WOdwFIBy",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "FggxDCS6": {
+        "source": "3c8BRfN-",
+        "sourcePort": "data",
+        "target": "WOdwFIBy",
+        "targetPort": "variables|UaQt1d7x"
+      },
+      "jnP0CtjR": {
+        "source": "WOdwFIBy",
+        "target": "PB_Kst0i",
+        "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "JIWdo2m3": {
+        "source": "PB_Kst0i",
         "target": "FFIU233q",
         "sourcePort": "data",
         "targetPort": "AI"
@@ -570,8 +650,8 @@
     }
   },
   "info": {
-    "_postman_id": "e86817ba-c55f-4930-86ec-c8d63df41a59"
+    "_postman_id": "4e554747-a1ed-45da-bfab-3ec3c0dd7366"
   },
-  "_postman_exported_at": "2026-07-14T10:11:24.626Z",
+  "_postman_exported_at": "2026-07-14T10:14:44.089Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

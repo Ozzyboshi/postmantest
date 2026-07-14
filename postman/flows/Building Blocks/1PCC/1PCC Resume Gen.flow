@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1PCC Hold Gen",
+  "name": "1PCC Resume Gen",
   "description": "",
   "flow": {
     "description": "",
@@ -50,10 +50,10 @@
         },
         "config": {
           "element": {
-            "id": "DEa7C16F4bbff66ADfBd8CE8",
+            "id": "C70A380f8dFa4A2A82Fd7cc5",
             "collection": "12fcD2aC20D381db132C3CCC",
             "inExtensibleCollection": true,
-            "name": "Holdcall Generic",
+            "name": "Resumecall Generic",
             "method": "GET"
           },
           "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
@@ -284,8 +284,8 @@
     }
   },
   "info": {
-    "_postman_id": "caf02e53-052f-4e19-97bd-eedcb8b2d38b"
+    "_postman_id": "c830974f-8e88-49f8-83e5-cbf32ce3ec77"
   },
-  "_postman_exported_at": "2026-07-14T10:11:23.331Z",
+  "_postman_exported_at": "2026-07-14T10:12:41.182Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
