@@ -1,6 +1,0 @@
-$kind: http-request
-url: "{{baseURLPSTN2}}/?b"
-method: GET
-queryParams:
-  b: null
-order: 6000

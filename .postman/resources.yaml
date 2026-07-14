@@ -8,7 +8,6 @@ cloudResources:
   collections:
     ../postman/collections/3pcc: ae51e077-b00e-409c-bbf6-781cc32d0059
     ../postman/collections/Baresip Basics: 2a4258a3-6680-4e58-aa6c-3dd23874bfb5
-    ../postman/collections/MP Pstn to DID: b6cf7f98-a291-429d-8aa2-1971230b2e6a
     ../postman/collections/Webdis: 98a9e738-dced-446c-ba67-f1d2e68c51e8
     ../postman/collections/NGCP Provisioning: c49c5810-f7a3-4e82-ab62-f3f5a9a53520
     ../postman/collections/Trash: 14ae5498-c7c6-401b-a872-9236810354e8

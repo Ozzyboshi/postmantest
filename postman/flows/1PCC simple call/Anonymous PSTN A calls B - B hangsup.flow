@@ -171,25 +171,25 @@
           ],
           "globals": [
             {
-              "id": "U3eoJp6TixNA3k7HiuhwE",
+              "id": "HDOPc323sZUXRSKkReFai",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/cH2_biAhIGKawpWswhppn",
+              "key": "base"
+            },
+            {
+              "id": "o45-mZgNVHc9urIiGTcom",
               "type": "portal/config@1",
               "kind": "global-reference",
               "value": "@global/HmzrDtR1XEef8Cl1ogj4Y",
               "key": "domain"
             },
             {
-              "id": "r1MBluPzTuk0ejxFhZoIG",
+              "id": "5xrNXXjj4THWveWMv_WvJ",
               "type": "portal/config@1",
               "kind": "global-reference",
               "value": "@global/gQ3K5fXwvDM4qRtaqD-Ox",
               "key": "baresip_ip"
-            },
-            {
-              "id": "HDOPc323sZUXRSKkReFai",
-              "type": "portal/config@1",
-              "kind": "global-reference",
-              "value": "@global/cH2_biAhIGKawpWswhppn",
-              "key": "base"
             }
           ],
           "ports": {
@@ -203,18 +203,18 @@
             "output": [],
             "global": [
               {
-                "id": "U3eoJp6TixNA3k7HiuhwE",
+                "id": "HDOPc323sZUXRSKkReFai",
+                "name": "base",
+                "typeDef": {}
+              },
+              {
+                "id": "o45-mZgNVHc9urIiGTcom",
                 "name": "domain",
                 "typeDef": {}
               },
               {
-                "id": "r1MBluPzTuk0ejxFhZoIG",
+                "id": "5xrNXXjj4THWveWMv_WvJ",
                 "name": "baresip_ip",
-                "typeDef": {}
-              },
-              {
-                "id": "HDOPc323sZUXRSKkReFai",
-                "name": "base",
                 "typeDef": {}
               }
             ]
@@ -754,6 +754,6 @@
   "info": {
     "_postman_id": "c36b63f5-8e7f-4d54-b757-0bd3a0cd47b4"
   },
-  "_postman_exported_at": "2026-06-16T07:36:29.810Z",
+  "_postman_exported_at": "2026-07-14T12:56:49.543Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

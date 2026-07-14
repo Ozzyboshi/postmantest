@@ -10,4 +10,6 @@ values:
     value: ''
   - key: ws-webserver-socket
     value: ''
+  - key: callId
+    value: ''
 color: 180

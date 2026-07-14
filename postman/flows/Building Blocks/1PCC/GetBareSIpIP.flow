@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "name": "GetBareSIpIP",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "MBHmuQ2L": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "GKVGase2",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number",
+              "__noIn": true
+            },
+            {
+              "id": "Cagcd5yF",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baseip",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true,
+          "color": "orange"
+        }
+      },
+      "LsYZqBIf": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 424,
+          "y": -152
+        },
+        "size": {
+          "width": 568,
+          "height": 200
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "input_number = input_number.replace(/@.*$/, '');\ninput_number = input_number.slice(-7);\nconst parts = ip.split(\".\");\nconst n = input_number % 65536;\nconst a = Math.floor(n / 256);\nconst b = n % 256;\n\"http://\"+parts.slice(0, 2).join(\".\")+\".\"+a+\".\"+b+\":8000\";",
+          "variables": [
+            {
+              "id": "9mgDAWJe",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "input_number",
+              "__noIn": true
+            },
+            {
+              "id": "-2BigYH-",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "a0_WJMMo": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 1088,
+          "y": -136
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "FPrCiFPR",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            },
+            {
+              "id": "__flow_tests__",
+              "key": "Flow tests",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "hidden": true
+            }
+          ],
+          "includeTests": true
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "pkVb0_Ic": {
+        "source": "MBHmuQ2L",
+        "target": "LsYZqBIf",
+        "sourcePort": "output|GKVGase2",
+        "targetPort": "variables|9mgDAWJe"
+      },
+      "NuDsb-B4": {
+        "source": "asN1fDgh",
+        "sourcePort": "@",
+        "target": "MBHmuQ2L",
+        "targetPort": "inputs|GKVGase2"
+      },
+      "q0WBsY-2": {
+        "source": "LsYZqBIf",
+        "target": "a0_WJMMo",
+        "sourcePort": "out",
+        "targetPort": "outputs|FPrCiFPR"
+      },
+      "mFP7dThh": {
+        "source": "a0_WJMMo",
+        "sourcePort": "out|FPrCiFPR",
+        "target": "v2Tf2u9i",
+        "targetPort": "@"
+      },
+      "6Y2eqm28": {
+        "source": "a0_WJMMo",
+        "sourcePort": "out|__flow_tests__",
+        "target": "w3jJVBJr",
+        "targetPort": "@"
+      },
+      "Qvbyiwsv": {
+        "source": "v-IOPq7_",
+        "sourcePort": "@",
+        "target": "MBHmuQ2L",
+        "targetPort": "inputs|Cagcd5yF"
+      },
+      "c1PpSPg5": {
+        "source": "MBHmuQ2L",
+        "target": "LsYZqBIf",
+        "sourcePort": "output|Cagcd5yF",
+        "targetPort": "variables|-2BigYH-"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "asN1fDgh": {
+        "type": "input",
+        "name": "number",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "v2Tf2u9i": {
+        "type": "output",
+        "name": "ip",
+        "typeDef": {}
+      },
+      "w3jJVBJr": {
+        "type": "output",
+        "name": "Flow tests",
+        "typeDef": {}
+      },
+      "v-IOPq7_": {
+        "type": "input",
+        "name": "baseip",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "8rJMQYjs": {
+        "name": "81470",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782889606449,
+        "updatedOn": 1782889811133,
+        "data": {
+          "asN1fDgh": {
+            "id": "asN1fDgh",
+            "key": "number",
+            "value": "81470"
+          },
+          "v-IOPq7_": {
+            "id": "v-IOPq7_",
+            "key": "baseip",
+            "value": "{{baresip_ip}}"
+          }
+        }
+      },
+      "ZxFkkqOB": {
+        "name": "81470@voiplol",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1782889762465,
+        "updatedOn": 1783421131859,
+        "data": {
+          "asN1fDgh": {
+            "id": "asN1fDgh",
+            "key": "number",
+            "value": "81470@voiplol"
+          },
+          "v-IOPq7_": {
+            "id": "v-IOPq7_",
+            "key": "baseip",
+            "value": "{{baresip_ip}}"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "6d4c0804-931f-4489-b565-ed4fe4047072"
+  },
+  "_postman_exported_at": "2026-07-07T10:46:37.776Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

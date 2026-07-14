@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "1pcc cfu+early ann. between baresips",
+  "name": "1pcc cfuearly ann between baresips",
   "description": "",
   "flow": {
     "description": "All 1pcc operations:\n\n- A calls B which has early announcement + cfu to C\n- C takes the call\n- A hangsup\n",
@@ -743,6 +743,6 @@
   "info": {
     "_postman_id": "587aa103-cc81-4fa8-8111-c4d951960201"
   },
-  "_postman_exported_at": "2026-06-08T16:29:59.930Z",
+  "_postman_exported_at": "2026-07-07T10:00:08.431Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

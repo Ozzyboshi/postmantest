@@ -1,0 +1,7 @@
+$kind: http-request
+name: Resumecall Generic
+url: "{{baseURLBaresip}}/?X"
+method: GET
+queryParams:
+  X: ""
+order: 22889
