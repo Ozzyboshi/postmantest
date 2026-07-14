@@ -178,7 +178,8 @@
               "kind": "reference",
               "value": "",
               "key": "baseURLBaresip",
-              "__noIn": true
+              "__noIn": true,
+              "isExtraneous": false
             },
             {
               "id": "TLBD0lTs",
@@ -186,7 +187,8 @@
               "kind": "reference",
               "value": "",
               "key": "callee",
-              "__noIn": true
+              "__noIn": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -338,6 +340,6 @@
   "info": {
     "_postman_id": "f0236b2b-cae7-4c4d-ad4e-359516c8ca8b"
   },
-  "_postman_exported_at": "2026-07-06T12:48:53.656Z",
+  "_postman_exported_at": "2026-07-14T13:07:54.846Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
