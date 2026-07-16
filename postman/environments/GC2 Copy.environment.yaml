@@ -1,18 +1,15 @@
 name: GC1
 values:
   - key: domain
-    enabled: true
     value: ''
   - key: base
-    enabled: true
     value: ''
   - key: baresip_ip
-    enabled: true
     value: ''
   - key: 3pccsshdest
-    enabled: true
     value: ''
   - key: ws-webserver-socket
-    enabled: true
+    value: ''
+  - key: callId
     value: ''
 color: 300

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "name": "A - B B takes B hold-unhold A hangs up new",
+  "name": "A - B B takes - B Xfers to C - C parks C unparks new",
   "description": "",
   "flow": {
-    "description": "",
+    "description": "A calls B\nB takes the call\nB blind transfers to C\nA hangs\nC takes the call\nA parks\nA unparks\nA hangs up\n",
     "nodes": {
       "zgSHmoR1": {
         "type": "ev/endpoint@3",
@@ -28,6 +28,14 @@
               "value": "",
               "key": "callee",
               "__noIn": true
+            },
+            {
+              "id": "eeBqAcfL",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "final_callee",
+              "__noIn": true
             }
           ],
           "data": "",
@@ -39,7 +47,8 @@
           "data": {
             "triggerType": "ev/endpoint@3"
           },
-          "namedInputsExpanded": true
+          "namedInputsExpanded": true,
+          "color": "orange"
         }
       },
       "x5eFZYJb": {
@@ -54,9 +63,9 @@
           "variables": [
             {
               "id": "7GbzxorF",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "UULG1SF7",
               "key": "caller"
             },
             {
@@ -197,8 +206,8 @@
       "FFIU233q": {
         "type": "system/module@1",
         "pos": {
-          "x": 672,
-          "y": 720
+          "x": 216,
+          "y": 840
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hangup Gen.flow",
@@ -208,7 +217,7 @@
               "id": "UaQt1d7x",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "3c8BRfN-",
+              "value": "UULG1SF7",
               "key": "hangupper"
             },
             {
@@ -243,14 +252,14 @@
           }
         }
       },
-      "K_3FtFUj": {
+      "xi5cMsRJ": {
         "type": "system/module@1",
         "pos": {
-          "x": 696,
-          "y": 424
+          "x": 688,
+          "y": 432
         },
         "config": {
-          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hold Gen.flow",
+          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Blind Transfer Gen.flow",
           "versionId": "local",
           "variables": [
             {
@@ -258,10 +267,17 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "3c8BRfN-",
-              "key": "holder"
+              "key": "caller"
             },
             {
-              "id": "4nNfgE3E",
+              "id": "ROIG37iE",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "yQFr5eXB",
+              "key": "callee"
+            },
+            {
+              "id": "QdnwEu9Y",
               "type": "portal/config@1",
               "kind": "global-reference",
               "value": "@global/dBxRsatbUgojcim-fTsC4",
@@ -273,11 +289,16 @@
             "input": [
               {
                 "id": "UaQt1d7x",
-                "name": "holder",
+                "name": "caller",
                 "type": null
               },
               {
-                "id": "4nNfgE3E",
+                "id": "ROIG37iE",
+                "name": "callee",
+                "type": null
+              },
+              {
+                "id": "QdnwEu9Y",
                 "name": "ip",
                 "type": null
               }
@@ -288,42 +309,56 @@
         },
         "ui": {
           "data": {
-            "blockTitle": "1PCC Hold Gen"
+            "blockTitle": "1PCC Blind Transfer Gen"
           }
         }
       },
-      "fQ18W2DV": {
-        "type": "DELAY",
+      "yQFr5eXB": {
+        "type": "portal/in@1",
         "pos": {
-          "x": 256,
-          "y": 408
+          "x": 272,
+          "y": 344
         },
         "config": {
-          "delay": "1000"
+          "value": "final_callee"
+        },
+        "ui": {
+          "color": "teal",
+          "data": {}
+        }
+      },
+      "LfI_HxxG": {
+        "type": "DELAY",
+        "pos": {
+          "x": -56,
+          "y": 376
+        },
+        "config": {
+          "delay": "2000"
         },
         "ui": {
           "data": {}
         }
       },
-      "WOdwFIBy": {
+      "gvZd7_1-": {
         "type": "system/module@1",
         "pos": {
-          "x": 240,
-          "y": 480
+          "x": -120,
+          "y": 544
         },
         "config": {
-          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Resume Gen.flow",
+          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Takecall Gen.flow",
           "versionId": "local",
           "variables": [
             {
               "id": "UaQt1d7x",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "3c8BRfN-",
-              "key": "holder"
+              "value": "yQFr5eXB",
+              "key": "takecaller"
             },
             {
-              "id": "4nNfgE3E",
+              "id": "OnQrWbHO",
               "type": "portal/config@1",
               "kind": "global-reference",
               "value": "@global/dBxRsatbUgojcim-fTsC4",
@@ -335,11 +370,11 @@
             "input": [
               {
                 "id": "UaQt1d7x",
-                "name": "holder",
+                "name": "takecaller",
                 "type": null
               },
               {
-                "id": "4nNfgE3E",
+                "id": "OnQrWbHO",
                 "name": "ip",
                 "type": null
               }
@@ -350,18 +385,181 @@
         },
         "ui": {
           "data": {
-            "blockTitle": "1PCC Resume Gen"
-          }
+            "blockTitle": "1PCC Takecall Gen"
+          },
+          "globalsExpanded": true
         }
       },
-      "PB_Kst0i": {
+      "Y3zF8EbB": {
         "type": "DELAY",
         "pos": {
-          "x": 288,
+          "x": 336,
+          "y": 672
+        },
+        "config": {
+          "delay": "2000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "UULG1SF7": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 240,
+          "y": -128
+        },
+        "config": {
+          "value": "caller"
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {}
+        }
+      },
+      "TtnOK5dv": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 784,
           "y": 752
         },
         "config": {
-          "delay": "1000"
+          "flowId": "postman/flows/Building Blocks/1PCC/1PCC Park Gen.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "7GbzxorF",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "yQFr5eXB",
+              "key": "parker"
+            },
+            {
+              "id": "ldPhwM-O",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "1",
+              "key": "slot"
+            },
+            {
+              "id": "QToKV3FR",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/dBxRsatbUgojcim-fTsC4",
+              "key": "ip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "7GbzxorF",
+                "name": "parker",
+                "type": null
+              },
+              {
+                "id": "ldPhwM-O",
+                "name": "slot",
+                "type": null
+              },
+              {
+                "id": "QToKV3FR",
+                "name": "ip",
+                "type": null
+              }
+            ],
+            "output": [],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "1PCC Park Gen"
+          }
+        }
+      },
+      "ZenBIuF3": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1144,
+          "y": 696
+        },
+        "config": {
+          "delay": "2000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "63AmJazj": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1200,
+          "y": 840
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/1PCC/1PCC UnPark Gen.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "7GbzxorF",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "yQFr5eXB",
+              "key": "parker"
+            },
+            {
+              "id": "ldPhwM-O",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "1",
+              "key": "slot"
+            },
+            {
+              "id": "QToKV3FR",
+              "type": "portal/config@1",
+              "kind": "global-reference",
+              "value": "@global/dBxRsatbUgojcim-fTsC4",
+              "key": "ip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "7GbzxorF",
+                "name": "parker",
+                "type": null
+              },
+              {
+                "id": "ldPhwM-O",
+                "name": "slot",
+                "type": null
+              },
+              {
+                "id": "QToKV3FR",
+                "name": "ip",
+                "type": null
+              }
+            ],
+            "output": [],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "1PCC UnPark Gen"
+          }
+        }
+      },
+      "Ae0yvxTI": {
+        "type": "DELAY",
+        "pos": {
+          "x": 248,
+          "y": 712
+        },
+        "config": {
+          "delay": "2000"
         },
         "ui": {
           "data": {}
@@ -386,12 +584,6 @@
         "sourcePort": "@",
         "target": "zgSHmoR1",
         "targetPort": "inputs|J_Gl2jOi"
-      },
-      "jhdCcZFE": {
-        "source": "zgSHmoR1",
-        "target": "x5eFZYJb",
-        "sourcePort": "output|iiddXNuV",
-        "targetPort": "variables|7GbzxorF"
       },
       "MXtOrcR4": {
         "source": "zgSHmoR1",
@@ -429,53 +621,119 @@
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "dChyLNAd": {
-        "source": "3c8BRfN-",
-        "sourcePort": "data",
-        "target": "FFIU233q",
-        "targetPort": "variables|UaQt1d7x"
-      },
-      "IZM3NOnj": {
+      "R_gjxB6K": {
         "source": "c4_-rHPE",
-        "target": "K_3FtFUj",
+        "target": "xi5cMsRJ",
         "sourcePort": "data",
         "targetPort": "AI"
       },
-      "ldrW2LP3": {
+      "HpZubmvg": {
         "source": "3c8BRfN-",
         "sourcePort": "data",
-        "target": "K_3FtFUj",
+        "target": "xi5cMsRJ",
         "targetPort": "variables|UaQt1d7x"
       },
-      "WCrrQ_C9": {
-        "source": "K_3FtFUj",
-        "target": "fQ18W2DV",
+      "nosG1oHq": {
+        "source": "rafmXFS1",
+        "sourcePort": "@",
+        "target": "zgSHmoR1",
+        "targetPort": "inputs|eeBqAcfL"
+      },
+      "97LEaJIb": {
+        "source": "zgSHmoR1",
+        "target": "yQFr5eXB",
+        "sourcePort": "output|eeBqAcfL",
+        "targetPort": "data"
+      },
+      "htMUGYeb": {
+        "source": "yQFr5eXB",
+        "sourcePort": "data",
+        "target": "xi5cMsRJ",
+        "targetPort": "variables|ROIG37iE"
+      },
+      "-D4m_tjt": {
+        "source": "xi5cMsRJ",
+        "target": "LfI_HxxG",
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "wbJ7VhCT": {
-        "source": "fQ18W2DV",
-        "target": "WOdwFIBy",
+      "aZyLdWZS": {
+        "source": "LfI_HxxG",
+        "target": "gvZd7_1-",
         "sourcePort": "data",
         "targetPort": "AI"
       },
-      "FggxDCS6": {
-        "source": "3c8BRfN-",
+      "HYxS7Dye": {
+        "source": "yQFr5eXB",
         "sourcePort": "data",
-        "target": "WOdwFIBy",
+        "target": "gvZd7_1-",
         "targetPort": "variables|UaQt1d7x"
       },
-      "jnP0CtjR": {
-        "source": "WOdwFIBy",
-        "target": "PB_Kst0i",
+      "mGuOq7YU": {
+        "source": "gvZd7_1-",
+        "target": "Y3zF8EbB",
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "JIWdo2m3": {
-        "source": "PB_Kst0i",
+      "Yvv2FY7p": {
+        "source": "zgSHmoR1",
+        "target": "UULG1SF7",
+        "sourcePort": "output|iiddXNuV",
+        "targetPort": "data"
+      },
+      "p4xvS7fT": {
+        "source": "UULG1SF7",
+        "sourcePort": "data",
+        "target": "x5eFZYJb",
+        "targetPort": "variables|7GbzxorF"
+      },
+      "VtDtdPRn": {
+        "source": "UULG1SF7",
+        "sourcePort": "data",
+        "target": "FFIU233q",
+        "targetPort": "variables|UaQt1d7x"
+      },
+      "eo9Nt7i8": {
+        "source": "Y3zF8EbB",
+        "target": "TtnOK5dv",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "mBd58oiT": {
+        "source": "TtnOK5dv",
+        "target": "ZenBIuF3",
+        "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "C2goBryK": {
+        "source": "ZenBIuF3",
+        "target": "63AmJazj",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "ucZ1VXSB": {
+        "source": "63AmJazj",
+        "target": "Ae0yvxTI",
+        "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "dm_hOt9w": {
+        "source": "Ae0yvxTI",
         "target": "FFIU233q",
         "sourcePort": "data",
         "targetPort": "AI"
+      },
+      "ufcQtMPV": {
+        "source": "yQFr5eXB",
+        "sourcePort": "data",
+        "target": "TtnOK5dv",
+        "targetPort": "variables|7GbzxorF"
+      },
+      "Ry7Ka96I": {
+        "source": "yQFr5eXB",
+        "sourcePort": "data",
+        "target": "63AmJazj",
+        "targetPort": "variables|7GbzxorF"
       }
     },
     "annotations": {},
@@ -500,6 +758,13 @@
         "typeDef": {
           "type": "string"
         }
+      },
+      "rafmXFS1": {
+        "type": "input",
+        "name": "final_callee",
+        "typeDef": {
+          "type": "string"
+        }
       }
     },
     "ports": {},
@@ -507,11 +772,11 @@
     "scenes": {},
     "scenarios": {
       "zNlcBpaB": {
-        "name": "8470 -> 81471",
+        "name": "8470 -> 81471 -> 81472",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "createdOn": 1782890484217,
-        "updatedOn": 1782893338500,
+        "updatedOn": 1784122783331,
         "data": {
           "Upqp3caQ": {
             "id": "Upqp3caQ",
@@ -522,46 +787,13 @@
             "id": "IGx8vmBe",
             "key": "callee",
             "value": "81471"
+          },
+          "rafmXFS1": {
+            "id": "rafmXFS1",
+            "key": "final_callee",
+            "value": "81472"
           }
         }
-      },
-      "xwhFwzaH": {
-        "name": "81470 -> 81471 (devices)",
-        "type": "scenario@3",
-        "triggerType": "ev/endpoint@3",
-        "data": {
-          "Upqp3caQ": {
-            "id": "Upqp3caQ",
-            "key": "caller",
-            "value": "999013000001814701"
-          },
-          "IGx8vmBe": {
-            "id": "IGx8vmBe",
-            "key": "callee",
-            "value": "999013000001814711"
-          }
-        },
-        "createdOn": 1782897087552,
-        "updatedOn": 1782897118020
-      },
-      "Qohc6Rps": {
-        "name": "PSTN1 -> 81471",
-        "type": "scenario@3",
-        "triggerType": "ev/endpoint@3",
-        "data": {
-          "Upqp3caQ": {
-            "id": "Upqp3caQ",
-            "key": "caller",
-            "value": "3381625435"
-          },
-          "IGx8vmBe": {
-            "id": "IGx8vmBe",
-            "key": "callee",
-            "value": "81471@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
-          }
-        },
-        "createdOn": 1783419574270,
-        "updatedOn": 1783421347294
       }
     },
     "config": {
@@ -645,8 +877,8 @@
     }
   },
   "info": {
-    "_postman_id": "4e554747-a1ed-45da-bfab-3ec3c0dd7366"
+    "_postman_id": "ed733759-5d14-4b85-9f2a-12afefffd55c"
   },
-  "_postman_exported_at": "2026-07-15T16:11:01.369Z",
+  "_postman_exported_at": "2026-07-16T07:12:14.415Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -42,6 +42,45 @@
           "namedInputsExpanded": true
         }
       },
+      "WfQ8-mx9": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 920,
+          "y": 128
+        },
+        "config": {
+          "value": "callerBareSipUrl"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        }
+      },
+      "-sgGxUi3": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 320,
+          "y": 176
+        },
+        "config": {
+          "value": "callee_ext"
+        },
+        "ui": {
+          "color": "blue",
+          "data": {}
+        }
+      },
+      "MicXusFE": {
+        "type": "TERMINAL",
+        "pos": {
+          "x": 936,
+          "y": 16
+        },
+        "config": {},
+        "ui": {
+          "data": {}
+        }
+      },
       "TxqZyHrP": {
         "type": "system/module@1",
         "pos": {
@@ -193,45 +232,6 @@
           "data": {},
           "namedInputsExpanded": true
         }
-      },
-      "WfQ8-mx9": {
-        "type": "portal/in@1",
-        "pos": {
-          "x": 920,
-          "y": 128
-        },
-        "config": {
-          "value": "callerBareSipUrl"
-        },
-        "ui": {
-          "color": "pink",
-          "data": {}
-        }
-      },
-      "-sgGxUi3": {
-        "type": "portal/in@1",
-        "pos": {
-          "x": 320,
-          "y": 176
-        },
-        "config": {
-          "value": "callee_ext"
-        },
-        "ui": {
-          "color": "blue",
-          "data": {}
-        }
-      },
-      "MicXusFE": {
-        "type": "TERMINAL",
-        "pos": {
-          "x": 936,
-          "y": 16
-        },
-        "config": {},
-        "ui": {
-          "data": {}
-        }
       }
     },
     "connections": {
@@ -240,6 +240,18 @@
         "sourcePort": "@",
         "target": "Vzafi-WH",
         "targetPort": "inputs|Z0V2Be1q"
+      },
+      "5jD8pK_p": {
+        "source": "ROIG37iE",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|RTTEUe6y"
+      },
+      "liVhUxTg": {
+        "source": "Vzafi-WH",
+        "target": "-sgGxUi3",
+        "sourcePort": "output|RTTEUe6y",
+        "targetPort": "data"
       },
       "vzFqHiiF": {
         "source": "Vzafi-WH",
@@ -252,36 +264,6 @@
         "target": "TxqZyHrP",
         "sourcePort": "output|Z0V2Be1q",
         "targetPort": "variables|dh0CIWMb"
-      },
-      "7kK1MoF1": {
-        "source": "TxqZyHrP",
-        "target": "w_w2_-9z",
-        "sourcePort": "AO",
-        "targetPort": "AI"
-      },
-      "DWxAL3mr": {
-        "source": "WfQ8-mx9",
-        "sourcePort": "data",
-        "target": "w_w2_-9z",
-        "targetPort": "requestVariables|E9FAb-ek"
-      },
-      "5jD8pK_p": {
-        "source": "ROIG37iE",
-        "sourcePort": "@",
-        "target": "Vzafi-WH",
-        "targetPort": "inputs|RTTEUe6y"
-      },
-      "8MsPXB01": {
-        "source": "-sgGxUi3",
-        "sourcePort": "data",
-        "target": "w_w2_-9z",
-        "targetPort": "requestVariables|NqY9HktS"
-      },
-      "liVhUxTg": {
-        "source": "Vzafi-WH",
-        "target": "-sgGxUi3",
-        "sourcePort": "output|RTTEUe6y",
-        "targetPort": "data"
       },
       "4sWfDCts": {
         "source": "Vzafi-WH",
@@ -300,6 +282,24 @@
         "target": "MicXusFE",
         "sourcePort": "output|wq8SXlqJ",
         "targetPort": "data"
+      },
+      "7kK1MoF1": {
+        "source": "TxqZyHrP",
+        "target": "w_w2_-9z",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "DWxAL3mr": {
+        "source": "WfQ8-mx9",
+        "sourcePort": "data",
+        "target": "w_w2_-9z",
+        "targetPort": "requestVariables|E9FAb-ek"
+      },
+      "8MsPXB01": {
+        "source": "-sgGxUi3",
+        "sourcePort": "data",
+        "target": "w_w2_-9z",
+        "targetPort": "requestVariables|NqY9HktS"
       }
     },
     "annotations": {},
@@ -478,6 +478,6 @@
   "info": {
     "_postman_id": "73b0e817-7982-46a2-a201-6504cb7f8ed5"
   },
-  "_postman_exported_at": "2026-07-07T16:37:36.577Z",
+  "_postman_exported_at": "2026-07-15T13:35:27.690Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

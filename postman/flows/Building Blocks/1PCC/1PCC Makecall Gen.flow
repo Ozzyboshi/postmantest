@@ -124,7 +124,7 @@
             "name": "Makecall -> Baresip Generic",
             "method": "GET"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -185,8 +185,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "value",
-              "__noIn": true
+              "key": "value"
             }
           ],
           "globals": [],
@@ -195,21 +194,19 @@
               {
                 "id": "hHAW2rrP",
                 "name": "value",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "oEPZ4WEw",
                 "name": "valueencoded",
-                "typeDef": {}
+                "type": null
               },
               {
                 "id": "yN76l8XR",
                 "name": "Flow tests",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -440,6 +437,6 @@
   "info": {
     "_postman_id": "7f232444-d3d6-4c3a-94c5-fc8356168c30"
   },
-  "_postman_exported_at": "2026-07-07T16:30:22.417Z",
+  "_postman_exported_at": "2026-07-15T13:40:27.088Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
