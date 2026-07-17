@@ -1,0 +1,448 @@
+{
+  "version": 1,
+  "name": "3PCC Answercall Gen",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "sXyby0UQ": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": -272,
+          "y": -440
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "oT_BqpsW",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "answerer",
+              "__noIn": true
+            },
+            {
+              "id": "lPZEXFoJ",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "sshdest",
+              "__noIn": true
+            },
+            {
+              "id": "CguLR4gv",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "wsdst",
+              "__noIn": true
+            },
+            {
+              "id": "rrOBuxJp",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "domain",
+              "__noIn": true
+            },
+            {
+              "id": "UUz9eir-",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callid",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "ojIoUk47": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 552,
+          "y": 32
+        },
+        "config": {
+          "value": "caller"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        }
+      },
+      "TDPZx1-c": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 552,
+          "y": 96
+        },
+        "config": {
+          "value": "callee"
+        },
+        "ui": {
+          "color": "teal",
+          "data": {}
+        }
+      },
+      "xKEcHTxa": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": -240,
+          "y": -856
+        },
+        "size": {
+          "width": 472,
+          "height": 80
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "value = \"sip:\" + value;\nvalue && value.includes(\"@\") ? value : `${value}@${domain}`;",
+          "variables": [
+            {
+              "id": "8ZhR7IXW",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value",
+              "__noIn": true
+            },
+            {
+              "id": "q0MkJ6U4",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "b_ADAZ2m",
+              "key": "domain",
+              "latch": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "b_ADAZ2m": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 32,
+          "y": -32
+        },
+        "config": {
+          "value": "domain"
+        },
+        "ui": {
+          "color": "purple",
+          "data": {}
+        }
+      },
+      "iSORjEhl": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 680,
+          "y": -776
+        },
+        "config": {
+          "element": {
+            "id": "1c6b5e4E08BaC29D9d6c984c",
+            "collection": "d80DED47F12ff582aA8A3F2D",
+            "inExtensibleCollection": true,
+            "name": "Answercall generic",
+            "method": "POST"
+          },
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "VpoBNk-n",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callid",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "JoUFS8yk",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "deviceid",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "_2_os7mj",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ws-webserver-socket",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "Z3ZDo_R8",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "3pccsshdest",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true,
+          "requestVariablesExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "101e548T": {
+        "source": "QYRaZnps",
+        "sourcePort": "@",
+        "target": "sXyby0UQ",
+        "targetPort": "inputs|oT_BqpsW"
+      },
+      "67ro07qG": {
+        "source": "qOp26NFP",
+        "sourcePort": "@",
+        "target": "sXyby0UQ",
+        "targetPort": "inputs|lPZEXFoJ"
+      },
+      "O1_Norf8": {
+        "source": "idYIfp7m",
+        "sourcePort": "@",
+        "target": "sXyby0UQ",
+        "targetPort": "inputs|CguLR4gv"
+      },
+      "8kiUiEQv": {
+        "source": "sXyby0UQ",
+        "target": "xKEcHTxa",
+        "sourcePort": "output|oT_BqpsW",
+        "targetPort": "variables|8ZhR7IXW"
+      },
+      "Eo8eAMQP": {
+        "source": "xKEcHTxa",
+        "target": "ojIoUk47",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "8UB-fLTM": {
+        "source": "xKEcHTxa",
+        "target": "TDPZx1-c",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "ddhTbzD4": {
+        "source": "c7LqNqcr",
+        "sourcePort": "@",
+        "target": "sXyby0UQ",
+        "targetPort": "inputs|rrOBuxJp"
+      },
+      "BoHT3t5K": {
+        "source": "sXyby0UQ",
+        "target": "b_ADAZ2m",
+        "sourcePort": "output|rrOBuxJp",
+        "targetPort": "data"
+      },
+      "siBh5l-c": {
+        "source": "b_ADAZ2m",
+        "sourcePort": "data",
+        "target": "xKEcHTxa",
+        "targetPort": "variables|q0MkJ6U4"
+      },
+      "MK47O1nZ": {
+        "source": "xKEcHTxa",
+        "target": "iSORjEhl",
+        "sourcePort": "out",
+        "targetPort": "AI"
+      },
+      "JZgZELVp": {
+        "source": "ud6e61bZ",
+        "sourcePort": "@",
+        "target": "sXyby0UQ",
+        "targetPort": "inputs|UUz9eir-"
+      },
+      "W0fMbZFY": {
+        "source": "sXyby0UQ",
+        "target": "iSORjEhl",
+        "sourcePort": "output|UUz9eir-",
+        "targetPort": "requestVariables|VpoBNk-n"
+      },
+      "2saUL48O": {
+        "source": "sXyby0UQ",
+        "target": "iSORjEhl",
+        "sourcePort": "output|lPZEXFoJ",
+        "targetPort": "requestVariables|Z3ZDo_R8"
+      },
+      "7womY8_0": {
+        "source": "sXyby0UQ",
+        "target": "iSORjEhl",
+        "sourcePort": "output|CguLR4gv",
+        "targetPort": "requestVariables|_2_os7mj"
+      },
+      "zdZvAfjK": {
+        "source": "xKEcHTxa",
+        "target": "iSORjEhl",
+        "sourcePort": "out",
+        "targetPort": "requestVariables|JoUFS8yk"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "QYRaZnps": {
+        "type": "input",
+        "name": "answerer",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "qOp26NFP": {
+        "type": "input",
+        "name": "sshdest",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "idYIfp7m": {
+        "type": "input",
+        "name": "wsdst",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "c7LqNqcr": {
+        "type": "input",
+        "name": "domain",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "ud6e61bZ": {
+        "type": "input",
+        "name": "callid",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "dACRfBLb": {
+        "name": "81470 takes the call",
+        "type": "scenario@2",
+        "data": {
+          "QYRaZnps": {
+            "id": "QYRaZnps",
+            "key": "caller",
+            "value": "81470"
+          },
+          "edw4c8Hn": {
+            "id": "edw4c8Hn",
+            "key": "callee",
+            "value": "81471"
+          },
+          "qOp26NFP": {
+            "id": "qOp26NFP",
+            "key": "sshdest",
+            "value": "{{3pccsshdest}}"
+          },
+          "idYIfp7m": {
+            "id": "idYIfp7m",
+            "key": "wsdst",
+            "value": "{{ws-webserver-socket}}"
+          },
+          "c7LqNqcr": {
+            "id": "c7LqNqcr",
+            "key": "domain",
+            "value": "{{domain}}"
+          },
+          "ud6e61bZ": {
+            "id": "ud6e61bZ",
+            "key": "callid",
+            "value": "1"
+          }
+        },
+        "createdOn": 1775812936919,
+        "updatedOn": 1784293426066
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "xMDn1CLjUQc08NwOTvha7": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "Pj_9BGc_YFJ_nJ5rtU-rN": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "F1qRctAfyjhTjDpv_mN0Y": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "WGFPVYamiCGhurzT7Rwp6": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    }
+  },
+  "info": {
+    "_postman_id": "e988103e-7187-4607-a341-cf903afedd91"
+  },
+  "_postman_exported_at": "2026-07-17T13:13:22.107Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

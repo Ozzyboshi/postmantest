@@ -1,0 +1,18 @@
+$kind: http-request
+name: Answercall generic
+url: http://{{ws-webserver-socket}}/answercall?callid={{callid}}&deviceid={{deviceid}}&sshdest={{3pccsshdest}}
+method: POST
+queryParams:
+  callid: "{{callid}}"
+  deviceid: "{{deviceid}}"
+  sshdest: "{{3pccsshdest}}"
+body:
+  type: formdata
+  content:
+    - type: text
+      key: callid
+      value: "{{callid}}"
+    - type: text
+      key: deviceid
+      value: "{{deviceid}}"
+order: 4229
