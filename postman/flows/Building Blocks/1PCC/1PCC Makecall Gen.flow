@@ -124,7 +124,7 @@
             "name": "Makecall -> Baresip Generic",
             "method": "GET"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -217,6 +217,82 @@
             "blockTitle": "EncodeHTTP"
           }
         }
+      },
+      "V47iyctQ": {
+        "type": "TERMINAL",
+        "pos": {
+          "x": 1264,
+          "y": -272
+        },
+        "config": {},
+        "ui": {
+          "data": {}
+        }
+      },
+      "ZEmCspsb": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 1184,
+          "y": -176
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "const pre = baresip_out.body.html.body.pre;\nconst match = pre.match(/call id:\\s*([a-f0-9]+)/i);\nmatch ? match[1] : null;",
+          "variables": [
+            {
+              "id": "KjfY1BbS",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresip_out",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "dTBFQFVh": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 1432,
+          "y": 360
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "VdZ4udRl",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "Output 1",
+              "__noIn": true
+            },
+            {
+              "id": "__flow_tests__",
+              "key": "Flow tests",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "hidden": true
+            }
+          ],
+          "includeTests": true
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
       }
     },
     "connections": {
@@ -285,6 +361,30 @@
         "target": "dcpwjdyt",
         "sourcePort": "output|MAtOR7aE",
         "targetPort": "variables|hHAW2rrP"
+      },
+      "9jbAazNS": {
+        "source": "FYUYVX3n",
+        "target": "ZEmCspsb",
+        "sourcePort": "success",
+        "targetPort": "variables|KjfY1BbS"
+      },
+      "Oj1od5IR": {
+        "source": "ZEmCspsb",
+        "target": "dTBFQFVh",
+        "sourcePort": "out",
+        "targetPort": "outputs|VdZ4udRl"
+      },
+      "3xrnSQLv": {
+        "source": "dTBFQFVh",
+        "sourcePort": "out|VdZ4udRl",
+        "target": "_1lRv_8_",
+        "targetPort": "@"
+      },
+      "KxndrBHg": {
+        "source": "dTBFQFVh",
+        "sourcePort": "out|__flow_tests__",
+        "target": "4cngoyyW",
+        "targetPort": "@"
       }
     },
     "annotations": {},
@@ -316,6 +416,16 @@
         "typeDef": {
           "type": "string"
         }
+      },
+      "_1lRv_8_": {
+        "type": "output",
+        "name": "Output 1",
+        "typeDef": {}
+      },
+      "4cngoyyW": {
+        "type": "output",
+        "name": "Flow tests",
+        "typeDef": {}
       }
     },
     "ports": {},
@@ -437,6 +547,6 @@
   "info": {
     "_postman_id": "7f232444-d3d6-4c3a-94c5-fc8356168c30"
   },
-  "_postman_exported_at": "2026-07-15T13:40:27.088Z",
+  "_postman_exported_at": "2026-07-17T08:44:06.250Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -93,7 +93,18 @@
                 "type": null
               }
             ],
-            "output": [],
+            "output": [
+              {
+                "id": "_1lRv_8_",
+                "name": "Output 1",
+                "type": null
+              },
+              {
+                "id": "4cngoyyW",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
             "global": []
           }
         },
@@ -107,8 +118,8 @@
       "DscsBOQi": {
         "type": "DELAY",
         "pos": {
-          "x": 784,
-          "y": -24
+          "x": 1040,
+          "y": -240
         },
         "config": {
           "delay": "4000"
@@ -131,24 +142,11 @@
           "data": {}
         }
       },
-      "c4_-rHPE": {
-        "type": "DELAY",
-        "pos": {
-          "x": 744,
-          "y": 320
-        },
-        "config": {
-          "delay": "2000"
-        },
-        "ui": {
-          "data": {}
-        }
-      },
       "FFIU233q": {
         "type": "system/module@1",
         "pos": {
-          "x": 712,
-          "y": 408
+          "x": 1008,
+          "y": -120
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hangup Gen.flow",
@@ -190,6 +188,24 @@
         "ui": {
           "data": {
             "blockTitle": "1PCC Hangup Gen"
+          }
+        }
+      },
+      "OxiQm291": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 856,
+          "y": 152
+        },
+        "size": {
+          "width": 416,
+          "height": 120
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto",
+            "genericLabel": "CallId"
           }
         }
       }
@@ -237,22 +253,22 @@
         "sourcePort": "output|J_Gl2jOi",
         "targetPort": "data"
       },
-      "AU1TAFw4": {
-        "source": "c4_-rHPE",
-        "target": "FFIU233q",
-        "sourcePort": "data",
-        "targetPort": "AI"
-      },
       "dChyLNAd": {
         "source": "3c8BRfN-",
         "sourcePort": "data",
         "target": "FFIU233q",
         "targetPort": "variables|UaQt1d7x"
       },
-      "5x0KbS2J": {
+      "uFrvE4mp": {
         "source": "DscsBOQi",
-        "target": "c4_-rHPE",
+        "target": "FFIU233q",
         "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "ICH_EFVl": {
+        "source": "x5eFZYJb",
+        "target": "OxiQm291",
+        "sourcePort": "output|_1lRv_8_",
         "targetPort": "data"
       }
     },
@@ -425,6 +441,6 @@
   "info": {
     "_postman_id": "a7d0bf63-0982-44eb-bab8-506fc8e344e5"
   },
-  "_postman_exported_at": "2026-07-15T07:11:18.998Z",
+  "_postman_exported_at": "2026-07-17T08:47:09.722Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

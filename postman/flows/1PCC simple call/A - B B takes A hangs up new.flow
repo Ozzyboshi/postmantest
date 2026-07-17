@@ -93,7 +93,18 @@
                 "type": null
               }
             ],
-            "output": [],
+            "output": [
+              {
+                "id": "_1lRv_8_",
+                "name": "Output 1",
+                "type": null
+              },
+              {
+                "id": "4cngoyyW",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
             "global": []
           }
         },
@@ -120,8 +131,8 @@
       "kioRMdlj": {
         "type": "system/module@1",
         "pos": {
-          "x": 720,
-          "y": 88
+          "x": 760,
+          "y": 40
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Takecall Gen.flow",
@@ -184,8 +195,8 @@
       "c4_-rHPE": {
         "type": "DELAY",
         "pos": {
-          "x": 744,
-          "y": 320
+          "x": 792,
+          "y": 280
         },
         "config": {
           "delay": "2000"
@@ -197,8 +208,8 @@
       "FFIU233q": {
         "type": "system/module@1",
         "pos": {
-          "x": 712,
-          "y": 408
+          "x": 776,
+          "y": 368
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hangup Gen.flow",
@@ -240,6 +251,24 @@
         "ui": {
           "data": {
             "blockTitle": "1PCC Hangup Gen"
+          }
+        }
+      },
+      "RONjEH_k": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 360,
+          "y": 528
+        },
+        "size": {
+          "width": 336,
+          "height": 120
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto",
+            "genericLabel": "CallId"
           }
         }
       }
@@ -316,6 +345,12 @@
         "sourcePort": "data",
         "target": "FFIU233q",
         "targetPort": "variables|UaQt1d7x"
+      },
+      "q1Q5t-8P": {
+        "source": "x5eFZYJb",
+        "target": "RONjEH_k",
+        "sourcePort": "output|_1lRv_8_",
+        "targetPort": "data"
       }
     },
     "annotations": {},
@@ -487,6 +522,6 @@
   "info": {
     "_postman_id": "b137be55-89c7-4ea3-a619-5fdccbd72f70"
   },
-  "_postman_exported_at": "2026-07-15T13:28:16.266Z",
+  "_postman_exported_at": "2026-07-17T08:49:04.410Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
