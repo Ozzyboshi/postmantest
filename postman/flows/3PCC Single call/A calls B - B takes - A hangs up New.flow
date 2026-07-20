@@ -180,8 +180,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "answerer",
-              "__noIn": true
+              "key": "answerer"
             },
             {
               "id": "qOp26NFP",
@@ -209,8 +208,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "M4coG_ik",
-              "key": "callid",
-              "latch": true
+              "key": "callid"
             }
           ],
           "globals": [],
@@ -219,37 +217,27 @@
               {
                 "id": "QYRaZnps",
                 "name": "answerer",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "qOp26NFP",
                 "name": "sshdest",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "idYIfp7m",
                 "name": "wsdst",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "c7LqNqcr",
                 "name": "domain",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "ud6e61bZ",
                 "name": "callid",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -295,8 +283,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "cE2-OEuM",
-              "key": "takecaller",
-              "latch": true
+              "key": "takecaller"
             },
             {
               "id": "OnQrWbHO",
@@ -312,16 +299,12 @@
               {
                 "id": "UaQt1d7x",
                 "name": "takecaller",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "OnQrWbHO",
                 "name": "ip",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -376,8 +359,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "Kc5aw0lI",
-              "key": "answerer",
-              "latch": true
+              "key": "answerer"
             },
             {
               "id": "qOp26NFP",
@@ -405,8 +387,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "M4coG_ik",
-              "key": "callid",
-              "latch": true
+              "key": "callid"
             }
           ],
           "globals": [],
@@ -415,37 +396,27 @@
               {
                 "id": "QYRaZnps",
                 "name": "answerer",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "qOp26NFP",
                 "name": "sshdest",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "idYIfp7m",
                 "name": "wsdst",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "c7LqNqcr",
                 "name": "domain",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "ud6e61bZ",
                 "name": "callid",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -487,8 +458,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "Kc5aw0lI",
-              "key": "takecaller",
-              "latch": true
+              "key": "takecaller"
             },
             {
               "id": "OnQrWbHO",
@@ -504,16 +474,12 @@
               {
                 "id": "UaQt1d7x",
                 "name": "takecaller",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "OnQrWbHO",
                 "name": "ip",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -567,8 +533,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "cE2-OEuM",
-              "key": "answerer",
-              "latch": true
+              "key": "answerer"
             },
             {
               "id": "qOp26NFP",
@@ -596,8 +561,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "M4coG_ik",
-              "key": "callid",
-              "latch": true
+              "key": "callid"
             }
           ],
           "globals": [],
@@ -606,37 +570,27 @@
               {
                 "id": "QYRaZnps",
                 "name": "answerer",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "qOp26NFP",
                 "name": "sshdest",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "idYIfp7m",
                 "name": "wsdst",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "c7LqNqcr",
                 "name": "domain",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               },
               {
                 "id": "ud6e61bZ",
                 "name": "callid",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -963,6 +917,6 @@
   "info": {
     "_postman_id": "d331e215-fa03-4354-b4d4-51cccd1551f7"
   },
-  "_postman_exported_at": "2026-07-17T15:26:41.293Z",
+  "_postman_exported_at": "2026-07-20T15:28:42.426Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
