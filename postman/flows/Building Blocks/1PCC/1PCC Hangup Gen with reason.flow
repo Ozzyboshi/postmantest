@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "name": "1PCC Hangup Gen with reason",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "Vzafi-WH": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 48
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "Z0V2Be1q",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "hangupper",
+              "__noIn": true
+            },
+            {
+              "id": "BWFqkMyO",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "ip",
+              "__noIn": true
+            },
+            {
+              "id": "LognsL1I",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "code",
+              "__noIn": true
+            },
+            {
+              "id": "u6ajCqmK",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "reason",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "WfQ8-mx9": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 920,
+          "y": 128
+        },
+        "config": {
+          "value": "callerBareSipUrl"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        }
+      },
+      "U46LlV0d": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 384,
+          "y": 0
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/1PCC/GetBareSIpIP.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "asN1fDgh",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number"
+            },
+            {
+              "id": "v-IOPq7_",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baseip"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "asN1fDgh",
+                "name": "number",
+                "type": null
+              },
+              {
+                "id": "v-IOPq7_",
+                "name": "baseip",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "v2Tf2u9i",
+                "name": "ip",
+                "type": null
+              },
+              {
+                "id": "w3jJVBJr",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetBareSIpIP"
+          }
+        }
+      },
+      "q7xAkMTG": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 968,
+          "y": -352
+        },
+        "config": {
+          "element": {
+            "id": "7f54ecb93bb8589Cd71a7e2e",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "Hangup Baresip Generic with code and reason",
+            "method": "GET"
+          },
+          "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "QUQ-xqD9",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "WfQ8-mx9",
+              "key": "baseURLBaresip",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "-99WbOSF",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "code",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "2DuJ2Z3d",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "reason",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": false,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "H95gdRc_": {
+        "source": "UaQt1d7x",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|Z0V2Be1q"
+      },
+      "WxtM-S-Z": {
+        "source": "Vzafi-WH",
+        "target": "U46LlV0d",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "AI"
+      },
+      "PbhEHAXS": {
+        "source": "Vzafi-WH",
+        "target": "U46LlV0d",
+        "sourcePort": "output|Z0V2Be1q",
+        "targetPort": "variables|asN1fDgh"
+      },
+      "dgoM7sVd": {
+        "source": "4nNfgE3E",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|BWFqkMyO"
+      },
+      "WvxSeDnF": {
+        "source": "Vzafi-WH",
+        "target": "U46LlV0d",
+        "sourcePort": "output|BWFqkMyO",
+        "targetPort": "variables|v-IOPq7_"
+      },
+      "IodEn1bn": {
+        "source": "U46LlV0d",
+        "target": "WfQ8-mx9",
+        "sourcePort": "output|v2Tf2u9i",
+        "targetPort": "data"
+      },
+      "8Wfgn6wN": {
+        "source": "U46LlV0d",
+        "target": "q7xAkMTG",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "bvECpRPa": {
+        "source": "WfQ8-mx9",
+        "sourcePort": "data",
+        "target": "q7xAkMTG",
+        "targetPort": "requestVariables|QUQ-xqD9"
+      },
+      "3PlEMtLA": {
+        "source": "oS-DnGVA",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|LognsL1I"
+      },
+      "k-TaP3sN": {
+        "source": "Vzafi-WH",
+        "target": "q7xAkMTG",
+        "sourcePort": "output|LognsL1I",
+        "targetPort": "requestVariables|-99WbOSF"
+      },
+      "BSy5WhVQ": {
+        "source": "Vzafi-WH",
+        "target": "q7xAkMTG",
+        "sourcePort": "output|u6ajCqmK",
+        "targetPort": "requestVariables|2DuJ2Z3d"
+      },
+      "cYYNAn1K": {
+        "source": "tHxbeD9e",
+        "sourcePort": "@",
+        "target": "Vzafi-WH",
+        "targetPort": "inputs|u6ajCqmK"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "UaQt1d7x": {
+        "type": "input",
+        "name": "hangupper",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "4nNfgE3E": {
+        "type": "input",
+        "name": "ip",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "oS-DnGVA": {
+        "type": "input",
+        "name": "code",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "tHxbeD9e": {
+        "type": "input",
+        "name": "reason",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "xKlEj1ui": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1775747390884,
+        "updatedOn": 1778084814670,
+        "data": {
+          "UaQt1d7x": {
+            "id": "UaQt1d7x",
+            "key": "hangupper",
+            "value": "202"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "gTXtcNAAfcVB8Vk3u7gju": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "n3TFqQqqRazlpUWTVEhok": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "1"
+    },
+    "x21iSbRxxV8bx6wMYe3zO": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    }
+  },
+  "info": {
+    "_postman_id": "dcdf0d08-48ae-4398-93dc-fa7306015d0e"
+  },
+  "_postman_exported_at": "2026-07-21T13:14:09.589Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

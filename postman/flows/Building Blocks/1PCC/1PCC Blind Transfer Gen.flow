@@ -65,7 +65,7 @@
             "name": "TransferCall -> Baresip Generic",
             "method": "GET"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -376,6 +376,6 @@
   "info": {
     "_postman_id": "42bf6a59-2f34-45a3-836e-6d872bab158e"
   },
-  "_postman_exported_at": "2026-07-21T09:29:26.578Z",
+  "_postman_exported_at": "2026-07-21T13:03:38.995Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
