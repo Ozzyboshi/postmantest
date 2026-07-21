@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "name": "A - B B takes - B Xfers to C - A hangs up new",
+  "name": "A - HG - B takes the call - B xfers to C - A hangs up",
   "description": "",
   "flow": {
-    "description": "A calls B\nB takes the call\nB blind transfers to C\nA hangs\nC takes the call\n\n",
+    "description": "A calls HG -> parallel to C and D\nC takes\nC blind transfer to D\nD takes\nA hangsup",
     "nodes": {
       "zgSHmoR1": {
         "type": "ev/endpoint@3",
@@ -30,7 +30,15 @@
               "__noIn": true
             },
             {
-              "id": "eeBqAcfL",
+              "id": "nf_1suwP",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "hg",
+              "__noIn": true
+            },
+            {
+              "id": "2QWIR8Xc",
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
@@ -47,8 +55,7 @@
           "data": {
             "triggerType": "ev/endpoint@3"
           },
-          "namedInputsExpanded": true,
-          "color": "orange"
+          "namedInputsExpanded": true
         }
       },
       "x5eFZYJb": {
@@ -63,16 +70,16 @@
           "variables": [
             {
               "id": "7GbzxorF",
-              "type": "portal/out@2",
-              "kind": "portal/out",
-              "value": "UULG1SF7",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
               "key": "caller"
             },
             {
               "id": "ldPhwM-O",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "w7OTT6Cv",
               "key": "callee"
             },
             {
@@ -140,8 +147,8 @@
       "kioRMdlj": {
         "type": "system/module@1",
         "pos": {
-          "x": 720,
-          "y": 88
+          "x": 760,
+          "y": 40
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Takecall Gen.flow",
@@ -204,8 +211,8 @@
       "c4_-rHPE": {
         "type": "DELAY",
         "pos": {
-          "x": 744,
-          "y": 320
+          "x": 792,
+          "y": 280
         },
         "config": {
           "delay": "2000"
@@ -217,8 +224,8 @@
       "FFIU233q": {
         "type": "system/module@1",
         "pos": {
-          "x": 360,
-          "y": 800
+          "x": 1128,
+          "y": 840
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Hangup Gen.flow",
@@ -228,7 +235,7 @@
               "id": "UaQt1d7x",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "UULG1SF7",
+              "value": "IxQcI9tR",
               "key": "hangupper"
             },
             {
@@ -263,11 +270,43 @@
           }
         }
       },
-      "xi5cMsRJ": {
+      "RONjEH_k": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 448,
+          "y": 392
+        },
+        "size": {
+          "width": 336,
+          "height": 120
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto",
+            "genericLabel": "CallId"
+          }
+        }
+      },
+      "w7OTT6Cv": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 168,
+          "y": 384
+        },
+        "config": {
+          "value": "hg"
+        },
+        "ui": {
+          "color": "grey",
+          "data": {}
+        }
+      },
+      "5JZZ9O05": {
         "type": "system/module@1",
         "pos": {
-          "x": 688,
-          "y": 432
+          "x": 1128,
+          "y": 176
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Blind Transfer Gen.flow",
@@ -284,7 +323,7 @@
               "id": "ROIG37iE",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "yQFr5eXB",
+              "value": "fwrVa1wl",
               "key": "callee"
             },
             {
@@ -324,38 +363,38 @@
           }
         }
       },
-      "yQFr5eXB": {
+      "fwrVa1wl": {
         "type": "portal/in@1",
         "pos": {
-          "x": 272,
-          "y": 344
+          "x": 144,
+          "y": 472
         },
         "config": {
           "value": "final_callee"
         },
         "ui": {
-          "color": "teal",
+          "color": "blue",
           "data": {}
         }
       },
-      "LfI_HxxG": {
+      "NZ1fXcTP": {
         "type": "DELAY",
         "pos": {
-          "x": -56,
-          "y": 376
+          "x": 1160,
+          "y": 440
         },
         "config": {
-          "delay": "2000"
+          "delay": "10000"
         },
         "ui": {
           "data": {}
         }
       },
-      "gvZd7_1-": {
+      "VPY4bIge": {
         "type": "system/module@1",
         "pos": {
-          "x": -120,
-          "y": 544
+          "x": 1160,
+          "y": 536
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/1PCC/1PCC Takecall Gen.flow",
@@ -365,8 +404,9 @@
               "id": "UaQt1d7x",
               "type": "portal/out@2",
               "kind": "portal/out",
-              "value": "yQFr5eXB",
-              "key": "takecaller"
+              "value": "fwrVa1wl",
+              "key": "takecaller",
+              "latch": true
             },
             {
               "id": "OnQrWbHO",
@@ -382,12 +422,16 @@
               {
                 "id": "UaQt1d7x",
                 "name": "takecaller",
-                "type": null
+                "typeDef": {
+                  "type": "string"
+                }
               },
               {
                 "id": "OnQrWbHO",
                 "name": "ip",
-                "type": null
+                "typeDef": {
+                  "type": "string"
+                }
               }
             ],
             "output": [],
@@ -397,34 +441,33 @@
         "ui": {
           "data": {
             "blockTitle": "1PCC Takecall Gen"
-          },
-          "globalsExpanded": true
+          }
         }
       },
-      "Y3zF8EbB": {
+      "QnIrW8_9": {
         "type": "DELAY",
         "pos": {
-          "x": 336,
-          "y": 672
+          "x": 1152,
+          "y": 760
         },
         "config": {
-          "delay": "2000"
+          "delay": "1000"
         },
         "ui": {
           "data": {}
         }
       },
-      "UULG1SF7": {
+      "IxQcI9tR": {
         "type": "portal/in@1",
         "pos": {
-          "x": 240,
-          "y": -128
+          "x": 256,
+          "y": -88
         },
         "config": {
           "value": "caller"
         },
         "ui": {
-          "color": "yellow",
+          "color": "pink",
           "data": {}
         }
       }
@@ -448,11 +491,11 @@
         "target": "zgSHmoR1",
         "targetPort": "inputs|J_Gl2jOi"
       },
-      "MXtOrcR4": {
+      "jhdCcZFE": {
         "source": "zgSHmoR1",
         "target": "x5eFZYJb",
-        "sourcePort": "output|J_Gl2jOi",
-        "targetPort": "variables|ldPhwM-O"
+        "sourcePort": "output|iiddXNuV",
+        "targetPort": "variables|7GbzxorF"
       },
       "_qHodiyb": {
         "source": "x5eFZYJb",
@@ -484,80 +527,98 @@
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "R_gjxB6K": {
-        "source": "c4_-rHPE",
-        "target": "xi5cMsRJ",
-        "sourcePort": "data",
-        "targetPort": "AI"
+      "q1Q5t-8P": {
+        "source": "x5eFZYJb",
+        "target": "RONjEH_k",
+        "sourcePort": "output|_1lRv_8_",
+        "targetPort": "data"
       },
-      "HpZubmvg": {
-        "source": "3c8BRfN-",
-        "sourcePort": "data",
-        "target": "xi5cMsRJ",
-        "targetPort": "variables|UaQt1d7x"
-      },
-      "nosG1oHq": {
-        "source": "rafmXFS1",
+      "tokJvtUd": {
+        "source": "uwXqQxSW",
         "sourcePort": "@",
         "target": "zgSHmoR1",
-        "targetPort": "inputs|eeBqAcfL"
+        "targetPort": "inputs|nf_1suwP"
       },
-      "97LEaJIb": {
+      "lxC7FoMb": {
         "source": "zgSHmoR1",
-        "target": "yQFr5eXB",
-        "sourcePort": "output|eeBqAcfL",
+        "target": "w7OTT6Cv",
+        "sourcePort": "output|nf_1suwP",
         "targetPort": "data"
       },
-      "htMUGYeb": {
-        "source": "yQFr5eXB",
+      "5TMTpzSG": {
+        "source": "w7OTT6Cv",
         "sourcePort": "data",
-        "target": "xi5cMsRJ",
-        "targetPort": "variables|ROIG37iE"
+        "target": "x5eFZYJb",
+        "targetPort": "variables|ldPhwM-O"
       },
-      "-D4m_tjt": {
-        "source": "xi5cMsRJ",
-        "target": "LfI_HxxG",
-        "sourcePort": "AO",
-        "targetPort": "data"
-      },
-      "aZyLdWZS": {
-        "source": "LfI_HxxG",
-        "target": "gvZd7_1-",
+      "OYPf8Gf5": {
+        "source": "c4_-rHPE",
+        "target": "5JZZ9O05",
         "sourcePort": "data",
         "targetPort": "AI"
       },
-      "HYxS7Dye": {
-        "source": "yQFr5eXB",
+      "I4Yuxs1M": {
+        "source": "3c8BRfN-",
         "sourcePort": "data",
-        "target": "gvZd7_1-",
+        "target": "5JZZ9O05",
         "targetPort": "variables|UaQt1d7x"
       },
-      "mGuOq7YU": {
-        "source": "gvZd7_1-",
-        "target": "Y3zF8EbB",
+      "NE-X1re1": {
+        "source": "FU1a21eZ",
+        "sourcePort": "@",
+        "target": "zgSHmoR1",
+        "targetPort": "inputs|2QWIR8Xc"
+      },
+      "EJDaffDY": {
+        "source": "zgSHmoR1",
+        "target": "fwrVa1wl",
+        "sourcePort": "output|2QWIR8Xc",
+        "targetPort": "data"
+      },
+      "Q9KSxCYl": {
+        "source": "fwrVa1wl",
+        "sourcePort": "data",
+        "target": "5JZZ9O05",
+        "targetPort": "variables|ROIG37iE"
+      },
+      "7s_b9q7D": {
+        "source": "5JZZ9O05",
+        "target": "NZ1fXcTP",
         "sourcePort": "AO",
         "targetPort": "data"
       },
-      "EJS0NBwi": {
-        "source": "Y3zF8EbB",
+      "chovoqy2": {
+        "source": "NZ1fXcTP",
+        "target": "VPY4bIge",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "Gj6xUJac": {
+        "source": "VPY4bIge",
+        "target": "QnIrW8_9",
+        "sourcePort": "AO",
+        "targetPort": "data"
+      },
+      "FDc8ZpXB": {
+        "source": "QnIrW8_9",
         "target": "FFIU233q",
         "sourcePort": "data",
         "targetPort": "AI"
       },
-      "Yvv2FY7p": {
+      "DVqsOn0y": {
+        "source": "fwrVa1wl",
+        "sourcePort": "data",
+        "target": "VPY4bIge",
+        "targetPort": "variables|UaQt1d7x"
+      },
+      "-5RMMQZa": {
         "source": "zgSHmoR1",
-        "target": "UULG1SF7",
+        "target": "IxQcI9tR",
         "sourcePort": "output|iiddXNuV",
         "targetPort": "data"
       },
-      "p4xvS7fT": {
-        "source": "UULG1SF7",
-        "sourcePort": "data",
-        "target": "x5eFZYJb",
-        "targetPort": "variables|7GbzxorF"
-      },
-      "VtDtdPRn": {
-        "source": "UULG1SF7",
+      "KvBTlKkI": {
+        "source": "IxQcI9tR",
         "sourcePort": "data",
         "target": "FFIU233q",
         "targetPort": "variables|UaQt1d7x"
@@ -586,7 +647,14 @@
           "type": "string"
         }
       },
-      "rafmXFS1": {
+      "uwXqQxSW": {
+        "type": "input",
+        "name": "hg",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "FU1a21eZ": {
         "type": "input",
         "name": "final_callee",
         "typeDef": {
@@ -599,11 +667,11 @@
     "scenes": {},
     "scenarios": {
       "zNlcBpaB": {
-        "name": "8470 -> 81471 -> 81472",
+        "name": "8470 -> HG -> 81471 xfer 81472",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "createdOn": 1782890484217,
-        "updatedOn": 1784122783331,
+        "updatedOn": 1784616725311,
         "data": {
           "Upqp3caQ": {
             "id": "Upqp3caQ",
@@ -615,8 +683,13 @@
             "key": "callee",
             "value": "81471"
           },
-          "rafmXFS1": {
-            "id": "rafmXFS1",
+          "uwXqQxSW": {
+            "id": "uwXqQxSW",
+            "key": "hg",
+            "value": "32399"
+          },
+          "FU1a21eZ": {
+            "id": "FU1a21eZ",
             "key": "final_callee",
             "value": "81472"
           }
@@ -625,34 +698,6 @@
     },
     "config": {
       "definitions": {
-        "LO6hHZbAgTAi6fb0TYgGl": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "",
-            "name": "domain"
-          }
-        },
-        "dCw7PcibarSTsL44l1PXn": {
-          "def": {
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "secret": false
-          },
-          "ui": {
-            "color": "grey",
-            "description": "{{base}}",
-            "name": "base"
-          }
-        },
         "dBxRsatbUgojcim-fTsC4": {
           "def": {
             "schema": {
@@ -672,26 +717,6 @@
     }
   },
   "lockbox": {
-    "LO6hHZbAgTAi6fb0TYgGl": {
-      "def": {
-        "schema": {
-          "type": "string"
-        },
-        "required": true,
-        "secret": false
-      },
-      "value": "{{domain}}"
-    },
-    "dCw7PcibarSTsL44l1PXn": {
-      "def": {
-        "schema": {
-          "type": "string"
-        },
-        "required": true,
-        "secret": false
-      },
-      "value": "{{base}}"
-    },
     "dBxRsatbUgojcim-fTsC4": {
       "def": {
         "schema": {
@@ -704,7 +729,7 @@
     }
   },
   "info": {
-    "_postman_id": "5476999e-c099-4f0e-bfd1-b46ec029530a"
+    "_postman_id": "dcddbd70-a454-4fcb-9fa3-09d6d7f0aba1"
   },
   "_postman_exported_at": "2026-07-21T09:29:27.974Z",
   "_postman_exported_using": "Postman/Local Mode"

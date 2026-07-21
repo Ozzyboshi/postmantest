@@ -525,6 +525,10 @@
     "e0251257-bfcc-416a-af15-9a1b79832410": {
       "path": "postman/flows/1PCC calls to HG/A - HG - B takes the call - A hangs up.flow",
       "dependencies": []
+    },
+    "dcddbd70-a454-4fcb-9fa3-09d6d7f0aba1": {
+      "path": "postman/flows/1PCC calls to HG/1PCC blind transfer/A - HG - B takes the call - B xfers to C - A hangs up.flow",
+      "dependencies": []
     }
   }
 }
