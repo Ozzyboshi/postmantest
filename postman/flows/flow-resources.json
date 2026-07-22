@@ -549,6 +549,53 @@
           }
         }
       ]
+    },
+    "69a364a0-0297-4422-a7c7-2f654f4e01c9": {
+      "path": "postman/flows/1PCC Multiple calls/2 Calls connected A calls B B calls C.flow",
+      "dependencies": []
+    },
+    "55349e84-a93f-4947-aec2-5b02abd1dc02": {
+      "path": "postman/flows/1PCC simple call/A - B A hangs up compact.flow",
+      "dependencies": [
+        {
+          "local": {
+            "collectionId": "12fcD2aC20D381db132C3CCC",
+            "requestId": "e93D7eA2Dabb3C7618b3CF0e",
+            "filePath": "postman/collections/Baresip Basics/Makecall - Baresip Generic compact.request.yaml"
+          },
+          "cloud": {
+            "collectionId": null,
+            "requestId": null
+          }
+        }
+      ]
+    },
+    "94524c35-23c3-4f3f-b81b-55cdf8b6ffd2": {
+      "path": "postman/flows/1PCC simple call/A - B B takes A hangs up compact.flow",
+      "dependencies": [
+        {
+          "local": {
+            "collectionId": "12fcD2aC20D381db132C3CCC",
+            "requestId": "e93D7eA2Dabb3C7618b3CF0e",
+            "filePath": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
+          },
+          "cloud": {
+            "collectionId": null,
+            "requestId": null
+          }
+        },
+        {
+          "local": {
+            "collectionId": "12fcD2aC20D381db132C3CCC",
+            "requestId": "Da8df8A8c39c3CDBDbA09AEB",
+            "filePath": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
+          },
+          "cloud": {
+            "collectionId": null,
+            "requestId": null
+          }
+        }
+      ]
     }
   }
 }

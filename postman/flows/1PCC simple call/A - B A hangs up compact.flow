@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "name": "A - B A hangs up compact",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "uWmCtqMC": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 200,
+          "y": -376
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "3wz3-vRw",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller",
+              "__noIn": true
+            },
+            {
+              "id": "cmEwtTVx",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true,
+          "color": "orange"
+        }
+      },
+      "qhhDN7xg": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 560,
+          "y": -464
+        },
+        "config": {
+          "element": {
+            "id": "e93D7eA2Dabb3C7618b3CF0e",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "Makecall -> Baresip compact",
+            "method": "GET"
+          },
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "4yNnQ0ew",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee",
+              "__noIn": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "WH0dnefa",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "tvXSI9TA": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1024,
+          "y": -88
+        },
+        "config": {
+          "delay": "5000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "wKMxXLB-": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1272,
+          "y": -168
+        },
+        "config": {
+          "element": {
+            "id": "Da8df8A8c39c3CDBDbA09AEB",
+            "collection": "12fcD2aC20D381db132C3CCC",
+            "inExtensibleCollection": true,
+            "name": "Hangup -> Baresip compact",
+            "method": "GET"
+          },
+          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "DOMjuDte",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "hangupper",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": false,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "K74jf1--": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1064,
+          "y": -512
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "s5Srs2y9",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresiptext",
+              "__noIn": true
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "s5Srs2y9",
+                "name": "baresiptext",
+                "typeDef": {
+                  "type": "string"
+                }
+              }
+            ],
+            "output": [
+              {
+                "id": "ZBap0MCT",
+                "name": "callid",
+                "typeDef": {}
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetCallidFrom1PCCMakeCall"
+          }
+        }
+      },
+      "tLZOMBs1": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 1504,
+          "y": -488
+        },
+        "size": {
+          "width": 328,
+          "height": 232
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "string|generic",
+            "genericLabel": "Callid"
+          }
+        }
+      }
+    },
+    "connections": {
+      "N_K_j3Mf": {
+        "source": "lFx048mg",
+        "sourcePort": "@",
+        "target": "uWmCtqMC",
+        "targetPort": "inputs|3wz3-vRw"
+      },
+      "Z9FzwlEB": {
+        "source": "e8XNaiQl",
+        "sourcePort": "@",
+        "target": "uWmCtqMC",
+        "targetPort": "inputs|cmEwtTVx"
+      },
+      "fa4hwNPF": {
+        "source": "uWmCtqMC",
+        "target": "qhhDN7xg",
+        "sourcePort": "output|3wz3-vRw",
+        "targetPort": "requestVariables|WH0dnefa"
+      },
+      "L5aWDkBi": {
+        "source": "uWmCtqMC",
+        "target": "qhhDN7xg",
+        "sourcePort": "output|cmEwtTVx",
+        "targetPort": "requestVariables|4yNnQ0ew"
+      },
+      "dwwnuZt7": {
+        "source": "uWmCtqMC",
+        "target": "qhhDN7xg",
+        "sourcePort": "output|cmEwtTVx",
+        "targetPort": "requestVariables|4yNnQ0ew"
+      },
+      "Agyvs6bY": {
+        "source": "qhhDN7xg",
+        "target": "tvXSI9TA",
+        "sourcePort": "success",
+        "targetPort": "data"
+      },
+      "L8SjH4MW": {
+        "source": "tvXSI9TA",
+        "target": "wKMxXLB-",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "nK-wmzMG": {
+        "source": "uWmCtqMC",
+        "target": "wKMxXLB-",
+        "sourcePort": "output|cmEwtTVx",
+        "targetPort": "requestVariables|DOMjuDte"
+      },
+      "l2U51Q6i": {
+        "source": "qhhDN7xg",
+        "target": "K74jf1--",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "p2NQ3p3R": {
+        "source": "K74jf1--",
+        "target": "tLZOMBs1",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "data"
+      },
+      "0XaKOIR4": {
+        "source": "qhhDN7xg",
+        "target": "K74jf1--",
+        "sourcePort": "success",
+        "targetPort": "variables|s5Srs2y9"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "lFx048mg": {
+        "type": "input",
+        "name": "caller",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "e8XNaiQl": {
+        "type": "input",
+        "name": "callee",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "58_gGq_m": {
+        "name": "Start Trigger",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1784718179942,
+        "updatedOn": 1784727857377,
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "81470"
+          },
+          "KTifqP-h": {
+            "id": "KTifqP-h",
+            "key": "callee",
+            "value": "81471"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "81471"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "55349e84-a93f-4947-aec2-5b02abd1dc02"
+  },
+  "_postman_exported_at": "2026-07-22T15:56:14.822Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

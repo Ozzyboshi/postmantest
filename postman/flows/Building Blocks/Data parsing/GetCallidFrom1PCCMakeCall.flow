@@ -37,12 +37,12 @@
       "IZdadVDR": {
         "type": "logic/manipulate@1",
         "pos": {
-          "x": 352,
-          "y": -8
+          "x": 520,
+          "y": -288
         },
         "size": {
-          "width": 304,
-          "height": 104
+          "width": 696,
+          "height": 72
         },
         "config": {
           "language": "ts",
@@ -188,6 +188,6 @@
   "info": {
     "_postman_id": "cc166664-006e-480f-ae55-5050759a8b29"
   },
-  "_postman_exported_at": "2026-04-23T07:34:41.772Z",
+  "_postman_exported_at": "2026-07-22T15:36:46.694Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

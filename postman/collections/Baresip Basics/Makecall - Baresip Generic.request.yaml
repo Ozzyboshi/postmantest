@@ -19,4 +19,9 @@ scripts:
           return callId;
       }
     language: text/javascript
+  - type: beforeRequest
+    code: |-
+      let ciao = pm.environment.get("baresip_ip");
+      console.log(ciao);
+    language: text/javascript
 order: 2000

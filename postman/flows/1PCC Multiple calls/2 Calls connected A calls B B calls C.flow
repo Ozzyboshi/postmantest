@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "name": "2 Calls connected A calls B B calls C",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "lu_dtjfY": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "hLMCEjYn",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "A",
+              "__noIn": true
+            },
+            {
+              "id": "c1Q5uRhj",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "B",
+              "__noIn": true
+            },
+            {
+              "id": "RDPHRzd5",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "C",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true,
+          "color": "orange"
+        }
+      },
+      "0xJRFqIg": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 368,
+          "y": -152
+        },
+        "config": {
+          "flowId": "postman/flows/1PCC simple call/A - B B takes A hangs up compact.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "lFx048mg",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller"
+            },
+            {
+              "id": "e8XNaiQl",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "lFx048mg",
+                "name": "caller",
+                "type": null
+              },
+              {
+                "id": "e8XNaiQl",
+                "name": "callee",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "vWHqLa2Z",
+                "name": "callid",
+                "type": null
+              },
+              {
+                "id": "kLQjJApg",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "A - B B takes A hangs up compact"
+          }
+        }
+      },
+      "oo58_rcH": {
+        "type": "DELAY",
+        "pos": {
+          "x": 432,
+          "y": 72
+        },
+        "config": {
+          "delay": "1000"
+        },
+        "ui": {
+          "color": "orange",
+          "data": {}
+        }
+      },
+      "1gAY6lGm": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 752,
+          "y": 80
+        },
+        "config": {
+          "flowId": "postman/flows/1PCC simple call/A - B B takes A hangs up compact.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "lFx048mg",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller"
+            },
+            {
+              "id": "e8XNaiQl",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "lFx048mg",
+                "name": "caller",
+                "type": null
+              },
+              {
+                "id": "e8XNaiQl",
+                "name": "callee",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "vWHqLa2Z",
+                "name": "callid",
+                "type": null
+              },
+              {
+                "id": "kLQjJApg",
+                "name": "Flow tests",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "A - B B takes A hangs up compact"
+          }
+        }
+      },
+      "EO9-1P1T": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 1208,
+          "y": -184
+        },
+        "size": {
+          "width": 328,
+          "height": 232
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto",
+            "genericLabel": "Call 1"
+          }
+        }
+      },
+      "XIOKUlZG": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 1224,
+          "y": 104
+        },
+        "size": {
+          "width": 328,
+          "height": 232
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto",
+            "genericLabel": "Call 2"
+          }
+        }
+      }
+    },
+    "connections": {
+      "ahYX0cnp": {
+        "source": "KhpQhofy",
+        "sourcePort": "@",
+        "target": "lu_dtjfY",
+        "targetPort": "inputs|hLMCEjYn"
+      },
+      "ZiMARI5z": {
+        "source": "h6hgbQLS",
+        "sourcePort": "@",
+        "target": "lu_dtjfY",
+        "targetPort": "inputs|c1Q5uRhj"
+      },
+      "T5xmwjq2": {
+        "source": "z2Uch-t3",
+        "sourcePort": "@",
+        "target": "lu_dtjfY",
+        "targetPort": "inputs|RDPHRzd5"
+      },
+      "SvsN9epW": {
+        "source": "lu_dtjfY",
+        "target": "0xJRFqIg",
+        "sourcePort": "output|hLMCEjYn",
+        "targetPort": "AI"
+      },
+      "lmz5qxTa": {
+        "source": "lu_dtjfY",
+        "target": "0xJRFqIg",
+        "sourcePort": "output|c1Q5uRhj",
+        "targetPort": "variables|e8XNaiQl"
+      },
+      "xcRPMOks": {
+        "source": "lu_dtjfY",
+        "target": "0xJRFqIg",
+        "sourcePort": "output|hLMCEjYn",
+        "targetPort": "variables|lFx048mg"
+      },
+      "nOn2qfdF": {
+        "source": "lu_dtjfY",
+        "target": "oo58_rcH",
+        "sourcePort": "output|c1Q5uRhj",
+        "targetPort": "data"
+      },
+      "N9gf30ry": {
+        "source": "oo58_rcH",
+        "target": "1gAY6lGm",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "AP-IP3se": {
+        "source": "lu_dtjfY",
+        "target": "1gAY6lGm",
+        "sourcePort": "output|c1Q5uRhj",
+        "targetPort": "variables|lFx048mg"
+      },
+      "1wiWphPB": {
+        "source": "lu_dtjfY",
+        "target": "1gAY6lGm",
+        "sourcePort": "output|RDPHRzd5",
+        "targetPort": "variables|e8XNaiQl"
+      },
+      "xcpptJs5": {
+        "source": "0xJRFqIg",
+        "target": "EO9-1P1T",
+        "sourcePort": "output|vWHqLa2Z",
+        "targetPort": "data"
+      },
+      "-5tsPkd-": {
+        "source": "1gAY6lGm",
+        "target": "XIOKUlZG",
+        "sourcePort": "output|vWHqLa2Z",
+        "targetPort": "data"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "KhpQhofy": {
+        "type": "input",
+        "name": "A",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "h6hgbQLS": {
+        "type": "input",
+        "name": "B",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "z2Uch-t3": {
+        "type": "input",
+        "name": "C",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "LR2nPro1": {
+        "name": "81470 - 81471 - 81472",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1784707718769,
+        "updatedOn": 1784707954085,
+        "data": {
+          "KhpQhofy": {
+            "id": "KhpQhofy",
+            "key": "A",
+            "value": "81470"
+          },
+          "h6hgbQLS": {
+            "id": "h6hgbQLS",
+            "key": "B",
+            "value": "81471"
+          },
+          "z2Uch-t3": {
+            "id": "z2Uch-t3",
+            "key": "C",
+            "value": "81472"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "ll3DcOJc7_VScgIQkEXAa": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    }
+  },
+  "info": {
+    "_postman_id": "69a364a0-0297-4422-a7c7-2f654f4e01c9"
+  },
+  "_postman_exported_at": "2026-07-22T15:59:43.524Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

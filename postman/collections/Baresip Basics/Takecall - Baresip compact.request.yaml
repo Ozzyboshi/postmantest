@@ -1,0 +1,42 @@
+$kind: http-request
+name: Takecall -> Baresip compact
+url: http://localhost:8000/?takecaller={{takecaller}}
+method: GET
+queryParams:
+  takecaller: "{{takecaller}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      let text = pm.response.text();
+
+      let match = text.match(/call id:([^\r\n]+)/);
+
+      if (match) {
+          let callId = match[1].trim();
+          console.log("Created callid ###" + callId + "###");
+
+          pm.environment.set("callId", callId);
+          return callId;
+      }
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      let ip = pm.environment.get("baresip_ip");
+
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("takecaller"));
+      console.log("takecaller is " + input_number);
+
+      input_number = input_number.replace(/@.*$/, '').slice(-7);
+
+      const num = parseInt(input_number, 10);
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = ip.split(".");
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?a";
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 2111
