@@ -116,7 +116,7 @@
             "name": "Hangup -> Baresip compact",
             "method": "GET"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -131,7 +131,7 @@
           ],
           "scriptsModifyEnvVars": true,
           "ignoreTestResults": true,
-          "trackGlobalEnvironment": false,
+          "trackGlobalEnvironment": true,
           "requestVariables__expanded": true
         },
         "ui": {
@@ -223,7 +223,8 @@
               "kind": "reference",
               "value": "",
               "key": "takecaller",
-              "__noIn": true
+              "__noIn": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -461,6 +462,6 @@
   "info": {
     "_postman_id": "94524c35-23c3-4f3f-b81b-55cdf8b6ffd2"
   },
-  "_postman_exported_at": "2026-07-22T15:56:14.824Z",
+  "_postman_exported_at": "2026-07-24T08:40:19.399Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

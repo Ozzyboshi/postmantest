@@ -8,8 +8,8 @@
       "uWmCtqMC": {
         "type": "ev/endpoint@3",
         "pos": {
-          "x": 200,
-          "y": -376
+          "x": 208,
+          "y": -392
         },
         "config": {
           "inputs": [
@@ -51,11 +51,9 @@
         },
         "config": {
           "element": {
-            "id": "e93D7eA2Dabb3C7618b3CF0e",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Makecall -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -110,13 +108,11 @@
         },
         "config": {
           "element": {
-            "id": "Da8df8A8c39c3CDBDbA09AEB",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Hangup -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -131,7 +127,7 @@
           ],
           "scriptsModifyEnvVars": true,
           "ignoreTestResults": true,
-          "trackGlobalEnvironment": false,
+          "trackGlobalEnvironment": true,
           "requestVariables__expanded": true
         },
         "ui": {
@@ -154,8 +150,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -164,16 +159,14 @@
               {
                 "id": "s5Srs2y9",
                 "name": "baresiptext",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "ZBap0MCT",
                 "name": "callid",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -301,11 +294,11 @@
     "scenes": {},
     "scenarios": {
       "58_gGq_m": {
-        "name": "Start Trigger",
+        "name": "81470 -> 81471",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "createdOn": 1784718179942,
-        "updatedOn": 1784727857377,
+        "updatedOn": 1784819763668,
         "data": {
           "lFx048mg": {
             "id": "lFx048mg",
@@ -323,6 +316,44 @@
             "value": "81471"
           }
         }
+      },
+      "wXvIo9qm": {
+        "name": "Pstn1 -> 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "+393381625435@pstn1"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "81471@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1784819766882,
+        "updatedOn": 1784821916339
+      },
+      "Wpkglvdv": {
+        "name": "Pstn1 -> Pstn2",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "+393381625435"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "+393336344407@mypstn2"
+          }
+        },
+        "createdOn": 1784876229676,
+        "updatedOn": 1784876991567
       }
     },
     "config": {
@@ -334,6 +365,6 @@
   "info": {
     "_postman_id": "55349e84-a93f-4947-aec2-5b02abd1dc02"
   },
-  "_postman_exported_at": "2026-07-22T15:56:14.822Z",
+  "_postman_exported_at": "2026-07-27T07:05:51.298Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

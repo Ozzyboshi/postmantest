@@ -1,10 +1,10 @@
 $kind: http-request
-name: Makecall -> Baresip compact
-url: http://localhost:8000/?caller={{caller}}&callee={{callee}}
+name: DelCustomHeader -> Baresip compact
+url: http://localhost:8000/?useragent={{useragent}}&headername={{headername}}
 method: GET
 queryParams:
-  caller: "{{caller}}"
-  callee: "{{callee}}"
+  useragent: "{{useragent}}"
+  headername: "{{headername}}"
 scripts:
   - type: afterResponse
     code: |-
@@ -17,7 +17,6 @@ scripts:
           console.log("Created callid ###" + callId + "###");
 
           pm.environment.set("callId", callId);
-          pm.globals.set("callId",callId);
           return callId;
       }
     language: text/javascript
@@ -25,10 +24,11 @@ scripts:
     code: |-
       let ip = pm.environment.get("baresip_ip");
 
-      let input_number = pm.variables.replaceIn(pm.request.url.query.get("caller"));
-      let callee       = pm.variables.replaceIn(pm.request.url.query.get("callee"));
-      console.log("Caller is " + input_number);
-      console.log("Callee is " + callee);
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("useragent"));
+      console.log("baresip useragent is " + input_number);
+
+      let header_name = pm.variables.replaceIn(pm.request.url.query.get("headername"));
+      console.log("Header name is " + header_name);
 
       input_number = input_number.replace(/@.*$/, '').slice(-7);
 
@@ -38,9 +38,9 @@ scripts:
       const b = n % 256;
 
       const parts = ip.split(".");
-      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?d" + encodeURIComponent(callee);
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?/uarmheader%20"+header_name+"%200";
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2035
+order: 2107

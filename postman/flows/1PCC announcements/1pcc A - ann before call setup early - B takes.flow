@@ -186,8 +186,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "8P-hNUeB",
-              "key": "callee",
-              "latch": true
+              "key": "callee"
             }
           ],
           "globals": [
@@ -218,9 +217,7 @@
               {
                 "id": "ROIG37iE",
                 "name": "callee",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -278,8 +275,7 @@
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "BjU3PmH1",
-              "key": "hangupper",
-              "latch": true
+              "key": "hangupper"
             }
           ],
           "globals": [
@@ -310,9 +306,7 @@
               {
                 "id": "UaQt1d7x",
                 "name": "hangupper",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [],
@@ -588,6 +582,6 @@
   "info": {
     "_postman_id": "57e7c713-d572-4571-8099-d10491cd14e4"
   },
-  "_postman_exported_at": "2026-06-09T07:14:51.723Z",
+  "_postman_exported_at": "2026-07-23T09:36:46.345Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
