@@ -50,11 +50,9 @@
         },
         "config": {
           "element": {
-            "id": "beB61D63faDaa2bcDFED3e26",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Holdcall Generic",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Holdcall Generic.request.yaml"
           },
           "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",

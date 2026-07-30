@@ -103,11 +103,9 @@
         },
         "config": {
           "element": {
-            "id": "9DAA6Dab2dd6b1b0B1b9CbeB",
-            "collection": "d80DED47F12ff582aA8A3F2D",
-            "inExtensibleCollection": true,
             "name": "Makecall generic",
-            "method": "POST"
+            "method": "POST",
+            "path": "postman/collections/3pcc/Makecall generic.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",

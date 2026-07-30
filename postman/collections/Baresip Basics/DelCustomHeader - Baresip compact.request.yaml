@@ -22,6 +22,7 @@ scripts:
     language: text/javascript
   - type: beforeRequest
     code: |-
+      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("useragent") ?? ""));
       let ip = pm.environment.get("baresip_ip");
 
       let input_number = pm.variables.replaceIn(pm.request.url.query.get("useragent"));
@@ -31,8 +32,12 @@ scripts:
       console.log("Header name is " + header_name);
 
       input_number = input_number.replace(/@.*$/, '').slice(-7);
+      let num = parseInt(input_number, 10);
+      if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
 
-      const num = parseInt(input_number, 10);
       const n = num % 65536;
       const a = Math.floor(n / 256);
       const b = n % 256;

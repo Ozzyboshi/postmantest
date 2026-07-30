@@ -176,11 +176,9 @@
         },
         "config": {
           "element": {
-            "id": "BDbe108d706340Afa7ca77cB",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "TakeCall Generic",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/TakeCall Generic.request.yaml"
           },
           "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
           "parseBody": "auto",

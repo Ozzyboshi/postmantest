@@ -164,11 +164,9 @@
         },
         "config": {
           "element": {
-            "id": "Ce86EA2f99f52f56bC872b8e",
-            "collection": "d80DED47F12ff582aA8A3F2D",
-            "inExtensibleCollection": true,
             "name": "Blind transfer",
-            "method": "POST"
+            "method": "POST",
+            "path": "postman/collections/3pcc/Blind transfer.request.yaml"
           },
           "environment": null,
           "parseBody": "auto",

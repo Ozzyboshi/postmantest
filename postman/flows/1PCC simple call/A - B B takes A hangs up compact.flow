@@ -51,11 +51,9 @@
         },
         "config": {
           "element": {
-            "id": "e93D7eA2Dabb3C7618b3CF0e",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Makecall -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -110,11 +108,9 @@
         },
         "config": {
           "element": {
-            "id": "Da8df8A8c39c3CDBDbA09AEB",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Hangup -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -208,11 +204,9 @@
         },
         "config": {
           "element": {
-            "id": "cF74EeF58d4Bc6c21FEEcDBe",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Takecall -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",

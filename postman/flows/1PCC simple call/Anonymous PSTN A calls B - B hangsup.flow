@@ -115,11 +115,9 @@
         },
         "config": {
           "element": {
-            "id": "E2efbb3a346A7Ff4a966df0b",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Makecall -> Baresip Generic",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Makecall - Baresip Generic.request.yaml"
           },
           "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
           "parseBody": "auto",

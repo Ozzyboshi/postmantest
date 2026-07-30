@@ -163,11 +163,9 @@
         },
         "config": {
           "element": {
-            "id": "B23Bfa0BAEAAd5B77cF36a9B",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "TransferCall -> Baresip Generic",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/TransferCall - Baresip Generic.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",

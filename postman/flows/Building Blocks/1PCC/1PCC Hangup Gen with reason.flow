@@ -140,11 +140,9 @@
         },
         "config": {
           "element": {
-            "id": "7f54ecb93bb8589Cd71a7e2e",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Hangup Baresip Generic with code and reason",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup Baresip Generic with code and reason.request.yaml"
           },
           "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
           "parseBody": "auto",

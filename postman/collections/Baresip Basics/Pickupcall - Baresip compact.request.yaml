@@ -1,9 +1,10 @@
 $kind: http-request
-name: Takecall -> Baresip compact
-url: http://localhost:8000/?takecaller={{takecaller}}
+name: Pickupcall -> Baresip compact
+url: http://localhost:8000/?pickupper={{pickupper}}&pickupped={{pickupped}}
 method: GET
 queryParams:
-  takecaller: "{{takecaller}}"
+  pickupper: "{{pickupper}}"
+  pickupped: "{{pickupped}}"
 scripts:
   - type: afterResponse
     code: |-
@@ -16,16 +17,19 @@ scripts:
           console.log("Created callid ###" + callId + "###");
 
           pm.environment.set("callId", callId);
+          pm.globals.set("callId",callId);
           return callId;
       }
     language: text/javascript
   - type: beforeRequest
     code: |-
-      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("takecaller") ?? ""));
+      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("pickupper") ?? ""));
       let ip = pm.environment.get("baresip_ip");
 
-      let input_number = pm.variables.replaceIn(pm.request.url.query.get("takecaller"));
-      console.log("takecaller is " + input_number);
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("pickupper"));
+      let callee       = "*99*"+pm.variables.replaceIn(pm.request.url.query.get("pickupped"));
+      console.log("Pickupper is " + input_number);
+      console.log("pickupped is " + callee);
 
       input_number = input_number.replace(/@.*$/, '').slice(-7);
       let num = parseInt(input_number, 10);
@@ -39,9 +43,9 @@ scripts:
       const b = n % 256;
 
       const parts = ip.split(".");
-      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?a";
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?d" + encodeURIComponent(callee);
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2111
+order: 2058

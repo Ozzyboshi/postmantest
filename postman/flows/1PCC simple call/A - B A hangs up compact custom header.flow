@@ -51,11 +51,9 @@
         },
         "config": {
           "element": {
-            "id": "e93D7eA2Dabb3C7618b3CF0e",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Makecall -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -112,11 +110,9 @@
         },
         "config": {
           "element": {
-            "id": "Da8df8A8c39c3CDBDbA09AEB",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "Hangup -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -239,11 +235,9 @@
         },
         "config": {
           "element": {
-            "id": "18907f56bBF65a7fD6a5dA9a",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "AddCustomHeader -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -291,11 +285,9 @@
         },
         "config": {
           "element": {
-            "id": "ecEbFbC7FBfdEBd09EFdCcAD",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "DelCustomHeader -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -335,11 +327,9 @@
         },
         "config": {
           "element": {
-            "id": "18907f56bBF65a7fD6a5dA9a",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "AddCustomHeader -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -387,11 +377,9 @@
         },
         "config": {
           "element": {
-            "id": "ecEbFbC7FBfdEBd09EFdCcAD",
-            "collection": "12fcD2aC20D381db132C3CCC",
-            "inExtensibleCollection": true,
             "name": "DelCustomHeader -> Baresip compact",
-            "method": "GET"
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
           },
           "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
           "parseBody": "auto",
@@ -641,6 +629,44 @@
         },
         "createdOn": 1784876229676,
         "updatedOn": 1784876991567
+      },
+      "ataAtG6A": {
+        "name": "Pstn1 anonymous",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "anonymous@anonymous.invalid"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "+393336344407@mypstn2"
+          }
+        },
+        "createdOn": 1785234139567,
+        "updatedOn": 1785234772687
+      },
+      "gw0roo5P": {
+        "name": "Caller PSTN anonymous -> 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "anonymous@anonymous.invalid"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "81471@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1785418152319,
+        "updatedOn": 1785418299934
       }
     },
     "config": {
@@ -652,6 +678,6 @@
   "info": {
     "_postman_id": "694023c1-b0cc-4aeb-be6c-bb153d584d87"
   },
-  "_postman_exported_at": "2026-07-24T13:34:42.445Z",
+  "_postman_exported_at": "2026-07-30T15:49:05.609Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

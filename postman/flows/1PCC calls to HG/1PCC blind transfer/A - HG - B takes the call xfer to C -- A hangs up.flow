@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A - HG - B takes the call - A hangs up",
+  "name": "A - HG - B takes the call + xfer to C -- A hangs up",
   "description": "",
   "flow": {
     "description": "Call to hg then member\nMember takes the call\nCaller hangs up",
@@ -35,6 +35,14 @@
               "kind": "reference",
               "value": "",
               "key": "hg",
+              "__noIn": true
+            },
+            {
+              "id": "GCFQRrkx",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "final_callee",
               "__noIn": true
             }
           ],
@@ -93,8 +101,8 @@
       "RONjEH_k": {
         "type": "output/viewer@1",
         "pos": {
-          "x": 1176,
-          "y": 8
+          "x": 1064,
+          "y": 392
         },
         "size": {
           "width": 336,
@@ -143,7 +151,8 @@
               "kind": "portal/out",
               "value": "oTDwa0-4",
               "key": "caller",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             },
             {
               "id": "XGkXs-PL",
@@ -151,7 +160,8 @@
               "kind": "portal/out",
               "value": "w7OTT6Cv",
               "key": "callee",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -199,41 +209,8 @@
               "kind": "portal/out",
               "value": "3c8BRfN-",
               "key": "takecaller",
-              "latch": true
-            }
-          ],
-          "scriptsModifyEnvVars": true,
-          "ignoreTestResults": true,
-          "trackGlobalEnvironment": true,
-          "requestVariables__expanded": true
-        },
-        "ui": {
-          "data": {},
-          "namedInputsExpanded": true
-        }
-      },
-      "ofhRXzcM": {
-        "type": "task/http-request@2",
-        "pos": {
-          "x": 736,
-          "y": 240
-        },
-        "config": {
-          "element": {
-            "name": "Hangup -> Baresip compact",
-            "method": "GET",
-            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
-          },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
-          "parseBody": "auto",
-          "requestVariables": [
-            {
-              "id": "-esxzR_c",
-              "type": "portal/out@2",
-              "kind": "portal/out",
-              "value": "oTDwa0-4",
-              "key": "hangupper",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -249,8 +226,8 @@
       "IeFI_K54": {
         "type": "system/module@1",
         "pos": {
-          "x": 1192,
-          "y": -224
+          "x": 1064,
+          "y": 144
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
@@ -261,8 +238,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -271,16 +247,14 @@
               {
                 "id": "s5Srs2y9",
                 "name": "baresiptext",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "ZBap0MCT",
                 "name": "callid",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -290,6 +264,109 @@
           "data": {
             "blockTitle": "GetCallidFrom1PCCMakeCall"
           }
+        }
+      },
+      "QvgJalC4": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 344,
+          "y": 232
+        },
+        "config": {
+          "element": {
+            "name": "Transfercall -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Transfercall - Baresip compact.request.yaml"
+          },
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "1V8Drk84",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "3c8BRfN-",
+              "key": "transferor",
+              "latch": true
+            },
+            {
+              "id": "t95Cd0LS",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "K_CzngCf",
+              "key": "callee",
+              "latch": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "K_CzngCf": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": -24,
+          "y": 552
+        },
+        "config": {
+          "value": "final_callee"
+        },
+        "ui": {
+          "color": "teal",
+          "data": {}
+        }
+      },
+      "OIXkqGBF": {
+        "type": "DELAY",
+        "pos": {
+          "x": 736,
+          "y": 240
+        },
+        "config": {
+          "delay": "5000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "JzXccZhL": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 720,
+          "y": 312
+        },
+        "config": {
+          "element": {
+            "name": "Hangup -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
+          },
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "O4DbVFBq",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "oTDwa0-4",
+              "key": "hangupper",
+              "latch": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
         }
       }
     },
@@ -354,18 +431,6 @@
         "sourcePort": "success",
         "targetPort": "data"
       },
-      "mwJWllYe": {
-        "source": "c4_-rHPE",
-        "target": "ofhRXzcM",
-        "sourcePort": "data",
-        "targetPort": "AI"
-      },
-      "Zme8TyLk": {
-        "source": "oTDwa0-4",
-        "sourcePort": "data",
-        "target": "ofhRXzcM",
-        "targetPort": "requestVariables|-esxzR_c"
-      },
       "_GleFqTt": {
         "source": "3c8BRfN-",
         "sourcePort": "data",
@@ -401,6 +466,54 @@
         "sourcePort": "data",
         "target": "Z51TLtPl",
         "targetPort": "requestVariables|XGkXs-PL"
+      },
+      "Y38fHl2S": {
+        "source": "c4_-rHPE",
+        "target": "QvgJalC4",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "pE3DzhkK": {
+        "source": "UrD5TPyB",
+        "sourcePort": "@",
+        "target": "zgSHmoR1",
+        "targetPort": "inputs|GCFQRrkx"
+      },
+      "rKwCgyWd": {
+        "source": "zgSHmoR1",
+        "target": "K_CzngCf",
+        "sourcePort": "output|GCFQRrkx",
+        "targetPort": "data"
+      },
+      "i4dtH_bC": {
+        "source": "3c8BRfN-",
+        "sourcePort": "data",
+        "target": "QvgJalC4",
+        "targetPort": "requestVariables|1V8Drk84"
+      },
+      "Tl8akkaQ": {
+        "source": "K_CzngCf",
+        "sourcePort": "data",
+        "target": "QvgJalC4",
+        "targetPort": "requestVariables|t95Cd0LS"
+      },
+      "px49hup-": {
+        "source": "QvgJalC4",
+        "target": "OIXkqGBF",
+        "sourcePort": "success",
+        "targetPort": "data"
+      },
+      "BowVVBBs": {
+        "source": "OIXkqGBF",
+        "target": "JzXccZhL",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "nENexpLQ": {
+        "source": "oTDwa0-4",
+        "sourcePort": "data",
+        "target": "JzXccZhL",
+        "targetPort": "requestVariables|O4DbVFBq"
       }
     },
     "annotations": {},
@@ -432,6 +545,13 @@
         "typeDef": {
           "type": "string"
         }
+      },
+      "UrD5TPyB": {
+        "type": "input",
+        "name": "final_callee",
+        "typeDef": {
+          "type": "string"
+        }
       }
     },
     "ports": {},
@@ -439,11 +559,11 @@
     "scenes": {},
     "scenarios": {
       "zNlcBpaB": {
-        "name": "81470 -> HG 32399 -> 81471",
+        "name": "81470->HG 32399->81471->81472",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "createdOn": 1782890484217,
-        "updatedOn": 1785320781779,
+        "updatedOn": 1785321326325,
         "data": {
           "Upqp3caQ": {
             "id": "Upqp3caQ",
@@ -459,8 +579,42 @@
             "id": "uwXqQxSW",
             "key": "hg",
             "value": "32399"
+          },
+          "UrD5TPyB": {
+            "id": "UrD5TPyB",
+            "key": "final_callee",
+            "value": "81472"
           }
         }
+      },
+      "uM3NSDGX": {
+        "name": "pstn hf + bt",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "Upqp3caQ": {
+            "id": "Upqp3caQ",
+            "key": "caller",
+            "value": "+393381625435"
+          },
+          "IGx8vmBe": {
+            "id": "IGx8vmBe",
+            "key": "callee",
+            "value": "81471"
+          },
+          "uwXqQxSW": {
+            "id": "uwXqQxSW",
+            "key": "hg",
+            "value": "32399@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          },
+          "UrD5TPyB": {
+            "id": "UrD5TPyB",
+            "key": "final_callee",
+            "value": "81472"
+          }
+        },
+        "createdOn": 1785328893737,
+        "updatedOn": 1785329438006
       }
     },
     "config": {
@@ -470,8 +624,8 @@
   },
   "lockbox": {},
   "info": {
-    "_postman_id": "d1a497b6-98aa-43e6-8df1-688db57acba1"
+    "_postman_id": "8c09479d-2bca-4b9b-a5b2-d1c36f2920d5"
   },
-  "_postman_exported_at": "2026-07-29T10:32:41.060Z",
+  "_postman_exported_at": "2026-07-29T12:50:39.031Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

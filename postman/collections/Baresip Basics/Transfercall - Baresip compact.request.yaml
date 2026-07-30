@@ -1,9 +1,10 @@
 $kind: http-request
-name: Takecall -> Baresip compact
-url: http://localhost:8000/?takecaller={{takecaller}}
+name: Transfercall -> Baresip compact
+url: http://localhost:8000/?transferor={{transferor}}&callee={{callee}}
 method: GET
 queryParams:
-  takecaller: "{{takecaller}}"
+  transferor: "{{transferor}}"
+  callee: "{{callee}}"
 scripts:
   - type: afterResponse
     code: |-
@@ -16,32 +17,30 @@ scripts:
           console.log("Created callid ###" + callId + "###");
 
           pm.environment.set("callId", callId);
+          pm.globals.set("callId",callId);
           return callId;
       }
     language: text/javascript
   - type: beforeRequest
     code: |-
-      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("takecaller") ?? ""));
       let ip = pm.environment.get("baresip_ip");
 
-      let input_number = pm.variables.replaceIn(pm.request.url.query.get("takecaller"));
-      console.log("takecaller is " + input_number);
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("transferor"));
+      let callee       = pm.variables.replaceIn(pm.request.url.query.get("callee"));
+      console.log("Transferor is " + input_number);
+      console.log("Callee is " + callee);
 
       input_number = input_number.replace(/@.*$/, '').slice(-7);
-      let num = parseInt(input_number, 10);
-      if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
-          num = 2;
-          console.log("maybe anonymous, new number is " + num);
-      }
 
+      const num = parseInt(input_number, 10);
       const n = num % 65536;
       const a = Math.floor(n / 256);
       const b = n % 256;
 
       const parts = ip.split(".");
-      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?a";
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?t" + encodeURIComponent(callee);
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2111
+order: 2060
