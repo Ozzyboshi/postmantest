@@ -9,7 +9,7 @@
         "type": "ev/endpoint@3",
         "pos": {
           "x": 50,
-          "y": 218
+          "y": 479
         },
         "config": {
           "inputs": [
@@ -54,7 +54,7 @@
         "type": "portal/in@1",
         "pos": {
           "x": 352,
-          "y": 0
+          "y": 81
         },
         "config": {
           "value": "caller"
@@ -68,7 +68,7 @@
         "type": "portal/in@1",
         "pos": {
           "x": 352,
-          "y": 290.5
+          "y": 488
         },
         "config": {
           "value": "callee"
@@ -81,8 +81,8 @@
       "XSvpwLcH": {
         "type": "DELAY",
         "pos": {
-          "x": 886,
-          "y": 197
+          "x": 938,
+          "y": 235
         },
         "config": {
           "delay": "2000"
@@ -94,8 +94,8 @@
       "A9REWWxc": {
         "type": "DELAY",
         "pos": {
-          "x": 1482,
-          "y": 384
+          "x": 1666,
+          "y": 351
         },
         "config": {
           "delay": "3000"
@@ -108,7 +108,7 @@
         "type": "task/http-request@2",
         "pos": {
           "x": 536,
-          "y": 61
+          "y": 176
         },
         "config": {
           "element": {
@@ -151,8 +151,8 @@
       "xnYQb0yN": {
         "type": "portal/in@1",
         "pos": {
-          "x": 917,
-          "y": 445
+          "x": 969,
+          "y": 732.5
         },
         "config": {
           "value": "pickupper"
@@ -165,8 +165,8 @@
       "neZ47byW": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1728,
-          "y": 81
+          "x": 1978,
+          "y": 0
         },
         "config": {
           "element": {
@@ -200,8 +200,8 @@
       "1bC2AXc9": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1132,
-          "y": 248
+          "x": 1250,
+          "y": 451
         },
         "config": {
           "element": {
@@ -244,8 +244,8 @@
       "9_oieIdj": {
         "type": "system/module@1",
         "pos": {
-          "x": 1024,
-          "y": -64
+          "x": 1614,
+          "y": 592
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
@@ -256,8 +256,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -266,16 +265,14 @@
               {
                 "id": "s5Srs2y9",
                 "name": "baresiptext",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "ZBap0MCT",
                 "name": "callid",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -290,8 +287,8 @@
       "JpgmlYsD": {
         "type": "output/viewer@1",
         "pos": {
-          "x": 1376,
-          "y": -40
+          "x": 1964,
+          "y": 564
         },
         "size": {
           "width": 328,
@@ -308,8 +305,8 @@
       "iHbuvSOE": {
         "type": "system/module@1",
         "pos": {
-          "x": 512,
-          "y": 480
+          "x": 886,
+          "y": 317
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
@@ -320,8 +317,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -330,16 +326,14 @@
               {
                 "id": "s5Srs2y9",
                 "name": "baresiptext",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "ZBap0MCT",
                 "name": "callid",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -354,8 +348,8 @@
       "9dRxfaME": {
         "type": "output/viewer@1",
         "pos": {
-          "x": 496,
-          "y": 704
+          "x": 1236,
+          "y": 169
         },
         "size": {
           "width": 328,
@@ -789,6 +783,6 @@
   "info": {
     "_postman_id": "fe5ac5bb-e539-4245-9ab0-8da12e9230c4"
   },
-  "_postman_exported_at": "2026-07-31T06:49:44.649Z",
+  "_postman_exported_at": "2026-08-04T10:15:53.384Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
