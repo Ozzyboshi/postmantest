@@ -287,7 +287,8 @@
               "kind": "portal/out",
               "value": "3c8BRfN-",
               "key": "transferor",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             },
             {
               "id": "t95Cd0LS",
@@ -295,7 +296,8 @@
               "kind": "portal/out",
               "value": "K_CzngCf",
               "key": "callee",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -356,7 +358,8 @@
               "kind": "portal/out",
               "value": "oTDwa0-4",
               "key": "hangupper",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -588,7 +591,7 @@
         }
       },
       "uM3NSDGX": {
-        "name": "pstn hf + bt",
+        "name": "pstn->hg 32399->81471->81472",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "data": {
@@ -614,7 +617,7 @@
           }
         },
         "createdOn": 1785328893737,
-        "updatedOn": 1785329438006
+        "updatedOn": 1785919091038
       }
     },
     "config": {
@@ -626,6 +629,6 @@
   "info": {
     "_postman_id": "8c09479d-2bca-4b9b-a5b2-d1c36f2920d5"
   },
-  "_postman_exported_at": "2026-07-29T12:50:39.031Z",
+  "_postman_exported_at": "2026-08-05T15:22:31.612Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
