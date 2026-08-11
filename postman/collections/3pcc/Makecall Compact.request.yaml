@@ -1,0 +1,33 @@
+$kind: http-request
+name: Makecall Compact
+url: http://localhost:5000/makecall?caller={{caller}}&callee={{callee}}
+method: POST
+queryParams:
+  caller: "{{caller}}"
+  callee: "{{callee}}"
+body:
+  type: formdata
+  content:
+    - type: text
+      key: caller
+      value: "{{caller}}"
+    - type: text
+      key: callee
+      value: "{{callee}}"
+scripts:
+  - type: beforeRequest
+    code: |-
+      const caller = String(pm.variables.replaceIn(pm.request.url.query.get("caller") ?? ""));
+      const callee = String(pm.variables.replaceIn(pm.request.url.query.get("callee") ?? ""));
+      let ip = pm.environment.get("baresip_ip");
+
+      a = 255
+      b = 254
+
+      const parts = ip.split(".");
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":5000/makecall?caller=" + encodeURIComponent(caller)+"&callee="+callee+"&sshdest="+pm.environment.get("3pccsshdest");
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 2001

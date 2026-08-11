@@ -8,8 +8,8 @@
       "uWmCtqMC": {
         "type": "ev/endpoint@3",
         "pos": {
-          "x": 200,
-          "y": -376
+          "x": 50,
+          "y": 73
         },
         "config": {
           "inputs": [
@@ -46,8 +46,8 @@
       "qhhDN7xg": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 560,
-          "y": -464
+          "x": 352,
+          "y": 0
         },
         "config": {
           "element": {
@@ -55,7 +55,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -90,8 +90,8 @@
       "tvXSI9TA": {
         "type": "DELAY",
         "pos": {
-          "x": 1024,
-          "y": -88
+          "x": 702,
+          "y": 136
         },
         "config": {
           "delay": "5000"
@@ -103,8 +103,8 @@
       "wKMxXLB-": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1400,
-          "y": -16
+          "x": 1544,
+          "y": 20
         },
         "config": {
           "element": {
@@ -112,7 +112,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -138,8 +138,8 @@
       "K74jf1--": {
         "type": "system/module@1",
         "pos": {
-          "x": 1064,
-          "y": -512
+          "x": 1544,
+          "y": 420
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
@@ -181,8 +181,8 @@
       "tLZOMBs1": {
         "type": "output/viewer@1",
         "pos": {
-          "x": 1504,
-          "y": -488
+          "x": 1894,
+          "y": 402
         },
         "size": {
           "width": 328,
@@ -196,27 +196,27 @@
           }
         }
       },
-      "p4XJYqzr": {
+      "BPF9UOVF": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 976,
-          "y": -24
+          "x": 1908,
+          "y": 30
         },
         "config": {
           "element": {
-            "name": "Takecall -> Baresip compact",
-            "method": "GET",
-            "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
+            "name": "SaveProxyLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
           "parseBody": "auto",
           "requestVariables": [
             {
-              "id": "Pp170hgi",
+              "id": "Enpgcrxr",
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "takecaller",
+              "key": "callid",
               "__noIn": true,
               "isExtraneous": false
             }
@@ -231,52 +231,51 @@
           "namedInputsExpanded": true
         }
       },
-      "hcTts3mA": {
+      "gAQorsoQ": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 948,
+          "y": 113.5
+        },
+        "config": {
+          "element": {
+            "name": "Takecall -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
+          },
+          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "NZq1qaiy",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "takecaller",
+              "__noIn": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "E8LmSAry": {
         "type": "DELAY",
         "pos": {
-          "x": 1424,
-          "y": -88
+          "x": 1298,
+          "y": 229.5
         },
         "config": {
           "delay": "1000"
         },
         "ui": {
           "data": {}
-        }
-      },
-      "6eivnHam": {
-        "type": "ev/output@2",
-        "pos": {
-          "x": 1952,
-          "y": -496
-        },
-        "config": {
-          "outputs": [
-            {
-              "id": "6LW29OSQ",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
-              "key": "callid",
-              "__noIn": true
-            },
-            {
-              "id": "__flow_tests__",
-              "key": "Flow tests",
-              "type": null,
-              "kind": null,
-              "value": null,
-              "hidden": true
-            }
-          ],
-          "includeTests": true,
-          "outputs__expanded": true
-        },
-        "ui": {
-          "data": {
-            "outputType": "ev/output@2"
-          },
-          "namedInputsExpanded": true
         }
       }
     },
@@ -341,47 +340,41 @@
         "sourcePort": "success",
         "targetPort": "variables|s5Srs2y9"
       },
-      "ky-_wSiU": {
+      "vBCv4iIM": {
+        "source": "wKMxXLB-",
+        "target": "BPF9UOVF",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "31Sp_Z3q": {
+        "source": "K74jf1--",
+        "target": "BPF9UOVF",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "requestVariables|Enpgcrxr"
+      },
+      "9TbgCUBQ": {
         "source": "tvXSI9TA",
-        "target": "p4XJYqzr",
+        "target": "gAQorsoQ",
         "sourcePort": "data",
         "targetPort": "AI"
       },
-      "ZkDeIBIa": {
+      "Bn3JGx4x": {
         "source": "uWmCtqMC",
-        "target": "p4XJYqzr",
+        "target": "gAQorsoQ",
         "sourcePort": "output|cmEwtTVx",
-        "targetPort": "requestVariables|Pp170hgi"
+        "targetPort": "requestVariables|NZq1qaiy"
       },
-      "0AntF-la": {
-        "source": "p4XJYqzr",
-        "target": "hcTts3mA",
+      "L3zZ4C3g": {
+        "source": "gAQorsoQ",
+        "target": "E8LmSAry",
         "sourcePort": "success",
         "targetPort": "data"
       },
-      "85Nj8Q6t": {
-        "source": "hcTts3mA",
+      "UZoP1D1G": {
+        "source": "E8LmSAry",
         "target": "wKMxXLB-",
         "sourcePort": "data",
         "targetPort": "AI"
-      },
-      "KJ5YWvrN": {
-        "source": "tLZOMBs1",
-        "target": "6eivnHam",
-        "sourcePort": "data",
-        "targetPort": "outputs|6LW29OSQ"
-      },
-      "DFsLby8y": {
-        "source": "6eivnHam",
-        "sourcePort": "out|6LW29OSQ",
-        "target": "vWHqLa2Z",
-        "targetPort": "@"
-      },
-      "ijUZqiJ7": {
-        "source": "6eivnHam",
-        "sourcePort": "out|__flow_tests__",
-        "target": "kLQjJApg",
-        "targetPort": "@"
       }
     },
     "annotations": {},
@@ -406,16 +399,6 @@
         "typeDef": {
           "type": "string"
         }
-      },
-      "vWHqLa2Z": {
-        "type": "output",
-        "name": "callid",
-        "typeDef": {}
-      },
-      "kLQjJApg": {
-        "type": "output",
-        "name": "Flow tests",
-        "typeDef": {}
       }
     },
     "ports": {},
@@ -423,11 +406,11 @@
     "scenes": {},
     "scenarios": {
       "58_gGq_m": {
-        "name": "Start Trigger",
+        "name": "81470 -> 81471",
         "type": "scenario@3",
         "triggerType": "ev/endpoint@3",
         "createdOn": 1784718179942,
-        "updatedOn": 1784727857377,
+        "updatedOn": 1784819763668,
         "data": {
           "lFx048mg": {
             "id": "lFx048mg",
@@ -445,6 +428,63 @@
             "value": "81471"
           }
         }
+      },
+      "wXvIo9qm": {
+        "name": "Pstn1 -> 81471",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "+393381625435@pstn1"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "81471@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1784819766882,
+        "updatedOn": 1784821916339
+      },
+      "Wpkglvdv": {
+        "name": "Pstn1 -> Pstn2",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "+393381625435"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "+393336344407@mypstn2"
+          }
+        },
+        "createdOn": 1784876229676,
+        "updatedOn": 1784876991567
+      },
+      "suTXh_uS": {
+        "name": "81470 -> 999013000001814711",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "81470"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "999013000001814711"
+          }
+        },
+        "createdOn": 1785250253988,
+        "updatedOn": 1785250270896
       }
     },
     "config": {
@@ -454,8 +494,8 @@
   },
   "lockbox": {},
   "info": {
-    "_postman_id": "94524c35-23c3-4f3f-b81b-55cdf8b6ffd2"
+    "_postman_id": "9e85b163-5e1b-43cd-9a94-48476cfd9719"
   },
-  "_postman_exported_at": "2026-07-24T08:40:19.399Z",
+  "_postman_exported_at": "2026-08-11T07:59:03.081Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
