@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "GetCallidFrom1PCCMakeCall",
+  "name": "GetCallidFrom3PCCMakeCall",
   "description": "",
   "flow": {
     "description": "",
@@ -18,7 +18,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
+              "key": "wstext",
               "__noIn": true
             }
           ],
@@ -37,8 +37,8 @@
       "IZdadVDR": {
         "type": "logic/manipulate@1",
         "pos": {
-          "x": 576,
-          "y": -424
+          "x": 520,
+          "y": -288
         },
         "size": {
           "width": 696,
@@ -47,13 +47,13 @@
         "config": {
           "language": "ts",
           "query": "",
-          "tscript": "let result: string | null = null;\n\n// value1 is mapped from: body.html.body.pre\nconst text = value1;\n\nif (typeof text === 'string') {\n  // Handles patterns like: callid=<id>, call-id: <id>, Call-ID <id>\n  const match = text.match(/call[\\s-]*id\\s*[:=]\\s*([A-Za-z0-9_.-]+)/i);\n  if (match && match[1]) {\n    result = String(match[1]);\n  }\n}\n",
+          "tscript": "value1",
           "variables": [
             {
               "id": "aX1IZEtb",
               "type": "value/reference@2",
               "kind": "reference",
-              "value": "body.html.body.pre",
+              "value": "body",
               "key": "value1",
               "__noIn": true
             }
@@ -105,23 +105,11 @@
       }
     },
     "connections": {
-      "syNGOI58": {
-        "source": "IZdadVDR",
-        "target": "3dvZrCRH",
-        "sourcePort": "out",
-        "targetPort": "outputs|U6sq8XC2"
-      },
       "22qqjUwh": {
         "source": "3dvZrCRH",
         "sourcePort": "out|U6sq8XC2",
         "target": "ZBap0MCT",
         "targetPort": "@"
-      },
-      "P-_IAgdy": {
-        "source": "xJbVNDmY",
-        "target": "IZdadVDR",
-        "sourcePort": "output|BQKaSCfX",
-        "targetPort": "variables|aX1IZEtb"
       },
       "Dz-QXtzo": {
         "source": "s5Srs2y9",
@@ -134,6 +122,18 @@
         "target": "aJtIdd9c",
         "sourcePort": "output|BQKaSCfX",
         "targetPort": "data"
+      },
+      "rdbFUqle": {
+        "source": "xJbVNDmY",
+        "target": "IZdadVDR",
+        "sourcePort": "output|BQKaSCfX",
+        "targetPort": "variables|aX1IZEtb"
+      },
+      "Ei5y6xh3": {
+        "source": "IZdadVDR",
+        "target": "3dvZrCRH",
+        "sourcePort": "out",
+        "targetPort": "outputs|U6sq8XC2"
       }
     },
     "annotations": {},
@@ -152,7 +152,7 @@
       },
       "s5Srs2y9": {
         "type": "input",
-        "name": "baresiptext",
+        "name": "wstext",
         "typeDef": {
           "type": "string"
         }
@@ -166,15 +166,12 @@
         "name": "Start Trigger",
         "type": "scenario@2",
         "createdOn": 1776865711170,
-        "updatedOn": 1776865711170,
+        "updatedOn": 1786614186529,
         "data": {
           "s5Srs2y9": {
             "id": "s5Srs2y9",
-            "key": "Input 1",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
+            "key": "wstext",
+            "value": "ciao"
           }
         }
       }
@@ -186,8 +183,8 @@
   },
   "lockbox": {},
   "info": {
-    "_postman_id": "cc166664-006e-480f-ae55-5050759a8b29"
+    "_postman_id": "180607d6-4a2f-4d18-9cbe-cfbe631ee9ca"
   },
-  "_postman_exported_at": "2026-08-13T09:58:14.823Z",
+  "_postman_exported_at": "2026-08-13T10:06:25.568Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -1,10 +1,10 @@
 $kind: http-request
-name: Makecall Compact
-url: http://localhost:5000/makecall?caller={{caller}}&callee={{callee}}
+name: Answercall Compact
+url: http://localhost:5000/answercall?callid={{callid}}&deviceid={{deviceid}}
 method: POST
 queryParams:
-  caller: "{{caller}}"
-  callee: "{{callee}}"
+  callid: "{{callid}}"
+  deviceid: "{{deviceid}}"
 body:
   type: formdata
   content: []
@@ -43,8 +43,8 @@ scripts:
           return scheme + ":" + core + tail;
       }
 
-      const caller = toSipUri(pm.variables.replaceIn(pm.request.url.query.get("caller") ?? ""));
-      const callee = toSipUri(pm.variables.replaceIn(pm.request.url.query.get("callee") ?? ""));
+      const callid = pm.variables.replaceIn(pm.request.url.query.get("callid") ?? "");
+      const deviceid = toSipUri(pm.variables.replaceIn(pm.request.url.query.get("deviceid") ?? ""));
 
       const ip = pm.environment.get("baresip_ip");
       const a = 255;
@@ -52,12 +52,12 @@ scripts:
 
       const parts = ip.split(".");
       const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b +
-          ":5000/makecall" +
-          "?caller=" + encodeURIComponent(caller) +
-          "&callee=" + encodeURIComponent(callee) +
+          ":5000/answercall" +
+          "?callid=" + encodeURIComponent(callid) +
+          "&deviceid=" + encodeURIComponent(deviceid) +
           "&sshdest=" + encodeURIComponent(pm.environment.get("3pccsshdest"));
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2001
+order: 2766

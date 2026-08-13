@@ -1,5 +1,5 @@
 $kind: http-request
-name: SaveProxyLogs
+name: SaveRtpLogs
 url: http://localhost:5000/?callid={{callid}}
 method: POST
 queryParams:
@@ -29,9 +29,9 @@ scripts:
       b = 254
 
       const parts = ip.split(".");
-      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":5000/saveprxlog?callid=" + encodeURIComponent(callid)+"&sshdest="+pm.environment.get("3pccsshdest");
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":5000/savertplog?callid=" + encodeURIComponent(callid)+"&sshdest="+pm.environment.get("3pccsshdest");
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2054
+order: 2039830561162339
