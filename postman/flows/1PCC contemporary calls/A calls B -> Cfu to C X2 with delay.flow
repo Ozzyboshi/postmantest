@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A calls B -> Cfu to C, A calls D -> Cfu to C",
+  "name": "A calls B -> Cfu to C X2 with delay",
   "description": "",
   "flow": {
     "description": "",
@@ -158,7 +158,7 @@
               "id": "C6Y71Xpr",
               "type": "TYPE_STRING",
               "kind": "string",
-              "value": "302",
+              "value": "301",
               "key": "callee_ext"
             },
             {
@@ -382,8 +382,8 @@
     }
   },
   "info": {
-    "_postman_id": "4e18642e-d705-44e1-aebc-8cc4dc1fe42e"
+    "_postman_id": "af8edac9-b3a1-4b61-9cb1-0fcbb485111d"
   },
-  "_postman_exported_at": "2026-05-26T21:34:30.122Z",
+  "_postman_exported_at": "2026-09-10T08:23:46.864Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -216,7 +216,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Makecall generic.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -312,7 +312,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/TakeCall Generic.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -359,7 +359,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/TakeCall Generic.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

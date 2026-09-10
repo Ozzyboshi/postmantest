@@ -160,7 +160,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip Generic.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -245,7 +245,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup Baresip Generic with code and reason.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -320,7 +320,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Clearcall generic.request.yaml"
           },
-          "environment": "df731d43-0450-4dab-9f6f-30c2d20085a4",
+          "environment": "postman/environments/ALE.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

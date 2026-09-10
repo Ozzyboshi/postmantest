@@ -1,0 +1,999 @@
+{
+  "version": 1,
+  "name": "Copy of Anonymous PSTN A calls B - B hangsup",
+  "description": "",
+  "flow": {
+    "description": "Pstn 1pcc call towards B\nPstn has anonymous from\nB takes the call and hangsups",
+    "nodes": {
+      "3pLPvq8L": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 50,
+          "y": 484.5
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "h5hWBfmQ",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "caller",
+              "__noIn": true
+            },
+            {
+              "id": "KW1KzA-O",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callee",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true,
+          "color": "orange"
+        }
+      },
+      "BjU3PmH1": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 352,
+          "y": 732
+        },
+        "config": {
+          "value": "caller"
+        },
+        "ui": {
+          "color": "purple",
+          "data": {}
+        }
+      },
+      "8P-hNUeB": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 336,
+          "y": 688
+        },
+        "config": {
+          "value": "callee"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        }
+      },
+      "CtKhRkR0": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1224,
+          "y": 0
+        },
+        "config": {
+          "element": {
+            "name": "Makecall -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "bbABbCX-",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "caller",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "oGsCJNg8",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "8P-hNUeB",
+              "key": "callee",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "xtcxm6FR": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 536,
+          "y": 0
+        },
+        "config": {
+          "element": {
+            "name": "AddCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "PNLXrl81",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "useragent",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "ZU4cwPVs",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "P-Asserted-Identity",
+              "key": "headername"
+            },
+            {
+              "id": "R1zTjL-O",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "alessio",
+              "key": "headervalue"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "YaOgw9xn": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 696,
+          "y": 624
+        },
+        "config": {
+          "element": {
+            "name": "DelCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "s3jczmN5",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "useragent",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "vz25Hhft",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "P-Asserted-Identity",
+              "key": "headername"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "a4Dv-kZ3": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1544,
+          "y": 704
+        },
+        "config": {
+          "delay": "1000"
+        },
+        "ui": {
+          "data": {}
+        }
+      },
+      "uHenicpd": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1816,
+          "y": 624
+        },
+        "config": {
+          "element": {
+            "name": "Hangup -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "ei6nLe1x",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "hangupper",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "mj2_30jn": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 736,
+          "y": 1040
+        },
+        "config": {
+          "element": {
+            "name": "SaveProxyLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "rfEgb3p6",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "xzFiVt2i",
+              "key": "callid",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "097O1fFS": {
+        "type": "output/viewer@1",
+        "pos": {
+          "x": 1944,
+          "y": 32
+        },
+        "size": {
+          "width": 328,
+          "height": 232
+        },
+        "config": {},
+        "ui": {
+          "data": {
+            "displayType": "auto"
+          }
+        }
+      },
+      "neohnDKA": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1592,
+          "y": 16
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom1PCCMakeCall.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "s5Srs2y9",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "baresiptext"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "s5Srs2y9",
+                "name": "baresiptext",
+                "type": null
+              }
+            ],
+            "output": [
+              {
+                "id": "ZBap0MCT",
+                "name": "callid",
+                "type": null
+              }
+            ],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "GetCallidFrom1PCCMakeCall"
+          }
+        }
+      },
+      "xzFiVt2i": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 2032,
+          "y": 432
+        },
+        "config": {
+          "value": "callid"
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {}
+        }
+      },
+      "7k-ufbbf": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 872,
+          "y": 0
+        },
+        "config": {
+          "element": {
+            "name": "AddCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "PNLXrl81",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "useragent",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "ZU4cwPVs",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "Privacy",
+              "key": "headername"
+            },
+            {
+              "id": "R1zTjL-O",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "Id",
+              "key": "headervalue"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "6ZetngKN": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1160,
+          "y": 624
+        },
+        "config": {
+          "element": {
+            "name": "DelCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "s3jczmN5",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "BjU3PmH1",
+              "key": "useragent",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "vz25Hhft",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "Privacy",
+              "key": "headername"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "-E3MYKMm": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1168,
+          "y": -152
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/Data parsing/Create cfu from subscriber.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "M-RLFwgi",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "8P-hNUeB",
+              "key": "number",
+              "latch": true
+            },
+            {
+              "id": "EWadco86",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "342323",
+              "key": "destination"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "M-RLFwgi",
+                "name": "number",
+                "typeDef": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "EWadco86",
+                "name": "destination",
+                "typeDef": {
+                  "type": "string"
+                }
+              }
+            ],
+            "output": [],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Create cfu from subscriber",
+            "alwaysUseLatest": true
+          }
+        }
+      }
+    },
+    "connections": {
+      "00rz8HBO": {
+        "source": "Mn_11k27",
+        "sourcePort": "@",
+        "target": "3pLPvq8L",
+        "targetPort": "inputs|h5hWBfmQ"
+      },
+      "bYYXGr0Z": {
+        "source": "3pLPvq8L",
+        "target": "BjU3PmH1",
+        "sourcePort": "output|h5hWBfmQ",
+        "targetPort": "data"
+      },
+      "s4vR76kn": {
+        "source": "C6Y71Xpr",
+        "sourcePort": "@",
+        "target": "3pLPvq8L",
+        "targetPort": "inputs|KW1KzA-O"
+      },
+      "Lhnl5rET": {
+        "source": "3pLPvq8L",
+        "target": "8P-hNUeB",
+        "sourcePort": "output|KW1KzA-O",
+        "targetPort": "data"
+      },
+      "Tx0l245F": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "CtKhRkR0",
+        "targetPort": "requestVariables|bbABbCX-"
+      },
+      "TKZ4amkZ": {
+        "source": "8P-hNUeB",
+        "sourcePort": "data",
+        "target": "CtKhRkR0",
+        "targetPort": "requestVariables|oGsCJNg8"
+      },
+      "Nq6Q7htx": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "xtcxm6FR",
+        "targetPort": "requestVariables|PNLXrl81"
+      },
+      "TfzFGy5M": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "YaOgw9xn",
+        "targetPort": "requestVariables|s3jczmN5"
+      },
+      "dNjPKcnx": {
+        "source": "a4Dv-kZ3",
+        "target": "uHenicpd",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "es1ksvkG": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "uHenicpd",
+        "targetPort": "requestVariables|ei6nLe1x"
+      },
+      "kHm9VneN": {
+        "source": "uHenicpd",
+        "target": "mj2_30jn",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "9e24kuOm": {
+        "source": "CtKhRkR0",
+        "target": "neohnDKA",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "kDra7GhQ": {
+        "source": "CtKhRkR0",
+        "target": "neohnDKA",
+        "sourcePort": "success",
+        "targetPort": "variables|s5Srs2y9"
+      },
+      "h0UIpQME": {
+        "source": "neohnDKA",
+        "target": "097O1fFS",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "data"
+      },
+      "98jaEGgD": {
+        "source": "neohnDKA",
+        "target": "YaOgw9xn",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      },
+      "bt4MwMJc": {
+        "source": "neohnDKA",
+        "target": "xzFiVt2i",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "data"
+      },
+      "hEbHu8xC": {
+        "source": "xzFiVt2i",
+        "sourcePort": "data",
+        "target": "mj2_30jn",
+        "targetPort": "requestVariables|rfEgb3p6"
+      },
+      "7em4IBuc": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "7k-ufbbf",
+        "targetPort": "requestVariables|PNLXrl81"
+      },
+      "St2eVnYw": {
+        "source": "xtcxm6FR",
+        "target": "7k-ufbbf",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "tNscFqi0": {
+        "source": "BjU3PmH1",
+        "sourcePort": "data",
+        "target": "6ZetngKN",
+        "targetPort": "requestVariables|s3jczmN5"
+      },
+      "NGEr2JyB": {
+        "source": "YaOgw9xn",
+        "target": "6ZetngKN",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "nBH05DWP": {
+        "source": "6ZetngKN",
+        "target": "a4Dv-kZ3",
+        "sourcePort": "success",
+        "targetPort": "data"
+      },
+      "Ssaes7A5": {
+        "source": "3pLPvq8L",
+        "target": "xtcxm6FR",
+        "sourcePort": "output|h5hWBfmQ",
+        "targetPort": "AI"
+      },
+      "Ub7rBVI_": {
+        "source": "7k-ufbbf",
+        "target": "-E3MYKMm",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "UkPQ5PVo": {
+        "source": "8P-hNUeB",
+        "sourcePort": "data",
+        "target": "-E3MYKMm",
+        "targetPort": "variables|M-RLFwgi"
+      },
+      "7e_zwm4I": {
+        "source": "-E3MYKMm",
+        "target": "CtKhRkR0",
+        "sourcePort": "AO",
+        "targetPort": "AI"
+      }
+    },
+    "annotations": {
+      "lFHixP_1": {
+        "type": "annotation/text@1",
+        "pos": {
+          "x": -40,
+          "y": 864
+        },
+        "position": "absolute",
+        "ui": {
+          "data": {},
+          "size": {
+            "width": 583,
+            "height": 0
+          }
+        },
+        "message": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Remember to bring up virtual bridge interface to make pstn caller fixed ip to be visible from your host"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "More at the end of ale/docker-compose.yml, read it if Makecall fails!!!"
+                }
+              ]
+            }
+          ]
+        },
+        "format": "tiptap",
+        "width": 583
+      }
+    },
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "Mn_11k27": {
+        "type": "input",
+        "name": "caller",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "C6Y71Xpr": {
+        "type": "input",
+        "name": "callee",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "zhQhrSrq": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1776153573212,
+        "updatedOn": 1776153573212,
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "M6H2fqTq": {
+        "name": "81470 calls 81471",
+        "type": "scenario@2",
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "caller",
+            "value": "81470"
+          },
+          "C6Y71Xpr": {
+            "id": "C6Y71Xpr",
+            "key": "callee",
+            "value": "81471"
+          },
+          "twy-tdza": {
+            "id": "twy-tdza",
+            "key": "callee_short",
+            "value": "471"
+          },
+          "NArmN9zr": {
+            "id": "NArmN9zr",
+            "key": "parkslot",
+            "value": "1"
+          }
+        },
+        "createdOn": 1776153627188,
+        "updatedOn": 1777360798896
+      },
+      "b0hFn-gj": {
+        "name": "81474 calls 81475",
+        "type": "scenario@2",
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "caller",
+            "value": "474"
+          },
+          "C6Y71Xpr": {
+            "id": "C6Y71Xpr",
+            "key": "callee_ext",
+            "value": "81475"
+          },
+          "twy-tdza": {
+            "id": "twy-tdza",
+            "key": "callee_short",
+            "value": "475"
+          },
+          "NArmN9zr": {
+            "id": "NArmN9zr",
+            "key": "parkslot",
+            "value": "3"
+          }
+        },
+        "createdOn": 1776158553466,
+        "updatedOn": 1776158584595
+      },
+      "YtCL22yv": {
+        "name": "anonymous pstn calls 81471",
+        "type": "scenario@2",
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "caller",
+            "value": "anonymous"
+          },
+          "C6Y71Xpr": {
+            "id": "C6Y71Xpr",
+            "key": "callee",
+            "value": "81471@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1777384253543,
+        "updatedOn": 1788964811822
+      },
+      "_DKEKQQk": {
+        "name": "Anonymous pstn calls pstn",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "Mn_11k27": {
+            "id": "Mn_11k27",
+            "key": "caller",
+            "value": "anonymous"
+          },
+          "C6Y71Xpr": {
+            "id": "C6Y71Xpr",
+            "key": "callee",
+            "value": "+393381625435@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1788966903257,
+        "updatedOn": 1788966999209
+      }
+    },
+    "config": {
+      "definitions": {
+        "gQ3K5fXwvDM4qRtaqD-Ox": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": " baresip_ip"
+          }
+        },
+        "HmzrDtR1XEef8Cl1ogj4Y": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "domain"
+          }
+        },
+        "cH2_biAhIGKawpWswhppn": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "base"
+          }
+        },
+        "608rALw26_k7vWGvTyxpO": {
+          "def": {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "secret": false
+          },
+          "ui": {
+            "color": "grey",
+            "description": "",
+            "name": "baresip_pstn_socket"
+          }
+        }
+      },
+      "constants": {}
+    }
+  },
+  "lockbox": {
+    "y5p538JKJdljcux6e6r_K": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": ""
+    },
+    "gQ3K5fXwvDM4qRtaqD-Ox": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_ip}}"
+    },
+    "8DrRPyLoujt6j25L2vtEB": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "HmzrDtR1XEef8Cl1ogj4Y": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{domain}}"
+    },
+    "WmwwbuhFuPlyF3o2OjvT1": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "11111"
+    },
+    "cH2_biAhIGKawpWswhppn": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{base}}"
+    },
+    "_hJmzQJIyPwKcrhivC-RR": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_pstn_socket}}"
+    },
+    "608rALw26_k7vWGvTyxpO": {
+      "def": {
+        "schema": {
+          "type": "string"
+        },
+        "required": true,
+        "secret": false
+      },
+      "value": "{{baresip_pstn_socket}}"
+    }
+  },
+  "info": {
+    "_postman_id": "43ab04eb-2a58-48de-8d5f-6b07f9ddb66c"
+  },
+  "_postman_exported_at": "2026-09-10T12:20:24.272Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

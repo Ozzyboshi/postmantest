@@ -116,7 +116,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "postman/environments/ALEMuliproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -174,7 +174,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "postman/environments/ALEMuliproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -209,7 +209,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Pickupcall - Baresip compact.request.yaml"
           },
-          "environment": "f7fc3f05-31fe-4fe0-8bc0-92bf974be6c8",
+          "environment": "postman/environments/ALEMuliproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

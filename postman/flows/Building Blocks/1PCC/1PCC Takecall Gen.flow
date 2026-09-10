@@ -54,7 +54,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/TakeCall Generic.request.yaml"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

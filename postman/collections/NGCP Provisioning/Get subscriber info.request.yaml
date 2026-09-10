@@ -1,0 +1,54 @@
+$kind: http-request
+url: https://localhost:1443/api/subscribers/?username={{username}}&domain=
+method: GET
+queryParams:
+  username: "{{username}}"
+  domain: ""
+auth:
+  type: basic
+  credentials:
+    username: administrator
+    password: sipwise4ale
+scripts:
+  - type: beforeRequest
+    code: |-
+      // Read the raw query params, resolving any {{variables}} first.
+      // .trim() + quote-stripping guards against stray quotes typed into the URL bar.
+      const clean = (s) => (s || "").trim().replace(/^["']+|["']+$/g, "");
+
+      const rawUsername = clean(pm.variables.replaceIn(pm.request.url.query.get("username")));
+
+      // Split on the LAST "@": everything before it is the SIP user, everything after is the domain.
+      const at = rawUsername.lastIndexOf("@");
+      const username = at === -1 ? rawUsername : rawUsername.slice(0, at);
+      const domainFromUser = at === -1 ? "" : rawUsername.slice(at + 1);
+
+      // Domain in the username wins; otherwise fall back to the environment variable.
+      const domain = domainFromUser || clean(pm.environment.get("domain"));
+
+      if (!username) {
+          throw new Error("username query param is empty");
+      }
+      if (!domain) {
+          throw new Error("no domain after '@' and no 'domain' environment variable set");
+      }
+
+      const ip = clean(pm.environment.get("web-provisioning-ip"));
+      if (!ip) {
+          throw new Error("environment variable 'web-provisioning-ip' is empty or unset");
+      }
+
+      // Force protocol, host and port from the environment instead of relying on the
+      // {{...}} placeholder in the URL bar, which was resolving to an empty host.
+      // url.host is an array of segments in the Postman SDK, not a plain string.
+      pm.request.url.protocol = "https";
+      pm.request.url.host = ip.split(".");
+      pm.request.url.port = "1443";
+
+      // Mutate the existing query params: Postman handles the encoding.
+      pm.request.url.query.upsert({ key: "username", value: username });
+      pm.request.url.query.upsert({ key: "domain",   value: domain });
+
+      console.log("FINAL:", pm.request.url.toString());
+    language: text/javascript
+order: 500937271544426

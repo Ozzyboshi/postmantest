@@ -119,7 +119,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip Generic.request.yaml"
           },
-          "environment": "1c2a94f5-2bd0-413a-b29b-adb837852ae5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -752,6 +752,6 @@
   "info": {
     "_postman_id": "c36b63f5-8e7f-4d54-b757-0bd3a0cd47b4"
   },
-  "_postman_exported_at": "2026-07-14T12:56:49.543Z",
+  "_postman_exported_at": "2026-09-09T14:01:31.377Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -46,7 +46,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup Baresip Generic.request.yaml"
           },
-          "environment": "f4ee3a09-e5e8-44ac-a073-776393beb9ca",
+          "environment": "postman/environments/Multiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

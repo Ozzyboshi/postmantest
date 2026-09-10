@@ -55,7 +55,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -112,7 +112,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -208,7 +208,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -243,7 +243,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveRtpLogs.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -252,7 +252,8 @@
               "kind": "reference",
               "value": "",
               "key": "callid",
-              "__noIn": true
+              "__noIn": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -477,6 +478,6 @@
   "info": {
     "_postman_id": "e499425e-8d8c-4d9d-9b2f-98efe0078d6c"
   },
-  "_postman_exported_at": "2026-08-13T09:29:06.512Z",
+  "_postman_exported_at": "2026-09-08T12:54:36.819Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

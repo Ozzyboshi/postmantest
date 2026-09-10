@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "name": "New flow",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "wLuAIdQV": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "WpSW01ru",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number",
+              "__noIn": true
+            },
+            {
+              "id": "OVNLWF2V",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "destination",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "IJ0fpUj4": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 360,
+          "y": -144
+        },
+        "config": {
+          "flowId": "postman/flows/Building Blocks/Data parsing/Create cfu from subscriber.flow",
+          "versionId": "local",
+          "variables": [
+            {
+              "id": "M-RLFwgi",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "1111",
+              "key": "number"
+            },
+            {
+              "id": "EWadco86",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "11111",
+              "key": "destination"
+            }
+          ],
+          "globals": [],
+          "ports": {
+            "input": [
+              {
+                "id": "M-RLFwgi",
+                "name": "number",
+                "type": null
+              },
+              {
+                "id": "EWadco86",
+                "name": "destination",
+                "type": null
+              }
+            ],
+            "output": [],
+            "global": []
+          }
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Create cfu from subscriber",
+            "alwaysUseLatest": true
+          }
+        }
+      }
+    },
+    "connections": {
+      "vXl1DUt-": {
+        "source": "8sNHxZVV",
+        "sourcePort": "@",
+        "target": "wLuAIdQV",
+        "targetPort": "inputs|WpSW01ru"
+      },
+      "RVXvVoHh": {
+        "source": "z-E9hDYY",
+        "sourcePort": "@",
+        "target": "wLuAIdQV",
+        "targetPort": "inputs|OVNLWF2V"
+      },
+      "FFVWOnBk": {
+        "source": "wLuAIdQV",
+        "target": "IJ0fpUj4",
+        "sourcePort": "output|WpSW01ru",
+        "targetPort": "AI"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "8sNHxZVV": {
+        "type": "input",
+        "name": "number",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "z-E9hDYY": {
+        "type": "input",
+        "name": "destination",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "Z_g4y6Fe": {
+        "name": "Start Trigger",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1789042150202,
+        "updatedOn": 1789042150202,
+        "data": {
+          "8sNHxZVV": {
+            "id": "8sNHxZVV",
+            "key": "Input 1",
+            "value": "",
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "f24eef3e-1072-4453-ba7a-1022e87826e7"
+  },
+  "_postman_exported_at": "2026-09-10T12:18:14.199Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

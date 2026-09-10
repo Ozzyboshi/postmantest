@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "name": "Remove cf from subscriber",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "OnxQhiHa": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "oLYgE6iH",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "frkTsNti": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 472,
+          "y": -80
+        },
+        "config": {
+          "element": {
+            "name": "Get subscriber info",
+            "method": "GET",
+            "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "LOcT3JeR",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "username",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "T4sR6LUR": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1248,
+          "y": -296
+        },
+        "config": {
+          "element": {
+            "name": "Remove cfu",
+            "method": "DELETE",
+            "path": "postman/collections/NGCP Provisioning/Remove cfu.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "8WDIh08r": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 824,
+          "y": -136
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "value1.body._embedded[\"ngcp:subscribers\"][0].id",
+          "variables": [
+            {
+              "id": "0j1vCZbu",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value1",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "P4kUbmiZ": {
+        "source": "OnxQhiHa",
+        "target": "frkTsNti",
+        "sourcePort": "output|oLYgE6iH",
+        "targetPort": "AI"
+      },
+      "2-eHBh0w": {
+        "source": "M-RLFwgi",
+        "sourcePort": "@",
+        "target": "OnxQhiHa",
+        "targetPort": "inputs|oLYgE6iH"
+      },
+      "gRWlFTCp": {
+        "source": "OnxQhiHa",
+        "target": "frkTsNti",
+        "sourcePort": "output|oLYgE6iH",
+        "targetPort": "requestVariables|LOcT3JeR"
+      },
+      "XadS2BOd": {
+        "source": "frkTsNti",
+        "target": "8WDIh08r",
+        "sourcePort": "success",
+        "targetPort": "variables|0j1vCZbu"
+      },
+      "tqU0tlGG": {
+        "source": "8WDIh08r",
+        "target": "T4sR6LUR",
+        "sourcePort": "out",
+        "targetPort": "AI"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "M-RLFwgi": {
+        "type": "input",
+        "name": "number",
+        "typeDef": {
+          "type": "string"
+        }
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "N5Yi_8O_": {
+        "name": "Start Trigger",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "createdOn": 1789030877202,
+        "updatedOn": 1789032761355,
+        "data": {
+          "M-RLFwgi": {
+            "id": "M-RLFwgi",
+            "key": "number",
+            "value": "81471"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "e6d5167c-3526-4950-bd54-bd556c0ca322"
+  },
+  "_postman_exported_at": "2026-09-10T10:23:33.294Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

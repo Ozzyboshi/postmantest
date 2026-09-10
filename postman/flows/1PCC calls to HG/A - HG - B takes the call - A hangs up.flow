@@ -134,7 +134,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -190,7 +190,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -224,7 +224,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "d1b61265-e63a-4e60-9457-9a14c17f15f5",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {

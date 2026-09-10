@@ -1,0 +1,49 @@
+$kind: http-request
+url: https://localhost:1443/api/callforwards/49077
+method: DELETE
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: ""
+auth:
+  type: basic
+  credentials:
+    username: administrator
+    password: sipwise4ale
+scripts:
+  - type: beforeRequest
+    code: |-
+      // .trim() + quote-stripping guards against stray quotes typed into the URL bar.
+      const clean = (s) => (s || "").trim().replace(/^["']+|["']+$/g, "");
+
+      const ip = clean(pm.environment.get("web-provisioning-ip"));
+      if (!ip) {
+          throw new Error("environment variable 'web-provisioning-ip' is empty or unset");
+      }
+
+      // The subscriber id is the last path segment, not a query param.
+      // pm.request.url.path is an array of segments: ["api","callforwards","49077"].
+      const segments = pm.request.url.path || [];
+      const lastSegment = clean(pm.variables.replaceIn(segments[segments.length - 1] || ""));
+
+      // Fall back to a variable if the path segment is empty or still a placeholder,
+      // so the previous request's test script can hand the id over.
+      const subscriberId = /^\d+$/.test(lastSegment)
+          ? lastSegment
+          : clean(pm.variables.replaceIn("{{subscriber_id}}"));
+
+      // "null" and "undefined" arrive as literal strings when jq or a test script
+      // writes an unresolved lookup into the variable — reject them explicitly.
+      if (!/^\d+$/.test(subscriberId)) {
+          throw new Error("subscriber id is not a positive integer: [" + subscriberId + "]");
+      }
+
+      pm.request.url.protocol = "https";
+      pm.request.url.host = ip.split(".");
+      pm.request.url.port = "1443";
+      pm.request.url.path = ["api", "callforwards", subscriberId];
+
+      console.log("FINAL:", pm.request.url.toString());
+    language: text/javascript
+order: 3000
