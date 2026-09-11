@@ -1,5 +1,5 @@
 $kind: http-request
-url: https://localhost:1443/api/callforwards/49077
+url: https://localhost:1443/api/callforwards/{{username}}
 method: DELETE
 headers:
   Content-Type: application/json

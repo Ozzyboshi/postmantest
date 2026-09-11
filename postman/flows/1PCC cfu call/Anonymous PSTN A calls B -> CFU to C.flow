@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "Copy of Anonymous PSTN A calls B - B hangsup",
+  "name": "Anonymous PSTN A calls B -> CFU to C",
   "description": "",
   "flow": {
     "description": "Pstn 1pcc call towards B\nPstn has anonymous from\nB takes the call and hangsups",
@@ -454,59 +454,163 @@
           "namedInputsExpanded": true
         }
       },
-      "-E3MYKMm": {
-        "type": "system/module@1",
+      "Gugi4s-4": {
+        "type": "task/http-request@2",
         "pos": {
-          "x": 1168,
-          "y": -152
+          "x": 56,
+          "y": 16
         },
         "config": {
-          "flowId": "postman/flows/Building Blocks/Data parsing/Create cfu from subscriber.flow",
-          "versionId": "local",
-          "variables": [
+          "element": {
+            "name": "Get subscriber info",
+            "method": "GET",
+            "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
             {
-              "id": "M-RLFwgi",
+              "id": "tXJ06AYA",
               "type": "portal/out@2",
               "kind": "portal/out",
               "value": "8P-hNUeB",
-              "key": "number",
-              "latch": true
+              "key": "username",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "7wcvp29Q": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 32,
+          "y": -384
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "value1.body._embedded[\"ngcp:subscribers\"][0].id",
+          "variables": [
+            {
+              "id": "RZeinQZF",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value1",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "4qYPFMcP": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 448,
+          "y": -248
+        },
+        "config": {
+          "value": "callee_subscriber_id"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        }
+      },
+      "uf366bm4": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 800,
+          "y": -432
+        },
+        "config": {
+          "element": {
+            "name": "Create cfu",
+            "method": "PUT",
+            "path": "postman/collections/NGCP Provisioning/Create cfu.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "zi77lBrU",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "4qYPFMcP",
+              "key": "subscriber_id",
+              "latch": true,
+              "isExtraneous": false
             },
             {
-              "id": "EWadco86",
+              "id": "plANRUk0",
               "type": "TYPE_STRING",
               "kind": "string",
-              "value": "342323",
+              "value": "1234567",
               "key": "destination"
             }
           ],
-          "globals": [],
-          "ports": {
-            "input": [
-              {
-                "id": "M-RLFwgi",
-                "name": "number",
-                "typeDef": {
-                  "type": "string"
-                }
-              },
-              {
-                "id": "EWadco86",
-                "name": "destination",
-                "typeDef": {
-                  "type": "string"
-                }
-              }
-            ],
-            "output": [],
-            "global": []
-          }
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
         },
         "ui": {
-          "data": {
-            "blockTitle": "Create cfu from subscriber",
-            "alwaysUseLatest": true
-          }
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "eX1imEG2": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1152,
+          "y": 1016
+        },
+        "config": {
+          "element": {
+            "name": "Remove cfu",
+            "method": "DELETE",
+            "path": "postman/collections/NGCP Provisioning/Remove cfu.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "KIFg42er",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "4qYPFMcP",
+              "key": "username",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
         }
       }
     },
@@ -643,29 +747,65 @@
         "sourcePort": "success",
         "targetPort": "data"
       },
-      "Ssaes7A5": {
-        "source": "3pLPvq8L",
-        "target": "xtcxm6FR",
-        "sourcePort": "output|h5hWBfmQ",
-        "targetPort": "AI"
-      },
-      "Ub7rBVI_": {
+      "YpbfUAr0": {
         "source": "7k-ufbbf",
-        "target": "-E3MYKMm",
+        "target": "CtKhRkR0",
         "sourcePort": "success",
         "targetPort": "AI"
       },
-      "UkPQ5PVo": {
+      "yyMtD4Yx": {
+        "source": "3pLPvq8L",
+        "target": "Gugi4s-4",
+        "sourcePort": "output|h5hWBfmQ",
+        "targetPort": "AI"
+      },
+      "iVfwiDIp": {
         "source": "8P-hNUeB",
         "sourcePort": "data",
-        "target": "-E3MYKMm",
-        "targetPort": "variables|M-RLFwgi"
+        "target": "Gugi4s-4",
+        "targetPort": "requestVariables|tXJ06AYA"
       },
-      "7e_zwm4I": {
-        "source": "-E3MYKMm",
-        "target": "CtKhRkR0",
-        "sourcePort": "AO",
+      "z6aUFA1L": {
+        "source": "Gugi4s-4",
+        "target": "7wcvp29Q",
+        "sourcePort": "success",
+        "targetPort": "variables|RZeinQZF"
+      },
+      "cCynCFxq": {
+        "source": "7wcvp29Q",
+        "target": "4qYPFMcP",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "ZuNS7viS": {
+        "source": "7wcvp29Q",
+        "target": "uf366bm4",
+        "sourcePort": "out",
         "targetPort": "AI"
+      },
+      "QGGvSLQP": {
+        "source": "uf366bm4",
+        "target": "xtcxm6FR",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "6mRqf2sN": {
+        "source": "4qYPFMcP",
+        "sourcePort": "data",
+        "target": "uf366bm4",
+        "targetPort": "requestVariables|zi77lBrU"
+      },
+      "gZE9Ym8H": {
+        "source": "mj2_30jn",
+        "target": "eX1imEG2",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "trMGzg5e": {
+        "source": "4qYPFMcP",
+        "sourcePort": "data",
+        "target": "eX1imEG2",
+        "targetPort": "requestVariables|KIFg42er"
       }
     },
     "annotations": {
@@ -737,80 +877,8 @@
     "meta": {},
     "scenes": {},
     "scenarios": {
-      "zhQhrSrq": {
-        "name": "Start Trigger",
-        "type": "scenario@2",
-        "createdOn": 1776153573212,
-        "updatedOn": 1776153573212,
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "Input 1",
-            "value": "",
-            "type": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "M6H2fqTq": {
-        "name": "81470 calls 81471",
-        "type": "scenario@2",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "81470"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee",
-            "value": "81471"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "471"
-          },
-          "NArmN9zr": {
-            "id": "NArmN9zr",
-            "key": "parkslot",
-            "value": "1"
-          }
-        },
-        "createdOn": 1776153627188,
-        "updatedOn": 1777360798896
-      },
-      "b0hFn-gj": {
-        "name": "81474 calls 81475",
-        "type": "scenario@2",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "474"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee_ext",
-            "value": "81475"
-          },
-          "twy-tdza": {
-            "id": "twy-tdza",
-            "key": "callee_short",
-            "value": "475"
-          },
-          "NArmN9zr": {
-            "id": "NArmN9zr",
-            "key": "parkslot",
-            "value": "3"
-          }
-        },
-        "createdOn": 1776158553466,
-        "updatedOn": 1776158584595
-      },
       "YtCL22yv": {
-        "name": "anonymous pstn calls 81471",
+        "name": "anon pstn -> 81471 -> pstn",
         "type": "scenario@2",
         "data": {
           "Mn_11k27": {
@@ -825,26 +893,7 @@
           }
         },
         "createdOn": 1777384253543,
-        "updatedOn": 1788964811822
-      },
-      "_DKEKQQk": {
-        "name": "Anonymous pstn calls pstn",
-        "type": "scenario@3",
-        "triggerType": "ev/endpoint@3",
-        "data": {
-          "Mn_11k27": {
-            "id": "Mn_11k27",
-            "key": "caller",
-            "value": "anonymous"
-          },
-          "C6Y71Xpr": {
-            "id": "C6Y71Xpr",
-            "key": "callee",
-            "value": "+393381625435@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
-          }
-        },
-        "createdOn": 1788966903257,
-        "updatedOn": 1788966999209
+        "updatedOn": 1789110346690
       }
     },
     "config": {
@@ -994,6 +1043,6 @@
   "info": {
     "_postman_id": "43ab04eb-2a58-48de-8d5f-6b07f9ddb66c"
   },
-  "_postman_exported_at": "2026-09-10T12:20:24.272Z",
+  "_postman_exported_at": "2026-09-11T07:07:29.906Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -33,6 +33,7 @@ scripts:
           throw new Error("no domain after '@' and no 'domain' environment variable set");
       }
 
+
       const ip = clean(pm.environment.get("web-provisioning-ip"));
       if (!ip) {
           throw new Error("environment variable 'web-provisioning-ip' is empty or unset");

@@ -11,8 +11,8 @@ body:
 auth:
   type: basic
   credentials:
-    password: administrator
-    username: administrator
+    password: ""
+    username: ""
 scripts:
   - type: afterResponse
     code: |

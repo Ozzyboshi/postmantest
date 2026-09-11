@@ -13,6 +13,6 @@ body:
 auth:
   type: basic
   credentials:
-    password: administrator
-    username: administrator
+    password: ""
+    username: ""
 order: 2000

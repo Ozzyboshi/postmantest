@@ -1,4 +1,3 @@
-# Use this workspace to collaborate
 workspace:
   id: b66be0b2-6fe5-4c27-bb39-84b9dc4b8599
 
@@ -6,14 +5,20 @@ workspace:
 
 cloudResources:
   collections:
-    ../postman/collections/3pcc: ae51e077-b00e-409c-bbf6-781cc32d0059
-    ../postman/collections/Baresip Basics: 2a4258a3-6680-4e58-aa6c-3dd23874bfb5
-    ../postman/collections/Webdis: 98a9e738-dced-446c-ba67-f1d2e68c51e8
-    ../postman/collections/NGCP Provisioning: c49c5810-f7a3-4e82-ab62-f3f5a9a53520
-    ../postman/collections/Trash: 14ae5498-c7c6-401b-a872-9236810354e8
-
-# All resources in the `postman/` folder are automatically registered in Local View.
-# Point to additional files outside the `postman/` folder to register them individually. Example:
-#localResources:
-#  collections:
-#    - ../tests/E2E Test Collection/
+    ../postman/collections/3pcc: 9405476-aeed5acb-9d07-42cb-9b37-47023c7d5f51
+    ../postman/collections/Baresip Basics: 9405476-7a3d7589-9512-4ad2-bae4-b610a94e1541
+    ../postman/collections/Webdis: 9405476-d77316c8-1d2c-4d6e-b097-c7c80969aba4
+    ../postman/collections/NGCP Provisioning: 9405476-7b4162e6-9f27-4610-9a17-8ed5d33f6733
+    ../postman/collections/Trash: 9405476-ae7a5815-4f97-4f94-8c1f-d483a8ace032
+    ../postman/collections/Logs: 9405476-86b0fca7-df96-461e-97af-cc3fa689ea4d
+  environments:
+    ../postman/environments/ALE.environment.yaml: 9405476-fe004e9c-76d2-4eb9-816a-dc29427de8b9
+    ../postman/environments/ALEMuliproxy.environment.yaml: 9405476-150fa0d9-4de9-46ca-ae3a-d3e2940ac143
+    ../postman/environments/GC2 Copy.environment.yaml: 9405476-3055a867-84a4-45d5-bed1-3d099720bff9
+    ../postman/environments/GC2.environment.yaml: 9405476-bb9eee1a-1df6-45df-a6fd-1b83112c3abd
+    ../postman/environments/Multiproxy.environment.yaml: 9405476-7e7392ab-7a1b-4635-8fa9-d89416949acf
+  flows:
+    ../postman/flows/1PCC Makecall - B 4XX Generic.flow: 6aa2a8e550f3d4e787fb8f7c
+    ../postman/flows/Copy of 1pcc cfuearly ann between baresips.flow: 6aa2a8e4a07ca31761bdf9b0
+  globals:
+    ../postman/globals/workspace.globals.yaml: 834fe331-cb0e-4ea3-89c9-16cd838cde62
