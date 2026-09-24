@@ -13,10 +13,10 @@ cloudResources:
     ../postman/collections/Logs: 9405476-86b0fca7-df96-461e-97af-cc3fa689ea4d
   environments:
     ../postman/environments/ALE.environment.yaml: 9405476-fe004e9c-76d2-4eb9-816a-dc29427de8b9
-    ../postman/environments/ALEMuliproxy.environment.yaml: 9405476-150fa0d9-4de9-46ca-ae3a-d3e2940ac143
     ../postman/environments/GC2 Copy.environment.yaml: 9405476-3055a867-84a4-45d5-bed1-3d099720bff9
     ../postman/environments/GC2.environment.yaml: 9405476-bb9eee1a-1df6-45df-a6fd-1b83112c3abd
     ../postman/environments/Multiproxy.environment.yaml: 9405476-7e7392ab-7a1b-4635-8fa9-d89416949acf
+    ../postman/environments/ALEMultiproxy.environment.yaml: 9405476-150fa0d9-4de9-46ca-ae3a-d3e2940ac143
   flows:
     ../postman/flows/1PCC Makecall - B 4XX Generic.flow: 6aa2a8e550f3d4e787fb8f7c
     ../postman/flows/Copy of 1pcc cfuearly ann between baresips.flow: 6aa2a8e4a07ca31761bdf9b0

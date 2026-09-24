@@ -1,0 +1,66 @@
+$kind: http-request
+name: SelectLine -> Baresip compact
+url: http://localhost:8000/?caller={{caller}}&line={{line}}
+method: GET
+queryParams:
+  caller: "{{caller}}"
+  line: "{{line}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      let text = pm.response.text();
+
+      let match = text.match(/call id:([^\r\n]+)/);
+
+      if (match) {
+          let callId = match[1].trim();
+          console.log("Created callid ###" + callId + "###");
+
+          pm.environment.set("callId", callId);
+          pm.globals.set("callId",callId);
+          return callId;
+      }
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("caller") ?? ""));
+      const ip = pm.environment.get("baresip_ip");
+
+      let input_number = ua;  // same query param as "caller"
+      const line = String(pm.variables.replaceIn(pm.request.url.query.get("line") ?? "")).trim();
+
+      console.log("Caller is " + input_number);
+      console.log("Line is " + line);
+
+      // Fail early instead of building "?%40undefined"
+      if (!/^\d+$/.test(line)) {
+          throw new Error("Missing or invalid 'line' query parameter: " + line);
+      }
+
+      input_number = input_number.replace(/@.*$/, '').slice(-7);
+      let num = parseInt(input_number, 10);
+      if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+      if (Number.isNaN(num)) {
+          throw new Error("Cannot derive host octets from caller: " + ua);
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = String(ip).split(".");
+
+      // baresip's httpd module runs the query string through libre's URI unescape,
+      // which rejects a literal '@'. Encode the whole short command: "@1" -> "%401".
+      const cmd = encodeURIComponent("@" + line);
+
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b
+                      + ":8000/?" + cmd;
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 2054

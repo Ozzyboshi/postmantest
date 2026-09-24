@@ -1,4 +1,4 @@
-name: ALEMuliproxy
+name: ALEMultiproxy
 values:
   - key: domain
     value: ''
@@ -11,5 +11,7 @@ values:
   - key: ws-webserver-socket
     value: ''
   - key: callId
+    value: ''
+  - key: proxysshdest
     value: ''
 color: 180

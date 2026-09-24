@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "A - B B takes - B Xfers to C - A hangs up compact",
+  "name": "A - B B takes - B Xfers to C(ann) - A hangs up compact",
   "description": "",
   "flow": {
     "description": "A calls B\nB takes the call\nB blind transfers to C\nA hangs\nC takes the call\n\n",
@@ -144,7 +144,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -250,7 +250,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -298,7 +298,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Transfercall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -342,7 +342,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -377,7 +377,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -386,6 +386,229 @@
               "kind": "portal/out",
               "value": "yQFr5eXB",
               "key": "takecaller",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "ySp9pKz5": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1232,
+          "y": -712
+        },
+        "config": {
+          "element": {
+            "name": "Set play_announce_before_call_setup",
+            "method": "PATCH",
+            "path": "postman/collections/NGCP Provisioning/Set play_announce_before_call_setup.request.yaml"
+          },
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "DDkz7pDe",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "I9yxpGq5",
+              "key": "subscriber_id",
+              "latch": true,
+              "isExtraneous": false,
+              "__noIn": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "cJ7QZQhk": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 440,
+          "y": -704
+        },
+        "config": {
+          "element": {
+            "name": "Get subscriber info",
+            "method": "GET",
+            "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
+          },
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "tPvpftQY",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "yQFr5eXB",
+              "key": "username",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "b9PVw740": {
+        "type": "logic/manipulate@1",
+        "pos": {
+          "x": 768,
+          "y": -776
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "value1.body._embedded[\"ngcp:subscribers\"][0].id",
+          "variables": [
+            {
+              "id": "stUxFc87",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "value1",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "I9yxpGq5": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1216,
+          "y": -816
+        },
+        "config": {
+          "value": "final_callee_subscriber_id"
+        },
+        "ui": {
+          "color": "blue",
+          "data": {}
+        }
+      },
+      "zhyaCNva": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1872,
+          "y": 32
+        },
+        "config": {
+          "element": {
+            "name": "SaveProxyLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
+          },
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "NYi4ouLn",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callid",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "rzqbNyss": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 2272,
+          "y": 40
+        },
+        "config": {
+          "element": {
+            "name": "SaveRtpLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveRtpLogs.request.yaml"
+          },
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "8YiS8BG7",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callid",
+              "__noIn": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "3LP1yvP3": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 2640,
+          "y": 32
+        },
+        "config": {
+          "element": {
+            "name": "Remove play_announce_before_call_setup",
+            "method": "PATCH",
+            "path": "postman/collections/NGCP Provisioning/Remove play_announce_before_call_setup.request.yaml"
+          },
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "Recrf8gq",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "I9yxpGq5",
+              "key": "subscriber_id",
               "latch": true,
               "isExtraneous": false
             }
@@ -437,12 +660,6 @@
         "target": "UULG1SF7",
         "sourcePort": "output|iiddXNuV",
         "targetPort": "data"
-      },
-      "aB9D7W9j": {
-        "source": "zgSHmoR1",
-        "target": "OkJnXljR",
-        "sourcePort": "output|iiddXNuV",
-        "targetPort": "AI"
       },
       "vUCrhrjD": {
         "source": "UULG1SF7",
@@ -551,6 +768,78 @@
         "target": "DscsBOQi",
         "sourcePort": "success",
         "targetPort": "data"
+      },
+      "f5P_6t3-": {
+        "source": "yQFr5eXB",
+        "sourcePort": "data",
+        "target": "cJ7QZQhk",
+        "targetPort": "requestVariables|tPvpftQY"
+      },
+      "stnLBhhb": {
+        "source": "zgSHmoR1",
+        "target": "cJ7QZQhk",
+        "sourcePort": "output|iiddXNuV",
+        "targetPort": "AI"
+      },
+      "FW4C_fy6": {
+        "source": "ySp9pKz5",
+        "target": "OkJnXljR",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "P8mg5yh8": {
+        "source": "cJ7QZQhk",
+        "target": "b9PVw740",
+        "sourcePort": "success",
+        "targetPort": "variables|stUxFc87"
+      },
+      "6VSJLnqQ": {
+        "source": "b9PVw740",
+        "target": "I9yxpGq5",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "04ILx7vF": {
+        "source": "I9yxpGq5",
+        "sourcePort": "data",
+        "target": "ySp9pKz5",
+        "targetPort": "requestVariables|DDkz7pDe"
+      },
+      "E1GWEle-": {
+        "source": "vzztzolo",
+        "target": "zhyaCNva",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "1C5qhlpC": {
+        "source": "zhyaCNva",
+        "target": "rzqbNyss",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "Bs97BySE": {
+        "source": "rzqbNyss",
+        "target": "3LP1yvP3",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "cGgsoPx7": {
+        "source": "I9yxpGq5",
+        "sourcePort": "data",
+        "target": "3LP1yvP3",
+        "targetPort": "requestVariables|Recrf8gq"
+      },
+      "AHKXwqe1": {
+        "source": "o-3jhIVO",
+        "target": "zhyaCNva",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "requestVariables|NYi4ouLn"
+      },
+      "-X-UF-6-": {
+        "source": "o-3jhIVO",
+        "target": "rzqbNyss",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "requestVariables|8YiS8BG7"
       }
     },
     "annotations": {},
@@ -620,8 +909,8 @@
   },
   "lockbox": {},
   "info": {
-    "_postman_id": "6c49fba6-63a6-458f-a22a-f40333f5d249"
+    "_postman_id": "e3367d3f-ccf6-4345-b7bc-4487d79764fd"
   },
-  "_postman_exported_at": "2026-09-18T13:51:49.513Z",
+  "_postman_exported_at": "2026-09-22T07:33:27.670Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -12,4 +12,6 @@ values:
     value: ''
   - key: callId
     value: ''
+  - key: proxysshdest
+    value: ''
 color: 0

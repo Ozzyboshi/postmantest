@@ -14,4 +14,6 @@ values:
     value: ''
   - key: web-provisioning-ip
     value: ''
+  - key: proxysshdest
+    value: ''
 color: 120
