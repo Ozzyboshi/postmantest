@@ -8,7 +8,7 @@ auth:
   type: basic
   credentials:
     username: administrator
-    password: sipwise4ale
+    password: "{{web-provisioning-password}}"
 scripts:
   - type: beforeRequest
     code: |-

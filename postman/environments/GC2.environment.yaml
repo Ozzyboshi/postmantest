@@ -16,4 +16,6 @@ values:
     value: ''
   - key: proxysshdest
     value: ''
+  - key: web-provisioning-password
+    value: ''
 color: 120

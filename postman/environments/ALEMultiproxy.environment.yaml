@@ -14,4 +14,9 @@ values:
     value: ''
   - key: proxysshdest
     value: ''
+  - key: web-provisioning-ip
+    value: ''
+  - key: web-provisioning-password
+    value: ''
+    description: password for api
 color: 180

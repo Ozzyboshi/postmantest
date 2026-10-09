@@ -1,16 +1,24 @@
 $kind: http-request
-name: Clearcall Compact
-url: http://localhost:5000/clearcall?callid={{callid}}&deviceid={{deviceid}}
+url: http://localhost:5000/clearcall?callid={{callid}}&deviceid={{deviceid}}&delay={{delay}}
 method: POST
 queryParams:
   callid: "{{callid}}"
   deviceid: "{{deviceid}}"
+  delay: "{{delay}}"
 body:
   type: formdata
   content: []
 scripts:
   - type: beforeRequest
     code: |-
+      // Read optional delay (ms) BEFORE the URL gets rewritten below
+      let delayMs = parseInt(pm.variables.replaceIn(pm.request.url.query.get("delay") || ""), 10);
+      if (Number.isNaN(delayMs) || delayMs <= 0) {
+          delayMs = 0;
+      }
+      // Safety cap to avoid hanging the runner by mistake (60s)
+      delayMs = Math.min(delayMs, 60000);
+
       const domain = pm.environment.get("domain");
 
       function toSipUri(value) {
@@ -59,5 +67,14 @@ scripts:
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
+
+      if (delayMs > 0) {
+          console.log("Delaying request by " + delayMs + " ms");
+          // Postman keeps the sandbox alive until pending timers fire,
+          // so the HTTP request is sent only after this callback runs
+          setTimeout(() => {
+              console.log("Delay elapsed, sending request");
+          }, delayMs);
+      }
     language: text/javascript
 order: 2823

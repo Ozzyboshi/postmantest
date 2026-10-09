@@ -144,7 +144,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -250,7 +250,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -298,7 +298,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Transfercall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -342,7 +342,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -377,7 +377,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -412,7 +412,7 @@
             "method": "PATCH",
             "path": "postman/collections/NGCP Provisioning/Set play_announce_before_call_setup.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -424,6 +424,13 @@
               "latch": true,
               "isExtraneous": false,
               "__noIn": true
+            },
+            {
+              "id": "HsmRQuTs",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "web-provisioning-password"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -449,7 +456,7 @@
             "method": "GET",
             "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -460,6 +467,13 @@
               "key": "username",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "vD6N3zzg",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "web-provisioning-password"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -530,7 +544,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -565,7 +579,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveRtpLogs.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -600,7 +614,7 @@
             "method": "PATCH",
             "path": "postman/collections/NGCP Provisioning/Remove play_announce_before_call_setup.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -611,6 +625,13 @@
               "key": "subscriber_id",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "swvoqv2Q",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "web-provisioning-password"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -911,6 +932,6 @@
   "info": {
     "_postman_id": "e3367d3f-ccf6-4345-b7bc-4487d79764fd"
   },
-  "_postman_exported_at": "2026-09-22T07:33:27.670Z",
+  "_postman_exported_at": "2026-10-09T09:42:25.661Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

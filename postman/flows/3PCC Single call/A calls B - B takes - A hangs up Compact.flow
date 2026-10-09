@@ -128,7 +128,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Makecall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -172,7 +172,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -273,7 +273,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -308,7 +308,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -379,7 +379,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -427,7 +427,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Clearcall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -436,7 +436,8 @@
               "kind": "portal/out",
               "value": "M4coG_ik",
               "key": "callid",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             },
             {
               "id": "gQGR3End",
@@ -444,7 +445,8 @@
               "kind": "portal/out",
               "value": "cE2-OEuM",
               "key": "deviceid",
-              "latch": true
+              "latch": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -789,6 +791,6 @@
   "info": {
     "_postman_id": "c60aead8-b70a-4940-ab1d-c8efc076c944"
   },
-  "_postman_exported_at": "2026-08-13T11:04:36.961Z",
+  "_postman_exported_at": "2026-10-09T09:42:52.524Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

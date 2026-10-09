@@ -1,0 +1,68 @@
+$kind: http-request
+name: UnParkCall -> Baresip Generic
+url: http://localhost:8000/?unparker={{unparker}}&slot={{slot}}&delay={{delay}}
+method: GET
+queryParams:
+  unparker: "{{unparker}}"
+  slot: "{{slot}}"
+  delay: "{{delay}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      let text = pm.response.text();
+
+      let match = text.match(/call id:([^\r\n]+)/);
+
+      if (match) {
+          let callId = match[1].trim();
+          console.log("###" + callId + "###");
+
+          pm.environment.set("callId", callId);
+          return callId;
+      }
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      // Read optional delay (ms) BEFORE the URL gets rewritten below
+      let delayMs = parseInt(pm.variables.replaceIn(pm.request.url.query.get("delay") || ""), 10);
+      if (Number.isNaN(delayMs) || delayMs <= 0) {
+          delayMs = 0;
+      }
+      // Safety cap to avoid hanging the runner by mistake (60s)
+      delayMs = Math.min(delayMs, 60000);
+
+      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("unparker") ?? ""));
+      let ip = pm.environment.get("baresip_ip");
+
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("unparker"));
+      let callee       = "*98*"+pm.variables.replaceIn(pm.request.url.query.get("slot"));
+      console.log("Unparker is " + input_number);
+      console.log("pickupSlot is " + callee);
+
+      input_number = input_number.replace(/@.*$/, '').slice(-7);
+      let num = parseInt(input_number, 10);
+      if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = ip.split(".");
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?d" + encodeURIComponent(callee);
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+
+      if (delayMs > 0) {
+          console.log("Delaying request by " + delayMs + " ms");
+          // Postman keeps the sandbox alive until pending timers fire,
+          // so the HTTP request is sent only after this callback runs
+          setTimeout(() => {
+              console.log("Delay elapsed, sending request");
+          }, delayMs);
+      }
+    language: text/javascript
+order: 2671
