@@ -577,10 +577,12 @@
           "requestVariables": [
             {
               "id": "pXWvNdeP",
-              "type": null,
-              "kind": null,
-              "value": null,
-              "key": "callid"
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "callid",
+              "latch": true,
+              "__noIn": true
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -948,6 +950,12 @@
         "target": "XY3MR16f",
         "sourcePort": "success",
         "targetPort": "AI"
+      },
+      "2yeIt9Cy": {
+        "source": "QLZ4vLMS",
+        "target": "U1FRwhrI",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "requestVariables|pXWvNdeP"
       }
     },
     "annotations": {},
@@ -1007,6 +1015,6 @@
   "info": {
     "_postman_id": "c433a92c-96ba-4a04-ba8e-cd12d2600742"
   },
-  "_postman_exported_at": "2026-10-20T15:11:17.250Z",
+  "_postman_exported_at": "2026-10-20T15:26:07.586Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
