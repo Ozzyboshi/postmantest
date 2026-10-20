@@ -1,0 +1,72 @@
+$kind: http-request
+name: Redirectcall at response -> Baresip compact
+url: http://localhost:8000/?redirector={{redirector}}&redirect_to={{redirect_to}}
+method: GET
+queryParams:
+  redirector: "{{redirector}}"
+  redirect_to: "{{redirect_to}}"
+scripts:
+  - type: afterResponse
+    code: ""
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      /*
+       * Pre-request script: redirect the call that is ringing on the redirector's
+       * baresip instance (redirect.so, command /call_redirect).
+       *
+       * Query parameters:
+       *   redirector   identity of the redirecting subscriber, used to compute
+       *                the baresip instance IP (same mapping as the dial script)
+       *   redirect_to  target SIP URI for the Contact header, e.g. sip:81472@domain
+       */
+
+      // Resolved query parameter; "" when missing or left as an unresolved {{var}}.
+      function queryParam(name) {
+          const raw = pm.request.url.query.get(name);
+          if (raw === undefined || raw === null) return "";
+          const value = String(pm.variables.replaceIn(raw)).trim();
+          return /^\{\{[^}]*\}\}$/.test(value) ? "" : value;
+      }
+
+      const redirector  = queryParam("redirector");
+      const redirect_to = queryParam("redirect_to");
+      console.log("baresip redirector is " + redirector);
+      console.log("redirect_to is " + redirect_to);
+
+      if (!redirector) {
+          throw new Error("redirector is not set");
+      }
+      // The module writes the value verbatim inside <...>; a space would end the
+      // parameter, so only a plain SIP URI is accepted.
+      if (!/^sips?:[^\s<>]+$/.test(redirect_to)) {
+          throw new Error("redirect_to must be a SIP URI (sip:user@host), got '" +
+                          redirect_to + "'");
+      }
+
+      let num = parseInt(redirector.replace(/@.*$/, '').slice(-7), 10);
+      if (Number.isNaN(num) && redirector.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+      if (Number.isNaN(num)) {
+          throw new Error("cannot derive the baresip instance from '" + redirector + "'");
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = pm.environment.get("baresip_ip").split(".");
+
+      // scode defaults to 302 in redirect.so. The whole command is encoded so the
+      // space separator and any special characters in the URI reach baresip intact;
+      // /raw/ returns plain text instead of the HTML wrapper.
+      const cmd = "/call_redirect contact=" + redirect_to;
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b +
+                        ":8000/raw/?" + encodeURIComponent(cmd);
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 3000

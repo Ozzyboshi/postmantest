@@ -1,0 +1,93 @@
+$kind: http-request
+name: Redirectcall immediate -> Baresip compact
+url: http://localhost:8000/?redirector={{redirector}}&redirect_to={{redirect_to}}
+method: GET
+queryParams:
+  redirector: "{{redirector}}"
+  redirect_to: "{{redirect_to}}"
+scripts:
+  - type: afterResponse
+    code: ""
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      /*
+       * Pre-request script: set a permanent redirect on the redirector's baresip UA
+       * (redirect.so, /uaredirect_add). While set, every INVITE reaching that UA is
+       * rejected with 302 Moved Temporarily. Remove it with the uaredirect_clear
+       * request.
+       *
+       * Query parameters:
+       *   redirector   identity of the redirecting subscriber, used to compute
+       *                the baresip instance IP (same mapping as the dial script)
+       *   redirect_to  target SIP URI for the Contact header
+       *
+       * The redirect is set on UA 0 (first UA in /reginfo) and expires after
+       * REDIRECT_EXPIRES_S seconds, so a flow that stops before the clear request
+       * does not leave the subscriber redirected; the 302 Contact carries
+       * ";expires=<seconds left>".
+       *
+       * Idempotent: an existing redirect on the same UA is replaced.
+       *
+       * redirect.so must be loaded before menu.so (baresip -m redirect.so, or the
+       * module_app line placed before menu.so). Otherwise menu accepts the INVITE
+       * first and the redirect never fires, although the command still succeeds.
+       */
+
+      const UA_INDEX           = 0;
+      const REDIRECT_EXPIRES_S = 600;   // 10 minutes
+
+      // Resolved query parameter; "" when missing or left as an unresolved {{var}}.
+      function queryParam(name) {
+          const raw = pm.request.url.query.get(name);
+          if (raw === undefined || raw === null) return "";
+          const value = String(pm.variables.replaceIn(raw)).trim();
+          return /^\{\{[^}]*\}\}$/.test(value) ? "" : value;
+      }
+
+      const redirector  = queryParam("redirector");
+      const redirect_to = queryParam("redirect_to");
+      console.log("baresip redirector is " + redirector);
+      console.log("redirect_to is " + redirect_to);
+
+      if (!redirector) {
+          throw new Error("redirector is not set");
+      }
+      // The module writes the value verbatim inside <...>; a space would end the
+      // parameter, so only a plain SIP URI is accepted.
+      if (!/^sips?:[^\s<>]+$/.test(redirect_to)) {
+          throw new Error("redirect_to must be a SIP URI (sip:user@host), got '" +
+                          redirect_to + "'");
+      }
+
+      let num = parseInt(redirector.replace(/@.*$/, '').slice(-7), 10);
+      if (Number.isNaN(num) && redirector.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+      if (Number.isNaN(num)) {
+          throw new Error("cannot derive the baresip instance from '" + redirector + "'");
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = pm.environment.get("baresip_ip").split(".");
+
+      // scode and reason default to 302 "Moved Temporarily" in redirect.so.
+      const cmd = "/uaredirect_add " + UA_INDEX + " contact=" + redirect_to +
+                  " expires=" + REDIRECT_EXPIRES_S;
+
+      // Read back by the post-response tests.
+      pm.variables.set("baresip_redirect_to", redirect_to);
+
+      // The whole command is encoded so the space separators and any special
+      // characters in the URI reach baresip intact; /raw/ returns plain text.
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b +
+                        ":8000/raw/?" + encodeURIComponent(cmd);
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 5000

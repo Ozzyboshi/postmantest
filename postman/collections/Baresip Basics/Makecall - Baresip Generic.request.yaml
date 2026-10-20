@@ -24,4 +24,4 @@ scripts:
       let ciao = pm.environment.get("baresip_ip");
       console.log(ciao);
     language: text/javascript
-order: 2000
+order: 1000

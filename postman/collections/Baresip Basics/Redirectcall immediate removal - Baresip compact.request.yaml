@@ -1,0 +1,69 @@
+$kind: http-request
+name: Redirectcall immediate removal -> Baresip compact
+url: http://localhost:8000/?redirector={{redirector}}
+method: GET
+queryParams:
+  redirector: "{{redirector}}"
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: ""
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      /*
+       * Pre-request script: remove the redirect set on the redirector's baresip UA
+       * by the uaredirect_add request (redirect.so, /uaredirect_clear).
+       *
+       * Query parameters:
+       *   redirector   identity of the redirecting subscriber, used to compute
+       *                the baresip instance IP (same mapping as the dial script)
+       *
+       * Clears UA 0 (first UA in /reginfo), the same UA used by the add request.
+       * Idempotent: succeeds also when no redirect is set on the UA.
+       */
+
+      const UA_INDEX = 0;
+
+      // Resolved query parameter; "" when missing or left as an unresolved {{var}}.
+      function queryParam(name) {
+          const raw = pm.request.url.query.get(name);
+          if (raw === undefined || raw === null) return "";
+          const value = String(pm.variables.replaceIn(raw)).trim();
+          return /^\{\{[^}]*\}\}$/.test(value) ? "" : value;
+      }
+
+      const redirector = queryParam("redirector");
+      console.log("baresip redirector is " + redirector);
+
+      if (!redirector) {
+          throw new Error("redirector is not set");
+      }
+
+      let num = parseInt(redirector.replace(/@.*$/, '').slice(-7), 10);
+      if (Number.isNaN(num) && redirector.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+      if (Number.isNaN(num)) {
+          throw new Error("cannot derive the baresip instance from '" + redirector + "'");
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = pm.environment.get("baresip_ip").split(".");
+
+      const cmd = "/uaredirect_clear " + UA_INDEX;
+
+      // /raw/ returns plain text; the command is encoded for the space separator.
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b +
+                        ":8000/raw/?" + encodeURIComponent(cmd);
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+    language: text/javascript
+order: 5084

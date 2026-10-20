@@ -4,4 +4,4 @@ url: "{{baseURLBaresip}}/?{{digit}}{{digit}}"
 method: GET
 queryParams:
   "{{digit}}{{digit}}": null
-order: 3000
+order: 16000

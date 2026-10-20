@@ -48,4 +48,4 @@ scripts:
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
     language: text/javascript
-order: 2035
+order: 2000

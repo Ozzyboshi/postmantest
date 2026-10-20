@@ -144,7 +144,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -250,7 +250,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -298,7 +298,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Transfercall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -342,7 +342,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -377,7 +377,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -412,7 +412,7 @@
             "method": "PATCH",
             "path": "postman/collections/NGCP Provisioning/Set play_announce_before_call_setup.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -456,7 +456,7 @@
             "method": "GET",
             "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -544,7 +544,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -579,7 +579,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveRtpLogs.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -614,7 +614,7 @@
             "method": "PATCH",
             "path": "postman/collections/NGCP Provisioning/Remove play_announce_before_call_setup.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -932,6 +932,6 @@
   "info": {
     "_postman_id": "e3367d3f-ccf6-4345-b7bc-4487d79764fd"
   },
-  "_postman_exported_at": "2026-10-09T09:42:25.661Z",
+  "_postman_exported_at": "2026-10-20T09:17:50.876Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
