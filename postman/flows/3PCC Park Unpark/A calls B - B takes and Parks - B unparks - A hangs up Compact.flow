@@ -592,8 +592,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -602,16 +601,14 @@
               {
                 "id": "s5Srs2y9",
                 "name": "baresiptext",
-                "typeDef": {
-                  "type": "string"
-                }
+                "type": null
               }
             ],
             "output": [
               {
                 "id": "ZBap0MCT",
                 "name": "callid",
-                "typeDef": {}
+                "type": null
               }
             ],
             "global": []
@@ -640,6 +637,41 @@
             "displayType": "auto",
             "genericLabel": "Pickup callid"
           }
+        }
+      },
+      "l7H9WUa2": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 3040,
+          "y": -304
+        },
+        "config": {
+          "element": {
+            "name": "SaveProxyLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
+          },
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "sB7-h-Bu",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "M4coG_ik",
+              "key": "callid",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
         }
       }
     },
@@ -877,6 +909,18 @@
         "target": "HmaDvqLX",
         "sourcePort": "success",
         "targetPort": "AI"
+      },
+      "Du6zdo0X": {
+        "source": "HmaDvqLX",
+        "target": "l7H9WUa2",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "r-FdZen4": {
+        "source": "M4coG_ik",
+        "sourcePort": "data",
+        "target": "l7H9WUa2",
+        "targetPort": "requestVariables|sB7-h-Bu"
       }
     },
     "annotations": {},
@@ -1103,6 +1147,6 @@
   "info": {
     "_postman_id": "435d0992-5e6c-4263-b5be-29d7236fda89"
   },
-  "_postman_exported_at": "2026-10-09T10:46:15.458Z",
+  "_postman_exported_at": "2026-10-20T08:15:02.759Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
