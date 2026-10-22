@@ -349,8 +349,7 @@
               "type": "value/reference@2",
               "kind": "reference",
               "value": "",
-              "key": "baresiptext",
-              "__noIn": true
+              "key": "baresiptext"
             }
           ],
           "globals": [],
@@ -624,7 +623,8 @@
               "kind": "reference",
               "value": "",
               "key": "callid",
-              "__noIn": true
+              "__noIn": true,
+              "isExtraneous": false
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -895,6 +895,6 @@
   "info": {
     "_postman_id": "363aa45e-5a70-454a-aace-0876c97fda37"
   },
-  "_postman_exported_at": "2026-10-20T15:26:29.899Z",
+  "_postman_exported_at": "2026-10-22T09:35:21.192Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
