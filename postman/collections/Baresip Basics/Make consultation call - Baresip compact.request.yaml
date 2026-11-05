@@ -1,0 +1,106 @@
+$kind: http-request
+name: Make consultation call -> Baresip compact
+url: http://localhost:8000/?caller={{caller}}&callee={{callee}}&delay={{delay}}
+method: GET
+queryParams:
+  caller: "{{caller}}"
+  callee: "{{callee}}"
+  delay: "{{delay}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      let text = pm.response.text();
+
+      let match = text.match(/call id:([^\r\n]+)/);
+
+      if (match) {
+          let callId = match[1].trim();
+          console.log("Created callid ###" + callId + "###");
+
+          pm.environment.set("callId", callId);
+          pm.globals.set("callId",callId);
+          return callId;
+      }
+    language: text/javascript
+  - type: beforeRequest
+    code: |-
+      /*
+       * Pre-request script: start an attended transfer on the caller's baresip
+       * instance (menu key T = /atransferstart, consultation call to "callee").
+       *
+       * /atransferstart passes its argument to ua_connect() verbatim, without the
+       * account_uri_complete() step that /dial does, so a bare number would produce
+       * "INVITE 81472 SIP/2.0". The callee is therefore completed here:
+       *   81472                 -> sip:81472@<domain>
+       *   81472;user=phone      -> sip:81472@<domain>;user=phone
+       *   81472@other.domain    -> sip:81472@other.domain
+       *   10.0.0.5[:port]       -> sip:10.0.0.5[:port]
+       *   sip:/sips:/tel: URIs  -> unchanged
+       * <domain> comes from the "domain" environment variable.
+       */
+
+      // Completes a dial string to a SIP URI; see the table above.
+      function completeSipUri(target, domain) {
+          const t = target.trim();
+          if (/^(sips?|tel):/i.test(t)) return t;
+          if (t.includes("@")) return "sip:" + t;
+          if (/^\d{1,3}(\.\d{1,3}){3}(:\d+)?$/.test(t)) return "sip:" + t;
+          if (!domain) {
+              throw new Error("environment variable 'domain' is not set");
+          }
+          // Keep URI parameters after the host part.
+          const semi = t.indexOf(";");
+          return semi < 0 ? "sip:" + t + "@" + domain
+                          : "sip:" + t.slice(0, semi) + "@" + domain + t.slice(semi);
+      }
+
+      // Read optional delay (ms) BEFORE the URL gets rewritten below
+      let delayMs = parseInt(pm.variables.replaceIn(pm.request.url.query.get("delay") || ""), 10);
+      if (Number.isNaN(delayMs) || delayMs <= 0) {
+          delayMs = 0;
+      }
+      // Safety cap to avoid hanging the runner by mistake (60s)
+      delayMs = Math.min(delayMs, 60000);
+
+      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("caller") ?? ""));
+      let ip = pm.environment.get("baresip_ip");
+
+      let input_number = pm.variables.replaceIn(pm.request.url.query.get("caller"));
+      let callee       = String(pm.variables.replaceIn(pm.request.url.query.get("callee") ?? "")).trim();
+      console.log("Caller is " + input_number);
+      console.log("Callee is " + callee);
+
+      if (callee === "" || /\{\{[^}]*\}\}/.test(callee)) {
+          throw new Error("callee is not set");
+      }
+      const domain = String(pm.variables.replaceIn(pm.environment.get("domain") ?? "")).trim();
+      callee = completeSipUri(callee, domain);
+      console.log("Consultation target is " + callee);
+
+      input_number = input_number.replace(/@.*$/, '').slice(-7);
+      let num = parseInt(input_number, 10);
+      if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
+          num = 2;
+          console.log("maybe anonymous, new number is " + num);
+      }
+
+      const n = num % 65536;
+      const a = Math.floor(n / 256);
+      const b = n % 256;
+
+      const parts = ip.split(".");
+      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?T" + encodeURIComponent(callee);
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+
+      if (delayMs > 0) {
+          console.log("Delaying request by " + delayMs + " ms");
+          // Postman keeps the sandbox alive until pending timers fire,
+          // so the HTTP request is sent only after this callback runs
+          setTimeout(() => {
+              console.log("Delay elapsed, sending request");
+          }, delayMs);
+      }
+    language: text/javascript
+order: 2949

@@ -22,33 +22,42 @@ scripts:
       }
     language: text/javascript
   - type: beforeRequest
-    code: |-
-      const ua = String(pm.variables.replaceIn(pm.request.url.query.get("useragent") ?? ""));
-      let ip = pm.environment.get("baresip_ip");
+    code: |
+      const q = (k) => String(pm.variables.replaceIn(pm.request.url.query.get(k) ?? "")).trim();
 
-      let input_number = pm.variables.replaceIn(pm.request.url.query.get("useragent"));
-      console.log("baresip useragent is " + input_number);
+      const ua = q("useragent");
+      const header_name = q("headername");
+      const header_value = q("headervalue");   // es. <sip:0039999888777@mypstn>  (NON url-encoded)
+      const ip = pm.environment.get("baresip_ip");
 
-      let header_name = pm.variables.replaceIn(pm.request.url.query.get("headername"));
+      console.log("baresip useragent is " + ua);
       console.log("Header name is " + header_name);
-
-      let header_value = pm.variables.replaceIn(pm.request.url.query.get("headervalue"));
       console.log("Header value is " + header_value);
 
-      input_number = input_number.replace(/@.*$/, '').slice(-7);
-      let num = parseInt(input_number, 10);
+      if (!ip || !header_name || !header_value) {
+          throw new Error("missing baresip_ip / headername / headervalue");
+      }
+
+      // numero -> ultimi 2 ottetti dell'IP del container (ultime 7 cifre % 65536)
+      let num = parseInt(ua.replace(/@.*$/, "").slice(-7), 10);
       if (Number.isNaN(num) && ua.toLowerCase().startsWith("anonymous")) {
           num = 2;
           console.log("maybe anonymous, new number is " + num);
       }
+      if (Number.isNaN(num)) {
+          throw new Error("cannot derive container IP from useragent '" + ua + "'");
+      }
       const n = num % 65536;
       const a = Math.floor(n / 256);
       const b = n % 256;
-
       const parts = ip.split(".");
-      let final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?/uaaddheader%20"+header_name+"%3D"+header_value+"%200";
+
+      // comando baresip, encodato per intero (gestisce < > : @ = spazi)
+      const cmd = "uaaddheader " + header_name + "=" + header_value + " 0";
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b + ":8000/?/" + encodeURIComponent(cmd);
 
       pm.request.url = final_url;
+      console.log("CMD:", cmd);
       console.log("FINAL:", final_url);
     language: text/javascript
 order: 10000

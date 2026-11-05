@@ -1,13 +1,16 @@
 $kind: http-request
 name: SelectLine -> Baresip compact
-url: http://localhost:8000/?caller={{caller}}&line={{line}}
+url: http://localhost:8000/?caller={{caller}}&line={{line}}&delay={{delay}}
 method: GET
 queryParams:
   caller: "{{caller}}"
   line: "{{line}}"
+  delay: "{{delay}}"
 scripts:
   - type: afterResponse
     code: |-
+      
+
       let text = pm.response.text();
 
       let match = text.match(/call id:([^\r\n]+)/);
@@ -23,6 +26,14 @@ scripts:
     language: text/javascript
   - type: beforeRequest
     code: |-
+      // Read optional delay (ms) BEFORE the URL gets rewritten below
+      let delayMs = parseInt(pm.variables.replaceIn(pm.request.url.query.get("delay") || ""), 10);
+      if (Number.isNaN(delayMs) || delayMs <= 0) {
+          delayMs = 0;
+      }
+      // Safety cap to avoid hanging the runner by mistake (60s)
+      delayMs = Math.min(delayMs, 60000);
+
       const ua = String(pm.variables.replaceIn(pm.request.url.query.get("caller") ?? ""));
       const ip = pm.environment.get("baresip_ip");
 
@@ -62,5 +73,14 @@ scripts:
 
       pm.request.url = final_url;
       console.log("FINAL:", final_url);
+
+      if (delayMs > 0) {
+          console.log("Delaying request by " + delayMs + " ms");
+          // Postman keeps the sandbox alive until pending timers fire,
+          // so the HTTP request is sent only after this callback runs
+          setTimeout(() => {
+              console.log("Delay elapsed, sending request");
+          }, delayMs);
+      }
     language: text/javascript
 order: 6000

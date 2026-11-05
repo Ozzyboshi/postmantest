@@ -83,7 +83,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -127,7 +127,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -176,7 +176,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -231,7 +231,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -266,7 +266,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -375,7 +375,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -424,7 +424,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -466,7 +466,7 @@
             "method": "GET",
             "path": "postman/collections/NGCP Provisioning/Get subscriber info.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -477,6 +477,13 @@
               "key": "username",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "949fcpD5",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "web-provisioning-password"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -547,7 +554,7 @@
             "method": "PUT",
             "path": "postman/collections/NGCP Provisioning/Create cfu.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -590,7 +597,7 @@
             "method": "DELETE",
             "path": "postman/collections/NGCP Provisioning/Remove cfu.request.yaml"
           },
-          "environment": "postman/environments/GC2.environment.yaml",
+          "environment": "postman/environments/GC2 Copy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -1043,6 +1050,6 @@
   "info": {
     "_postman_id": "43ab04eb-2a58-48de-8d5f-6b07f9ddb66c"
   },
-  "_postman_exported_at": "2026-09-11T08:05:55.443Z",
+  "_postman_exported_at": "2026-11-04T13:32:57.406Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
