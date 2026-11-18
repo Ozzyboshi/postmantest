@@ -153,20 +153,6 @@
           "namedInputsExpanded": true
         }
       },
-      "aHpm_PpP": {
-        "type": "DELAY",
-        "pos": {
-          "x": 856,
-          "y": -56
-        },
-        "config": {
-          "delay": "1000"
-        },
-        "ui": {
-          "color": "orange",
-          "data": {}
-        }
-      },
       "419Bktzd": {
         "type": "task/http-request@2",
         "pos": {
@@ -193,9 +179,9 @@
             },
             {
               "id": "gRnoPn5M",
-              "type": null,
-              "kind": null,
-              "value": null,
+              "type": "TYPE_NUMBER",
+              "kind": "number",
+              "value": "1000",
               "key": "delay"
             }
           ],
@@ -463,6 +449,20 @@
               "kind": "string",
               "value": "2",
               "key": "line"
+            },
+            {
+              "id": "f13JKaF9",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "delay"
+            },
+            {
+              "id": "f13JKaF9",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -668,12 +668,6 @@
         "sourcePort": "success",
         "targetPort": "AI"
       },
-      "gsYWyOEb": {
-        "source": "aHpm_PpP",
-        "target": "419Bktzd",
-        "sourcePort": "data",
-        "targetPort": "AI"
-      },
       "TzAXPeuL": {
         "source": "kf3DboFd",
         "sourcePort": "data",
@@ -751,12 +745,6 @@
         "target": "K74jf1--",
         "sourcePort": "success",
         "targetPort": "variables|s5Srs2y9"
-      },
-      "RLxrO_6v": {
-        "source": "ISktsmYx",
-        "target": "aHpm_PpP",
-        "sourcePort": "success",
-        "targetPort": "data"
       },
       "M-CYJXGI": {
         "source": "L34q3Na0",
@@ -865,6 +853,12 @@
         "sourcePort": "data",
         "target": "q3O6X3cl",
         "targetPort": "requestVariables|dSIEFRuq"
+      },
+      "6iF-V0q8": {
+        "source": "ISktsmYx",
+        "target": "419Bktzd",
+        "sourcePort": "success",
+        "targetPort": "AI"
       }
     },
     "annotations": {},
@@ -941,6 +935,6 @@
   "info": {
     "_postman_id": "51bddcfc-bfbe-422d-9fa2-f635fa99f23e"
   },
-  "_postman_exported_at": "2026-10-22T10:09:45.899Z",
+  "_postman_exported_at": "2026-11-05T10:28:22.585Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

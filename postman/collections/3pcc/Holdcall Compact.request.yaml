@@ -1,0 +1,80 @@
+$kind: http-request
+url: http://localhost:5000/holdcall?callid={{callid}}&deviceid={{deviceid}}&delay={{delay}}
+method: POST
+queryParams:
+  callid: "{{callid}}"
+  deviceid: "{{deviceid}}"
+  delay: "{{delay}}"
+body:
+  type: formdata
+  content: []
+scripts:
+  - type: beforeRequest
+    code: |-
+      // Read optional delay (ms) BEFORE the URL gets rewritten below
+      let delayMs = parseInt(pm.variables.replaceIn(pm.request.url.query.get("delay") || ""), 10);
+      if (Number.isNaN(delayMs) || delayMs <= 0) {
+          delayMs = 0;
+      }
+      // Safety cap to avoid hanging the runner by mistake (60s)
+      delayMs = Math.min(delayMs, 60000);
+
+      const domain = pm.environment.get("domain");
+
+      function toSipUri(value) {
+          let v = String(value ?? "").trim();
+          if (!v) return "";
+
+          // rimuove eventuali angle brackets: <sip:123@dom> -> sip:123@dom
+          v = v.replace(/^<\s*/, "").replace(/\s*>$/, "");
+
+          // estrae lo schema se già presente (sip: o sips:)
+          let scheme = "sip";
+          let rest = v;
+          const m = v.match(/^(sips?):(.*)$/i);
+          if (m) {
+              scheme = m[1].toLowerCase();
+              rest = m[2];
+          }
+
+          // separa la parte user@host da eventuali parametri/headers (;transport=udp, ?X=Y)
+          const sepIdx = rest.search(/[;?]/);
+          let core = sepIdx === -1 ? rest : rest.slice(0, sepIdx);
+          const tail = sepIdx === -1 ? "" : rest.slice(sepIdx);
+
+          // aggiunge il dominio se manca
+          if (core.indexOf("@") === -1) {
+              if (!domain) throw new Error("Variabile di environment 'domain' non impostata");
+              core = core + "@" + domain;
+          }
+
+          return scheme + ":" + core + tail;
+      }
+
+      const callid = pm.variables.replaceIn(pm.request.url.query.get("callid") ?? "");
+      const deviceid = toSipUri(pm.variables.replaceIn(pm.request.url.query.get("deviceid") ?? ""));
+
+      const ip = pm.environment.get("baresip_ip");
+      const a = 255;
+      const b = 254;
+
+      const parts = ip.split(".");
+      const final_url = "http://" + parts.slice(0, 2).join(".") + "." + a + "." + b +
+          ":5000/holdcall" +
+          "?callid=" + encodeURIComponent(callid) +
+          "&deviceid=" + encodeURIComponent(deviceid) +
+          "&sshdest=" + encodeURIComponent(pm.environment.get("3pccsshdest"));
+
+      pm.request.url = final_url;
+      console.log("FINAL:", final_url);
+
+      if (delayMs > 0) {
+          console.log("Delaying request by " + delayMs + " ms");
+          // Postman keeps the sandbox alive until pending timers fire,
+          // so the HTTP request is sent only after this callback runs
+          setTimeout(() => {
+              console.log("Delay elapsed, sending request");
+          }, delayMs);
+      }
+    language: text/javascript
+order: 2883

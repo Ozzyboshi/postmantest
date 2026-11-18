@@ -46,8 +46,8 @@
       "qhhDN7xg": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 352,
-          "y": 0
+          "x": 440,
+          "y": 424
         },
         "config": {
           "element": {
@@ -55,26 +55,28 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
               "id": "4yNnQ0ew",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "Lq_RJ7lY",
               "key": "callee",
               "__noIn": true,
-              "isExtraneous": false
+              "isExtraneous": false,
+              "latch": true
             },
             {
               "id": "WH0dnefa",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "OXPlJcv8",
               "key": "caller",
               "__noIn": true,
-              "isExtraneous": false
+              "isExtraneous": false,
+              "latch": true
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -112,17 +114,18 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
               "id": "DOMjuDte",
-              "type": "value/reference@2",
-              "kind": "reference",
-              "value": "",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "OXPlJcv8",
               "key": "hangupper",
               "__noIn": true,
-              "isExtraneous": false
+              "isExtraneous": false,
+              "latch": true
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -208,7 +211,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -243,7 +246,7 @@
             "method": "POST",
             "path": "postman/collections/Logs/SaveRtpLogs.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -254,6 +257,124 @@
               "key": "callid",
               "__noIn": true,
               "isExtraneous": false
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "OXPlJcv8": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 192,
+          "y": -56
+        },
+        "config": {
+          "value": "caller"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        }
+      },
+      "Lq_RJ7lY": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 408,
+          "y": -8
+        },
+        "config": {
+          "value": "callee"
+        },
+        "ui": {
+          "color": "blue",
+          "data": {}
+        }
+      },
+      "ONbJaI8z": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 16,
+          "y": 424
+        },
+        "config": {
+          "element": {
+            "name": "AddCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/AddCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "XtjHJRVK",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "OXPlJcv8",
+              "key": "useragent",
+              "latch": true
+            },
+            {
+              "id": "BTnpxD2p",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "P-Asserted-Identity",
+              "key": "headername"
+            },
+            {
+              "id": "qiFzApGN",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "sip:0039999888777@mypstn",
+              "key": "headervalue"
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "color": "orange",
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "sa2sgNN-": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 2024,
+          "y": 96
+        },
+        "config": {
+          "element": {
+            "name": "DelCustomHeader -> Baresip compact",
+            "method": "GET",
+            "path": "postman/collections/Baresip Basics/DelCustomHeader - Baresip compact.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "jbgN_Fv4",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "OXPlJcv8",
+              "key": "useragent",
+              "latch": true
+            },
+            {
+              "id": "9ls4a3fu",
+              "type": "TYPE_STRING",
+              "kind": "string",
+              "value": "P-Asserted-Identity",
+              "key": "headername"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -279,24 +400,6 @@
         "sourcePort": "@",
         "target": "uWmCtqMC",
         "targetPort": "inputs|cmEwtTVx"
-      },
-      "fa4hwNPF": {
-        "source": "uWmCtqMC",
-        "target": "qhhDN7xg",
-        "sourcePort": "output|3wz3-vRw",
-        "targetPort": "requestVariables|WH0dnefa"
-      },
-      "L5aWDkBi": {
-        "source": "uWmCtqMC",
-        "target": "qhhDN7xg",
-        "sourcePort": "output|cmEwtTVx",
-        "targetPort": "requestVariables|4yNnQ0ew"
-      },
-      "dwwnuZt7": {
-        "source": "uWmCtqMC",
-        "target": "qhhDN7xg",
-        "sourcePort": "output|cmEwtTVx",
-        "targetPort": "requestVariables|4yNnQ0ew"
       },
       "Agyvs6bY": {
         "source": "qhhDN7xg",
@@ -340,12 +443,6 @@
         "sourcePort": "output|ZBap0MCT",
         "targetPort": "requestVariables|Enpgcrxr"
       },
-      "6kop6-T3": {
-        "source": "uWmCtqMC",
-        "target": "wKMxXLB-",
-        "sourcePort": "output|3wz3-vRw",
-        "targetPort": "requestVariables|DOMjuDte"
-      },
       "qX5uMPqG": {
         "source": "BPF9UOVF",
         "target": "P_WHDGbp",
@@ -357,6 +454,66 @@
         "target": "P_WHDGbp",
         "sourcePort": "output|ZBap0MCT",
         "targetPort": "requestVariables|_N433-1R"
+      },
+      "R5RcpJB8": {
+        "source": "uWmCtqMC",
+        "target": "OXPlJcv8",
+        "sourcePort": "output|3wz3-vRw",
+        "targetPort": "data"
+      },
+      "mS-AnqWM": {
+        "source": "uWmCtqMC",
+        "target": "Lq_RJ7lY",
+        "sourcePort": "output|cmEwtTVx",
+        "targetPort": "data"
+      },
+      "HAy-8dNA": {
+        "source": "uWmCtqMC",
+        "target": "ONbJaI8z",
+        "sourcePort": "output|cmEwtTVx",
+        "targetPort": "AI"
+      },
+      "HA5AfFpt": {
+        "source": "ONbJaI8z",
+        "target": "qhhDN7xg",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "MA8o4VLK": {
+        "source": "OXPlJcv8",
+        "sourcePort": "data",
+        "target": "ONbJaI8z",
+        "targetPort": "requestVariables|XtjHJRVK"
+      },
+      "AY1miv9i": {
+        "source": "P_WHDGbp",
+        "target": "sa2sgNN-",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "EohgTuiv": {
+        "source": "OXPlJcv8",
+        "sourcePort": "data",
+        "target": "sa2sgNN-",
+        "targetPort": "requestVariables|jbgN_Fv4"
+      },
+      "YaauFRFO": {
+        "source": "OXPlJcv8",
+        "sourcePort": "data",
+        "target": "wKMxXLB-",
+        "targetPort": "requestVariables|DOMjuDte"
+      },
+      "GAt6bmMZ": {
+        "source": "Lq_RJ7lY",
+        "sourcePort": "data",
+        "target": "qhhDN7xg",
+        "targetPort": "requestVariables|4yNnQ0ew"
+      },
+      "EzC2tBQc": {
+        "source": "OXPlJcv8",
+        "sourcePort": "data",
+        "target": "qhhDN7xg",
+        "targetPort": "requestVariables|WH0dnefa"
       }
     },
     "annotations": {},
@@ -505,6 +662,25 @@
         },
         "createdOn": 1789400529815,
         "updatedOn": 1789400737892
+      },
+      "xAFQKtb0": {
+        "name": "Pstn1 -> Pstn 2",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "lFx048mg": {
+            "id": "lFx048mg",
+            "key": "caller",
+            "value": "3381625435"
+          },
+          "e8XNaiQl": {
+            "id": "e8XNaiQl",
+            "key": "callee",
+            "value": "3336344407@5.demo-rainbow-voice.eu1.sip.openrainbow.com"
+          }
+        },
+        "createdOn": 1793953298976,
+        "updatedOn": 1793953907107
       }
     },
     "config": {
@@ -516,6 +692,6 @@
   "info": {
     "_postman_id": "e499425e-8d8c-4d9d-9b2f-98efe0078d6c"
   },
-  "_postman_exported_at": "2026-10-20T08:16:17.027Z",
+  "_postman_exported_at": "2026-11-10T08:52:56.003Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

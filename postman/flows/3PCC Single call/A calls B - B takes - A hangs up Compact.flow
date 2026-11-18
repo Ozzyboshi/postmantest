@@ -128,7 +128,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Makecall Compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -172,7 +172,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -273,7 +273,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -284,6 +284,13 @@
               "key": "takecaller",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "u9PJQNCN",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -308,7 +315,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -379,7 +386,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -390,6 +397,13 @@
               "key": "takecaller",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "tjVL48dj",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -427,7 +441,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Clearcall Compact.request.yaml"
           },
-          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -447,6 +461,13 @@
               "key": "deviceid",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "Iyq6MflI",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -682,6 +703,25 @@
             "value": "999013000001814711"
           }
         }
+      },
+      "o7zKRoRN": {
+        "name": "81471 -> pstn2",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "--0nsXAJ": {
+            "id": "--0nsXAJ",
+            "key": "caller",
+            "value": "999013000001814711"
+          },
+          "UrEfUC1n": {
+            "id": "UrEfUC1n",
+            "key": "callee",
+            "value": "3336344407"
+          }
+        },
+        "createdOn": 1794392256974,
+        "updatedOn": 1794404246569
       }
     },
     "config": {
@@ -791,6 +831,6 @@
   "info": {
     "_postman_id": "c60aead8-b70a-4940-ab1d-c8efc076c944"
   },
-  "_postman_exported_at": "2026-10-09T09:42:52.524Z",
+  "_postman_exported_at": "2026-11-11T13:37:27.740Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

@@ -51,19 +51,6 @@
           "color": "orange"
         }
       },
-      "DscsBOQi": {
-        "type": "DELAY",
-        "pos": {
-          "x": 456,
-          "y": 32
-        },
-        "config": {
-          "delay": "4000"
-        },
-        "ui": {
-          "data": {}
-        }
-      },
       "3c8BRfN-": {
         "type": "portal/in@1",
         "pos": {
@@ -105,19 +92,6 @@
           "data": {}
         }
       },
-      "Y3zF8EbB": {
-        "type": "DELAY",
-        "pos": {
-          "x": 1144,
-          "y": 48
-        },
-        "config": {
-          "delay": "2000"
-        },
-        "ui": {
-          "data": {}
-        }
-      },
       "UULG1SF7": {
         "type": "portal/in@1",
         "pos": {
@@ -144,7 +118,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Makecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -250,7 +224,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -261,6 +235,13 @@
               "key": "takecaller",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "MW7t2RHi",
+              "type": "TYPE_NUMBER",
+              "kind": "number",
+              "value": "1000",
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -298,7 +279,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Transfercall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -342,7 +323,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Hangup - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -369,7 +350,7 @@
         "type": "task/http-request@2",
         "pos": {
           "x": 1112,
-          "y": 88
+          "y": 56
         },
         "config": {
           "element": {
@@ -377,7 +358,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/GC2.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -388,6 +369,13 @@
               "key": "takecaller",
               "latch": true,
               "isExtraneous": false
+            },
+            {
+              "id": "-N3SLVt2",
+              "type": "TYPE_NUMBER",
+              "kind": "number",
+              "value": "2000",
+              "key": "delay"
             }
           ],
           "scriptsModifyEnvVars": true,
@@ -398,6 +386,67 @@
         "ui": {
           "data": {},
           "namedInputsExpanded": true
+        }
+      },
+      "nbPLGKzf": {
+        "type": "task/http-request@2",
+        "pos": {
+          "x": 1856,
+          "y": 40
+        },
+        "config": {
+          "element": {
+            "name": "SaveProxyLogs",
+            "method": "POST",
+            "path": "postman/collections/Logs/SaveProxyLogs.request.yaml"
+          },
+          "environment": "postman/environments/GC2.environment.yaml",
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "CokRyAsB",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "lZJGAco2",
+              "key": "callid",
+              "latch": true
+            }
+          ],
+          "scriptsModifyEnvVars": true,
+          "ignoreTestResults": true,
+          "trackGlobalEnvironment": true,
+          "requestVariables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "lZJGAco2": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1120,
+          "y": -320
+        },
+        "config": {
+          "value": "callid"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        }
+      },
+      "TOgipNXg": {
+        "type": "DELAY",
+        "pos": {
+          "x": 1520,
+          "y": -24
+        },
+        "config": {
+          "delay": "2000"
+        },
+        "ui": {
+          "data": {}
         }
       }
     },
@@ -468,12 +517,6 @@
         "sourcePort": "success",
         "targetPort": "variables|s5Srs2y9"
       },
-      "J-hrFi7K": {
-        "source": "DscsBOQi",
-        "target": "LhynRUXT",
-        "sourcePort": "data",
-        "targetPort": "AI"
-      },
       "nslJxVAN": {
         "source": "3c8BRfN-",
         "sourcePort": "data",
@@ -510,12 +553,6 @@
         "sourcePort": "success",
         "targetPort": "data"
       },
-      "CqzpV7ng": {
-        "source": "Y3zF8EbB",
-        "target": "vzztzolo",
-        "sourcePort": "data",
-        "targetPort": "AI"
-      },
       "Z2vEHySW": {
         "source": "UULG1SF7",
         "sourcePort": "data",
@@ -540,17 +577,41 @@
         "target": "GuQLciUT",
         "targetPort": "requestVariables|Vqyu69Vk"
       },
-      "6My772R6": {
+      "v2sKYLz-": {
+        "source": "vzztzolo",
+        "target": "nbPLGKzf",
+        "sourcePort": "success",
+        "targetPort": "AI"
+      },
+      "xStIAmAu": {
+        "source": "o-3jhIVO",
+        "target": "lZJGAco2",
+        "sourcePort": "output|ZBap0MCT",
+        "targetPort": "data"
+      },
+      "ZWZ0pfkM": {
+        "source": "lZJGAco2",
+        "sourcePort": "data",
+        "target": "nbPLGKzf",
+        "targetPort": "requestVariables|CokRyAsB"
+      },
+      "4Vdq4KlF": {
         "source": "GuQLciUT",
-        "target": "Y3zF8EbB",
+        "target": "TOgipNXg",
         "sourcePort": "success",
         "targetPort": "data"
       },
-      "OUGWto7o": {
+      "smgjP3VS": {
+        "source": "TOgipNXg",
+        "target": "vzztzolo",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "-Kh2h2Z0": {
         "source": "OkJnXljR",
-        "target": "DscsBOQi",
+        "target": "LhynRUXT",
         "sourcePort": "success",
-        "targetPort": "data"
+        "targetPort": "AI"
       }
     },
     "annotations": {},
@@ -611,6 +672,30 @@
             "value": "81472"
           }
         }
+      },
+      "3XWuZuRi": {
+        "name": "A calls B -> BT to PSTN",
+        "type": "scenario@3",
+        "triggerType": "ev/endpoint@3",
+        "data": {
+          "Upqp3caQ": {
+            "id": "Upqp3caQ",
+            "key": "caller",
+            "value": "81470"
+          },
+          "IGx8vmBe": {
+            "id": "IGx8vmBe",
+            "key": "callee",
+            "value": "81471"
+          },
+          "rafmXFS1": {
+            "id": "rafmXFS1",
+            "key": "final_callee",
+            "value": "3336344407"
+          }
+        },
+        "createdOn": 1794300698066,
+        "updatedOn": 1794321650892
       }
     },
     "config": {
@@ -622,6 +707,6 @@
   "info": {
     "_postman_id": "6c49fba6-63a6-458f-a22a-f40333f5d249"
   },
-  "_postman_exported_at": "2026-11-04T13:31:16.437Z",
+  "_postman_exported_at": "2026-11-10T14:48:50.216Z",
   "_postman_exported_using": "Postman/Local Mode"
 }

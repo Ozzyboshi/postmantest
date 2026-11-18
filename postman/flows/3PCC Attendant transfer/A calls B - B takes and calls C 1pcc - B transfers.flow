@@ -54,8 +54,8 @@
       "M4coG_ik": {
         "type": "portal/in@1",
         "pos": {
-          "x": 1200,
-          "y": -96
+          "x": 632,
+          "y": 296
         },
         "config": {
           "value": "callid"
@@ -68,8 +68,8 @@
       "5W21gtEg": {
         "type": "DELAY",
         "pos": {
-          "x": 856,
-          "y": -640
+          "x": 872,
+          "y": -288
         },
         "config": {
           "delay": "1000"
@@ -81,8 +81,8 @@
       "__e2lgzh": {
         "type": "output/viewer@1",
         "pos": {
-          "x": 1368,
-          "y": -184
+          "x": 784,
+          "y": 216
         },
         "size": {
           "width": 328,
@@ -128,7 +128,7 @@
         "type": "task/http-request@2",
         "pos": {
           "x": 456,
-          "y": -336
+          "y": -304
         },
         "config": {
           "element": {
@@ -136,7 +136,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Makecall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -171,8 +171,8 @@
       "slKtGZP9": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 840,
-          "y": -584
+          "x": 856,
+          "y": -224
         },
         "config": {
           "element": {
@@ -180,7 +180,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -216,8 +216,8 @@
       "7v5IBi8V": {
         "type": "system/module@1",
         "pos": {
-          "x": 856,
-          "y": -208
+          "x": 288,
+          "y": 240
         },
         "config": {
           "flowId": "postman/flows/Building Blocks/Data parsing/GetCallidFrom3PCCMakeCall.flow",
@@ -259,8 +259,8 @@
       "Bf03fTnB": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1232,
-          "y": -600
+          "x": 1216,
+          "y": -224
         },
         "config": {
           "element": {
@@ -268,7 +268,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -301,8 +301,8 @@
       "ew2xLg1Y": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1600,
-          "y": -608
+          "x": 1560,
+          "y": -232
         },
         "config": {
           "element": {
@@ -310,7 +310,7 @@
             "method": "POST",
             "path": "postman/collections/3pcc/Answercall Compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -346,8 +346,8 @@
       "tv680Dfd": {
         "type": "DELAY",
         "pos": {
-          "x": 1616,
-          "y": -704
+          "x": 1576,
+          "y": -272
         },
         "config": {
           "delay": "1000"
@@ -359,8 +359,8 @@
       "VxY7Yv30": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 1944,
-          "y": -616
+          "x": 1904,
+          "y": -232
         },
         "config": {
           "element": {
@@ -368,7 +368,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -415,8 +415,8 @@
       "NJ8hCT-r": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 2376,
-          "y": -616
+          "x": 2240,
+          "y": -248
         },
         "config": {
           "element": {
@@ -424,7 +424,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Make consultation call - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -466,8 +466,8 @@
       "q8OaWY3d": {
         "type": "task/http-request@2",
         "pos": {
-          "x": 2784,
-          "y": -624
+          "x": 2624,
+          "y": -248
         },
         "config": {
           "element": {
@@ -475,7 +475,7 @@
             "method": "GET",
             "path": "postman/collections/Baresip Basics/Takecall - Baresip compact.request.yaml"
           },
-          "environment": "postman/environments/GC2 Copy.environment.yaml",
+          "environment": "postman/environments/ALEMultiproxy.environment.yaml",
           "parseBody": "auto",
           "requestVariables": [
             {
@@ -888,6 +888,6 @@
   "info": {
     "_postman_id": "854cea5c-82cb-4fe1-a822-cb3d022bbfb0"
   },
-  "_postman_exported_at": "2026-11-04T11:27:52.876Z",
+  "_postman_exported_at": "2026-11-10T08:48:03.495Z",
   "_postman_exported_using": "Postman/Local Mode"
 }
